@@ -1,0 +1,75 @@
+body {
+    background: rgba(225,225,225,.3);
+    background: url("../img/papyrus.png");
+}
+
+.print-button-wrapper {
+    position: absolute;
+    left: 2%;
+    text-align: center;
+    z-index: 2;
+}
+
+i#print-page {
+    cursor: pointer;
+    font-size: 32px;
+    padding: 10px 0 0 0;
+}
+
+.col-md-12 {
+    text-align: right;
+}
+
+.contact-info {
+    text-align: right;
+    display: inline-block;
+    padding: 25px 10% 25px 0%;
+}
+
+/* for screens less than 768px */
+@media only screen and (max-width: 768px) {
+  i#print-page {
+    cursor: pointer;
+    font-size: 32px;
+  }
+  .resume-header {
+    margin: 75px 0 50px 0;
+}
+  h2.resume-header {
+    text-align: center;
+    padding-right: 0%;
+  }
+  .row.job .col-md-5 {
+    border-right: none;
+    text-align: center;
+  }
+  .row.job .col-md-7 {
+    padding: 25px 0% 25px 0%;
+  }
+  .row.job .col-md-7 ul {
+    text-align: justify;
+    padding: 0 10%;
+}
+  .row.job .col-md-7 h3 {
+    text-align: center;
+    padding: 0;
+  }
+  .col-md-12 {
+    text-align: center;
+  }
+  .contact-info {
+    text-align: center;
+    display: inline-block;
+    padding: 25px 5% 25px 5%;
+  }
+  footer {
+    height: 1%;
+  }
+}
+
+
+@media print {
+  .print-button-wrapper {
+      display: none;
+  }
+}
