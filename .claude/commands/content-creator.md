@@ -34,16 +34,17 @@ Apply this checklist to every post (both modes). Report results to the user.
 1. Spelling and grammar — no errors
 2. Coherence and flow — logical progression between sections
 3. Heading hierarchy — body starts at `##`, no skipped levels
-4. Front matter complete — `tags` and `description` are required fields
-5. Meta description — 150-160 characters, SEO-friendly
-6. Tags — relevant, consistent with existing tags on the site
-7. Internal links — link to related posts when applicable
-8. Code examples — accurate, properly formatted with language identifiers
-9. Image alt text — descriptive, not filenames (if images are used)
-10. Tone consistency — same voice throughout the post
-11. No ambiguous passages — flag anything unclear
-12. SEO — headings include relevant keywords naturally, title is compelling
-13. **Grade level rating** — assess the reading level of the text. Must be **12th grade or higher**. Report the estimated grade level in your review.
+4. TLDR section — present immediately after front matter, 2-4 sentences summarizing the article
+5. Front matter complete — `tags` and `description` are required fields
+6. Meta description — 150-160 characters, SEO-friendly
+7. Tags — relevant, consistent with existing tags on the site
+8. Internal links — link to related posts when applicable
+9. Code examples — accurate, properly formatted with language identifiers
+10. Image alt text — descriptive, not filenames (if images are used)
+11. Tone consistency — same voice throughout the post
+12. No ambiguous passages — flag anything unclear
+13. SEO — headings include relevant keywords naturally, title is compelling
+14. **Grade level rating** — assess the reading level of the text. Must be **12th grade or higher**. Report the estimated grade level in your review.
 
 ## Front Matter
 
@@ -64,6 +65,26 @@ Optional fields (use only when it makes sense for the post):
 ```yaml
 image: /assets/images/posts/YYYY-MM-DD-post-slug/hero.webp
 image_alt: "Descriptive alt text for the hero image"
+```
+
+## Post Structure
+
+Every post must begin with a **TLDR** section immediately after the front matter. This is a brief summary (2-4 sentences) that gives readers the key takeaway before they read the full article.
+
+```markdown
+---
+layout: post
+title: "Post Title"
+...
+---
+
+## TLDR
+
+Brief summary of the article's key points and takeaway in 2-4 sentences.
+
+## First Section Heading
+
+Post content continues here...
 ```
 
 ## Content Conventions
