@@ -23,3 +23,5 @@ Minor changes that do not go through the spec engineering workflow. For feature-
   - Files affected: `Gemfile.lock`
 - **[Config]** Activate `exclude` list in `_config.yml` to prevent `specs/`, `docs/`, and `CLAUDE.md` from being published
   - Files affected: `_config.yml`
+- **[Config]** Set up custom domain `aicodeblog.com` — added CNAME file and updated `url` in `_config.yml`
+  - Files affected: `CNAME`, `_config.yml`
