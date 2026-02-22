@@ -30,7 +30,7 @@ The site currently uses Minima 2.5's built-in styles, which are limited in layou
 - [x] Create a temporary `bootstrap-test.html` verification page with grid, utility, typography, and breakpoint test sections (deleted after Testing phase)
 - [x] `assets/vendor/bootstrap/` is committed to version control (intentionally vendored, not gitignored)
 - [x] Site builds successfully with `bundle exec jekyll build` (no errors; Sass deprecation warnings from Bootstrap's vendored source are permitted)
-- [ ] Site deploys successfully via GitHub Actions (verified post-push)
+- [x] Site deploys successfully via GitHub Actions (verified post-push)
 
 ## Constraints
 
@@ -56,7 +56,7 @@ The site currently uses Minima 2.5's built-in styles, which are limited in layou
   - Display utilities (`d-none`, `d-*-block`) toggling visibility at each breakpoint (576px, 768px, 992px, 1200px, 1400px)
 - [x] Existing pages (homepage, about, welcome post, 404) render with: readable text at 375px, 768px, and 1280px; no content overflow or horizontal scrollbars; navigation links visible and functional
 - [x] `bundle exec jekyll build` completes without errors. Sass deprecation warnings from vendored Bootstrap source are permitted; project-authored Sass must be warning-free.
-- [ ] GitHub Actions deploy succeeds (verified post-push as final gate)
+- [x] GitHub Actions deploy succeeds (verified post-push as final gate)
 - [x] No `_layouts/` or `_includes/` directory has been created. No Minima layout or include file has been duplicated into the project.
 
 ## Affected Files
@@ -96,4 +96,4 @@ The site currently uses Minima 2.5's built-in styles, which are limited in layou
 - **Never `exclude` a directory that is also a Sass `load_path`.** Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories.
 - Link color #2a7ae2 on white passes AA contrast (4.56:1) but with thin margin. Revisit in spec 002 theme work.
 
-**Remaining gate:** AC10 (GitHub Actions deploy) is verified post-push.
+**All gates passed.** AC10 (GitHub Actions deploy) verified 2026-02-22 after `.gitignore` fix.
