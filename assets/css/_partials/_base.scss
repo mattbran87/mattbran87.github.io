@@ -13,11 +13,47 @@ body {
     background-color: var(--color-background);
 }
 
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--headings-font-weight);
+    color: var(--color-heading);
+}
+
+// Links
 a {
     color: var(--color-link);
+}
+
+a:hover {
+    color: var(--color-link-hover);
 }
 
 a:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: 2px;
+}
+
+// Code
+code {
+    background-color: var(--color-code-bg);
+    padding: 0.125em 0.25em;
+    border-radius: 0.25rem;
+    font-size: var(--font-size-sm);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+pre {
+    background-color: var(--color-code-bg);
+    padding: var(--spacing-md);
+    border-radius: 0.25rem;
+    overflow-x: auto;
 }
