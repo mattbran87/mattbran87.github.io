@@ -1,0 +1,51 @@
+<header class="site-header">
+    <nav class="navbar navbar-expand-md" aria-label="Main navigation">
+        <div class="container">
+            <p class="site-header__brand navbar-brand mb-0">
+                <a href="{{ '/' | relative_url }}" class="site-header__brand">
+                    {{ site.title | escape }}
+                </a>
+            </p>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#main-nav"
+                    aria-controls="main-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation menu">
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="navbar-nav ms-auto" role="list">
+                    {%- comment -%} Build nav links from header_pages config or all titled pages {%- endcomment -%}
+                    {%- assign nav_pages = site.header_pages | default: nil -%}
+                    {%- if nav_pages -%}
+                        {%- for path in nav_pages -%}
+                            {%- assign nav_page = site.pages | where: "path", path | first -%}
+                            {%- if nav_page.title -%}
+                    <li class="nav-item">
+                        <a class="nav-link site-nav__link{% if page.url == nav_page.url %} site-nav__link--active{% endif %}"
+                           href="{{ nav_page.url | relative_url }}"
+                           {% if page.url == nav_page.url %}aria-current="page"{% endif %}>
+                            {{ nav_page.title | escape }}
+                        </a>
+                    </li>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- else -%}
+                        {%- for nav_page in site.pages -%}
+                            {%- if nav_page.title -%}
+                    <li class="nav-item">
+                        <a class="nav-link site-nav__link{% if page.url == nav_page.url %} site-nav__link--active{% endif %}"
+                           href="{{ nav_page.url | relative_url }}"
+                           {% if page.url == nav_page.url %}aria-current="page"{% endif %}>
+                            {{ nav_page.title | escape }}
+                        </a>
+                    </li>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- endif -%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,67 @@
+<aside class="sidebar" aria-label="Blog sidebar">
+
+    {%- comment -%} About section from site description {%- endcomment -%}
+    <div class="sidebar__section">
+        <div class="sidebar__about">
+            <h2 class="sidebar__title">About</h2>
+            <p>{{ site.description | escape }}</p>
+        </div>
+    </div>
+
+    {%- comment -%} Recent posts — last 5 {%- endcomment -%}
+    {%- if site.posts.size > 0 -%}
+    <div class="sidebar__section">
+        <h2 class="sidebar__title">Recent Posts</h2>
+        <ul class="sidebar__list" role="list">
+            {%- for post in site.posts limit:5 -%}
+            <li>
+                <a class="sidebar__link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+    {%- endif -%}
+
+    {%- comment -%} Archives — grouped by month via pure Liquid {%- endcomment -%}
+    {%- if site.posts.size > 0 -%}
+    <div class="sidebar__section">
+        <h2 class="sidebar__title">Archives</h2>
+        <ul class="sidebar__list" role="list">
+            {%- assign current_year_month = "" -%}
+            {%- for post in site.posts -%}
+                {%- assign post_year_month = post.date | date: "%B %Y" -%}
+                {%- if post_year_month != current_year_month -%}
+                    {%- assign current_year_month = post_year_month -%}
+            <li>
+                <a class="sidebar__link" href="{{ post.url | relative_url }}">
+                    {{ post_year_month }}
+                </a>
+            </li>
+                {%- endif -%}
+            {%- endfor -%}
+        </ul>
+    </div>
+    {%- endif -%}
+
+    {%- comment -%} Social / Elsewhere links from _config.yml {%- endcomment -%}
+    {%- if site.github_username or site.twitter_username -%}
+    <div class="sidebar__section">
+        <h2 class="sidebar__title">Elsewhere</h2>
+        <nav aria-label="Social media links">
+            {%- if site.github_username -%}
+            <a class="sidebar__social-link" href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
+                GitHub
+            </a>
+            {%- endif -%}
+            {%- if site.twitter_username -%}
+            <a class="sidebar__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
+                Twitter
+            </a>
+            {%- endif -%}
+        </nav>
+    </div>
+    {%- endif -%}
+
+</aside>

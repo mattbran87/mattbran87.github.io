@@ -1,0 +1,31 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="site-footer__description">
+                    {{ site.description | escape }}
+                </p>
+                {%- comment -%} Social links from _config.yml username fields {%- endcomment -%}
+                {%- if site.github_username or site.twitter_username -%}
+                <nav aria-label="Social media links">
+                    {%- if site.github_username -%}
+                    <a class="site-footer__social-link" href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
+                        GitHub
+                    </a>
+                    {%- endif -%}
+                    {%- if site.twitter_username -%}
+                    <a class="site-footer__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
+                        Twitter
+                    </a>
+                    {%- endif -%}
+                </nav>
+                {%- endif -%}
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="site-footer__copyright">
+                    &copy; {{ "now" | date: "%Y" }} {{ site.title | escape }}. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
