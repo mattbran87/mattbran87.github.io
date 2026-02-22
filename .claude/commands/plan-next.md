@@ -1,3 +1,8 @@
+---
+allowed-tools: Read, Glob, Grep
+description: Reviews the project roadmap and recommends what feature to work on next
+---
+
 # Planning Session: What to Work on Next
 
 Read the feature roadmap at `specs/roadmap.md` and all active feature specs in the `specs/` directory.
