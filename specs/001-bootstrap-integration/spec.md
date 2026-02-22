@@ -87,12 +87,12 @@ The site currently uses Minima 2.5's built-in styles, which are limited in layou
 **Deviations from original spec:**
 - Import paths use `_partials/` (with underscore) instead of `partials/` — Sass only strips underscores from filenames, not directory names. Code-guidelines.md corrected.
 - `mixed-decls` removed from `silence_deprecations` — obsolete in Dart Sass 1.97.3.
-- `assets/vendor/` added to `_config.yml` exclude list — prevents raw Bootstrap source from being copied to `_site/`.
+- `assets/vendor/` was initially added to `_config.yml` exclude list to prevent raw source in `_site/`, then removed because it broke the CI build (see lessons learned).
 
 **Lessons learned:**
 - Sass underscore convention applies only to filenames, not directories. Always test import paths.
 - Minima 2.5 does not support `exclude_from_nav` front matter. Use `header_pages` in `_config.yml` to control navigation.
-- The `exclude` list in `_config.yml` only affects what Jekyll copies to output — Sass `load_paths` still resolves files on disk for compilation.
+- **Never `exclude` a directory that is also a Sass `load_path`.** Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories, even though `load_paths` points there. This worked locally on Windows but broke the GitHub Actions CI build. The 4 non-partial Bootstrap files in `_site/` are an acceptable trade-off.
 - Link color #2a7ae2 on white passes AA contrast (4.56:1) but with thin margin. Revisit in spec 002 theme work.
 
 **Remaining gate:** AC10 (GitHub Actions deploy) is verified post-push.
