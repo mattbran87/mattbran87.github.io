@@ -85,6 +85,15 @@ Do not edit files inside the gem directly.
 
 See [`docs/code-guidelines.md`](docs/code-guidelines.md) for full details covering JavaScript (JSDoc), CSS/SCSS (BEM, custom properties), HTML/Liquid (semantic markup, error handling), Markdown, accessibility, and file organization conventions.
 
+## Minor Changes
+
+Not all changes require the spec workflow. For small fixes, config tweaks, content edits, and other minor work:
+
+- **Do not** create a spec directory — just make the change directly
+- **Do** log the change in [`docs/changelog.md`](docs/changelog.md) with date, type, description, and affected files
+- **Types:** Fix, Tweak, Config, Content, Docs, Chore
+- This applies only to sessions that do not use the spec engineering workflow — if a spec is active, changes are tracked in that spec's documents instead
+
 ## SME Subagents
 
 Six subject matter expert commands are available in `.claude/commands/`. See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/optional rules per phase, invocation order, and conflict resolution.
