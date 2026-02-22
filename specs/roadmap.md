@@ -1,6 +1,7 @@
 # Feature Roadmap
 
 > **Last Updated:** 2026-02-22
+> **Research docs:** [`docs/`](../docs/)
 
 ## Feature Queue
 
@@ -24,6 +25,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 014 | Custom 404 | `specs/014-custom-404/` | Not Started |
 | 015 | Uses Page | `specs/015-uses-page/` | Not Started |
 | 016 | Resume/CV Page | `specs/016-resume-page/` | Not Started |
+| 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
 
 ## Natural Groupings
 
@@ -62,6 +64,12 @@ Features that share dependencies or are closely related and benefit from being d
 | 008 | SEO Foundation | Meta tags and structured data live in layouts — best done with the custom theme |
 | 009 | Search | Client-side search for readers to find content |
 | 012 | Analytics | Traffic tracking and user behavior insights |
+
+### Internationalization
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 017 | Multi-Language Support | Translate the site into Spanish, French, and German using jekyll-polyglot; includes language switcher, detection banner, and translator subagent |
 
 ### Enhancements
 
@@ -136,6 +144,10 @@ Create a `/uses/` page listing tools, hardware, software, and development setup.
 
 Create a dedicated `/resume/` page with professional experience, skills, education, and contact information. Styled for both web viewing and print. Separate from the about page.
 
+### 017 — Multi-Language Support
+
+Add multi-language support using jekyll-polyglot. Translate the full site (posts, pages, UI chrome) into Spanish, French, and German with English as the default. English content serves from root URLs; translated content gets language-prefixed paths (`/es/`, `/fr/`, `/de/`). Includes a language switcher in the nav, a JavaScript browser-language detection banner, hreflang SEO tags, and a custom `/translator` subagent for AI-assisted translation. Research findings: [`docs/multi-language-research.md`](../docs/multi-language-research.md).
+
 ## Dependencies
 
 Features with hard dependencies on prior work:
@@ -144,6 +156,8 @@ Features with hard dependencies on prior work:
 - **007 Custom Homepage** depends on **002 Custom Theme**
 - **013 Dark Mode** depends on **002 Custom Theme**
 - **014 Custom 404** depends on **002 Custom Theme**
+
+- **017 Multi-Language Support** benefits from **008 SEO Foundation** being in place first (shared concerns around meta tags, sitemaps, structured data)
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 

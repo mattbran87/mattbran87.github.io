@@ -17,6 +17,9 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-22
 
+- **[Docs]** Add multi-language support research findings and roadmap entry (#017)
+  - Files affected: `docs/multi-language-research.md`, `specs/roadmap.md`
+
 - **[Tweak]** Add email mailto link to footer and sidebar social links
   - Files affected: `_includes/footer.html`, `_includes/sidebar.html`
 - **[Config]** Add frontmatter to custom commands for Claude Code discovery
