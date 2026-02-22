@@ -13,7 +13,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 003 | Tags & Categories | `specs/003-tags-categories/` | Not Started |
 | 004 | Series Support | `specs/004-series-support/` | Not Started |
 | 005 | Contact Form | `specs/005-contact-form/` | Not Started |
-| 006 | Personalize Site | `specs/006-personalize-site/` | Not Started |
+| 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
 | 007 | Custom Homepage | `specs/007-custom-homepage/` | Not Started |
 | 008 | SEO Foundation | `specs/008-seo-foundation/` | Not Started |
 | 009 | Search | `specs/009-search/` | Not Started |
