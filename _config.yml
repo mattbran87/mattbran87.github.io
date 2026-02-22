@@ -59,4 +59,3 @@ exclude:
   - specs/
   - docs/
   - CLAUDE.md
-  - assets/vendor/
