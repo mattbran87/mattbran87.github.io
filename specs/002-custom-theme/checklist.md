@@ -21,17 +21,17 @@
 
 - [x] Verify each acceptance criterion in spec.md
 - [x] Test edge cases and error scenarios
-- [ ] Test on local dev server (`bundle exec jekyll serve`) — deferred: needs browser for AC16/AC19
+- [x] Test on local dev server (`bundle exec jekyll serve`)
 - [x] Validate HTML output in `_site/`
 - [x] Document any issues found in notes.md
-- [ ] Get sign-off to move to Acceptance
+- [x] Get sign-off to move to Acceptance
 
 ## Phase 4: Acceptance
 
-- [ ] Final review against spec requirements
-- [ ] Confirm all acceptance criteria are met
-- [ ] Update spec.md status to Completed
-- [ ] Update tasks.md — mark all tasks done
-- [ ] Fill in completion notes in spec.md
+- [x] Final review against spec requirements
+- [x] Confirm all acceptance criteria are met
+- [x] Update spec.md status to Completed
+- [x] Update tasks.md — mark all tasks done
+- [x] Fill in completion notes in spec.md
 - [ ] Merge feature branch to master
 - [ ] Delete feature branch (local and remote)

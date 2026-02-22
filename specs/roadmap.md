@@ -8,8 +8,8 @@ Features listed in order of priority. Each feature gets its own spec directory w
 
 | # | Feature | Spec | Status |
 |---|---------|------|--------|
-| 001 | Bootstrap Integration | `specs/001-bootstrap-integration/` | Not Started |
-| 002 | Custom Theme | `specs/002-custom-theme/` | Not Started |
+| 001 | Bootstrap Integration | `specs/001-bootstrap-integration/` | Completed |
+| 002 | Custom Theme | `specs/002-custom-theme/` | Completed |
 | 003 | Tags & Categories | `specs/003-tags-categories/` | Not Started |
 | 004 | Series Support | `specs/004-series-support/` | Not Started |
 | 005 | Contact Form | `specs/005-contact-form/` | Not Started |
