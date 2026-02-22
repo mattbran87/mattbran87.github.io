@@ -48,14 +48,88 @@ function getPreferredTheme() {
 const stored = localStorage.getItem('theme');
 ```
 
+### Module Pattern
+
+Use ES modules with `<script type="module">`. All target browsers support this natively — no bundler needed.
+
+```html
+<script type="module" src="/assets/js/main.js"></script>
+```
+
+```javascript
+// assets/js/main.js
+import { initThemeToggle } from './modules/theme-toggle.js';
+initThemeToggle();
+```
+
+ES modules are deferred by default — they load in parallel without blocking HTML parsing and execute after the DOM is ready. No additional `defer` attribute needed.
+
 ### File Organization
 
 ```
 assets/js/
-├── main.js              # Entry point
+├── main.js              # Entry point, imports modules
 └── modules/
-    └── feature-name.js  # One file per feature
+    └── feature-name.js  # One file per feature, exports functions
 ```
+
+### Progressive Enhancement
+
+JavaScript is an enhancement layer — the site must be fully functional without it. Content, navigation, and layout must work with JS disabled. JavaScript adds interactivity (theme toggle, search, copy buttons) on top.
+
+- Never hide essential content behind a JS-only interaction
+- Bootstrap components that require JS (modals, dropdowns, tooltips) must degrade gracefully — provide an alternative if JS fails
+- Test pages with JS disabled to verify core functionality
+
+### DOM Interaction
+
+- Wrap DOM-dependent code in null checks — don't assume elements exist on every page
+- Use try/catch only around external interactions (localStorage, third-party scripts)
+- Never let a JS error break page rendering
+
+### Libraries
+
+No general-purpose frameworks (React, Vue, Angular). Purpose-specific libraries are permitted when they solve a clear need:
+
+- **Bootstrap JS** — interactive components (modals, dropdowns, collapse)
+- **Lunr.js** — client-side search
+- **Prism.js** — syntax highlighting
+- Other libraries as needed per feature
+
+Each library must be justified and documented in the feature's `decisions.md`. Libraries are vendored or loaded via CDN, consistent with how Bootstrap is handled.
+
+### Bootstrap JS Interaction
+
+When Bootstrap JS is added to a feature:
+
+- Prefer **data attributes** (`data-bs-toggle`, `data-bs-target`) for standard component behavior
+- Use the **JS API** (`new bootstrap.Modal(element)`) only when programmatic control is needed
+- Bootstrap component HTML and Bootstrap JS must always be shipped together — never add Bootstrap component markup without the corresponding JS
+
+### Error Handling
+
+- Wrap DOM queries in null checks:
+
+```javascript
+// Guard against missing elements
+const toggle = document.querySelector('.theme-toggle');
+if (toggle) {
+    toggle.addEventListener('click', handleToggle);
+}
+```
+
+- Use try/catch around external interactions:
+
+```javascript
+// Guard localStorage access
+try {
+    localStorage.setItem('theme', theme);
+} catch (e) {
+    // Storage unavailable — continue without persistence
+}
+```
+
+- Never let a JS error prevent the page from rendering or being usable
 
 ## CSS/SCSS
 
@@ -150,7 +224,7 @@ The `main.scss` entry point imports Bootstrap selectively and project partials:
 ---
 
 // 1. Project variables (Layer 1 SCSS overrides + Layer 2 CSS custom properties)
-@import "partials/variables";
+@import "_partials/variables";
 
 // 2. Bootstrap infrastructure (required, in this exact order)
 @import "bootstrap/scss/functions";
@@ -172,7 +246,7 @@ The `main.scss` entry point imports Bootstrap selectively and project partials:
 @import "bootstrap/scss/utilities/api";
 
 // 4. Project partials (use var(--*) only)
-@import "partials/base";
+@import "_partials/base";
 ```
 
 ### BEM + Bootstrap Coexistence
