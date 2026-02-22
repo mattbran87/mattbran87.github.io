@@ -1,0 +1,60 @@
+// ==========================================================================
+// Sidebar
+// ==========================================================================
+//
+// Homepage sidebar with About, Recent Posts, Archives, and Social sections.
+// Based on Bootstrap blog template sidebar pattern.
+
+.sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + var(--spacing-lg));
+}
+
+.sidebar__section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.sidebar__title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--headings-font-weight);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+.sidebar__about {
+    background-color: var(--color-bg-alt);
+    padding: var(--spacing-lg);
+    border-radius: 0.25rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+}
+
+.sidebar__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sidebar__link {
+    display: block;
+    padding: var(--spacing-xs) 0;
+    color: var(--color-link);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.sidebar__social-link {
+    color: var(--color-muted);
+    text-decoration: none;
+    margin-right: var(--spacing-md);
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}

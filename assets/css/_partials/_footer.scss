@@ -1,0 +1,31 @@
+// ==========================================================================
+// Site Footer
+// ==========================================================================
+//
+// Site footer with copyright, description, and social links.
+
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--section-padding) 0;
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+}
+
+.site-footer__description {
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.site-footer__social-link {
+    color: var(--color-muted);
+    text-decoration: none;
+    margin-right: var(--spacing-md);
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
+.site-footer__copyright {
+    color: var(--color-muted);
+}

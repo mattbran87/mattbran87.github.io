@@ -1,0 +1,24 @@
+// ==========================================================================
+// Skip Link
+// ==========================================================================
+//
+// Visually hidden link that becomes visible on focus. First focusable
+// element in <body>, jumps to <main id="main-content">.
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--spacing-md);
+    z-index: 1100;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-weight: var(--headings-font-weight);
+    text-decoration: none;
+    border-radius: 0 0 0.25rem 0.25rem;
+
+    &:focus {
+        top: 0;
+        color: var(--color-background);
+    }
+}

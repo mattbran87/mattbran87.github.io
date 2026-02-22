@@ -1,0 +1,23 @@
+// ==========================================================================
+// Site Header
+// ==========================================================================
+//
+// Top-level site header with Bootstrap navbar. Contains site brand
+// and responsive navigation.
+
+.site-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__brand {
+    font-size: 1.25rem;
+    font-weight: var(--headings-font-weight);
+    color: var(--color-heading);
+    text-decoration: none;
+    margin: 0;
+
+    &:hover {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+}

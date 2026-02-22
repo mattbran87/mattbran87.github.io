@@ -1,0 +1,21 @@
+// ==========================================================================
+// Navigation
+// ==========================================================================
+//
+// Bootstrap navbar navigation links and mobile toggle styling.
+
+.site-nav__link {
+    color: var(--color-nav-link);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+
+    &:hover {
+        color: var(--color-primary);
+    }
+
+    &--active {
+        color: var(--color-primary);
+        font-weight: var(--headings-font-weight);
+    }
+}
