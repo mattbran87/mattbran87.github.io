@@ -94,9 +94,13 @@ Not all changes require the spec workflow. For small fixes, config tweaks, conte
 - **Types:** Fix, Tweak, Config, Content, Docs, Chore
 - This applies only to sessions that do not use the spec engineering workflow — if a spec is active, changes are tracked in that spec's documents instead
 
-## SME Subagents
+## Custom Commands
 
-Six subject matter expert commands are available in `.claude/commands/`. See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/optional rules per phase, invocation order, and conflict resolution.
+Available in `.claude/commands/`. Start a new session to pick up new or changed commands.
+
+### SME Subagents
+
+See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/optional rules per phase, invocation order, and conflict resolution.
 
 | Command | Domain |
 |---------|--------|
@@ -106,6 +110,13 @@ Six subject matter expert commands are available in `.claude/commands/`. See [`d
 | `/accessibility-sme` | WCAG 2.2, ARIA, keyboard navigation, screen readers |
 | `/seo-sme` | Technical SEO, structured data, content strategy |
 | `/qa-sme` | Code quality, convention enforcement, audits |
+
+### Utility Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/plan-next` | Review roadmap and recommend what to work on next |
+| `/content-creator` | Draft, review, and optimize blog posts (SEO, spelling, coherence) |
 
 ## Spec Engineering Workflow
 
@@ -174,10 +185,22 @@ When a feature passes Acceptance:
 - Never skip phases — if a feature is simple, the phases will be short, not skipped
 - If Acceptance fails, return to Implementation or Testing as needed
 
+## Additional Workflows
+
+See [`docs/workflows.md`](docs/workflows.md) for full details on:
+
+- **Content Workflow** — lightweight draft → review → publish process using `/content-creator`
+- **Incident/Hotfix** — use the spec workflow to document what broke and how it was fixed
+- **Dependency Updates** — monthly `bundle update` checklist, security advisory process
+- **Spec Revision** — return to Research & Planning when requirements change mid-feature
+- **Retrospectives** — per-feature mini-retro in completion notes, milestone review after each roadmap group
+- **Branch Cleanup** — delete feature branches after merge to master
+
 ## Git Workflow
 
 - `master` is the production branch
 - Create feature branches for non-trivial changes (new layouts, plugin additions, config changes)
+- Delete feature branches after merge to master (local and remote)
 - Content-only changes (new posts, edits) can go directly to `master`
 - The `_site/` directory is gitignored — never commit build output
 
@@ -185,6 +208,7 @@ When a feature passes Acceptance:
 
 - Add Jekyll plugins to both `_config.yml` (under `plugins:`) and `Gemfile` (in the `:jekyll_plugins` group)
 - Run `bundle install` after any Gemfile change
+- Run `bundle update` monthly — see [`docs/workflows.md`](docs/workflows.md) for the full checklist
 - Commit `Gemfile.lock` to version control
 
 ## Deployment
