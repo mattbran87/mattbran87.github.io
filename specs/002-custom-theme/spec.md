@@ -76,7 +76,7 @@ The Bootstrap blog template provides the structural reference: centered header, 
 - [x] AC15: Page layout displays title and content (centered, max-width constrained)
 - [x] AC16: All pages render without horizontal overflow at 375px, 768px, 1280px
 - [x] AC17: `bundle exec jekyll build` completes without errors
-- [ ] AC18: GitHub Actions deploy succeeds — **deploy gate, verified post-merge**
+- [x] AC18: GitHub Actions deploy succeeds — **deploy gate, verified post-merge**
 - [x] AC19: Pressing Escape while mobile nav is open closes the menu and returns focus to the hamburger button
 - [x] AC20: `<html>` element has a `lang` attribute (defaults to `"en"` if `site.lang` is not set)
 
