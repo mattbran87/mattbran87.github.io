@@ -266,3 +266,38 @@ assets/images/
 └── posts/
     └── YYYY-MM-DD-post-slug/      # Post-specific images grouped by post
 ```
+
+## Performance Budget
+
+These are guardrails checked during the Testing phase. The QA SME flags violations.
+
+- **Max image size:** 200KB per image — compress before adding to the repo
+- **Total page weight:** Under 1MB per page (HTML + CSS + JS + images)
+- **Lighthouse performance score:** 90+ target
+- **No render-blocking JavaScript** unless absolutely necessary
+
+## Browser Support
+
+Target the **last 2 versions** of:
+
+- Chrome
+- Safari
+- Edge
+- Firefox
+
+No Internet Explorer support. All modern CSS features used in this project (Flexbox, Grid, custom properties) are fully supported across these browsers.
+
+## Dependency Management
+
+- Run `bundle update` **once per month** to keep gems current
+- If a security advisory is reported for a dependency:
+  1. Document the advisory in a note (feature spec or standalone)
+  2. Plan and execute the update — do not ignore advisories
+- Always commit `Gemfile.lock` after updates
+
+## Backup and Recovery
+
+The Git repository on GitHub is the primary backup. The entire site can be rebuilt from the repo at any time (no database, no server state).
+
+- **Push frequently** — unpushed local work is the only vulnerability
+- **Commit drafts** — files in `_drafts/` should be committed even if not published, so they are backed up to the remote
