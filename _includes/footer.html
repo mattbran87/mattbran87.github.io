@@ -8,11 +8,13 @@
                 {%- comment -%} Social links from _config.yml username fields {%- endcomment -%}
                 {%- if site.github_username or site.twitter_username -%}
                 <nav aria-label="Social media links">
+                    {%- comment -%} Show GitHub link if username configured {%- endcomment -%}
                     {%- if site.github_username -%}
                     <a class="site-footer__social-link" href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
                         GitHub
                     </a>
                     {%- endif -%}
+                    {%- comment -%} Show Twitter link if username configured {%- endcomment -%}
                     {%- if site.twitter_username -%}
                     <a class="site-footer__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
                         Twitter

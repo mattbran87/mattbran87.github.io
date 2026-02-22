@@ -13,6 +13,7 @@ layout: default
                 {%- comment -%} Display post tags as pills {%- endcomment -%}
                 {%- if page.tags.size > 0 -%}
                 <span class="ms-2">
+                    {%- comment -%} Render each tag as a pill {%- endcomment -%}
                     {%- for tag in page.tags -%}
                     <span class="post__tag">{{ tag }}</span>
                     {%- endfor -%}
@@ -28,6 +29,7 @@ layout: default
         {%- comment -%} Previous / Next post navigation {%- endcomment -%}
         {%- if page.previous or page.next -%}
         <nav class="post__nav" aria-label="Post navigation">
+            {%- comment -%} Render previous link or empty spacer for flex alignment {%- endcomment -%}
             {%- if page.previous -%}
             <a class="post__nav-link" href="{{ page.previous.url | relative_url }}">
                 <span class="post__nav-label">Previous</span>
@@ -36,6 +38,7 @@ layout: default
             {%- else -%}
             <span></span>
             {%- endif -%}
+            {%- comment -%} Render next link or empty spacer for flex alignment {%- endcomment -%}
             {%- if page.next -%}
             <a class="post__nav-link text-end" href="{{ page.next.url | relative_url }}">
                 <span class="post__nav-label">Next</span>

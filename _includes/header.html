@@ -19,8 +19,10 @@
                     {%- comment -%} Build nav links from header_pages config or all titled pages {%- endcomment -%}
                     {%- assign nav_pages = site.header_pages | default: nil -%}
                     {%- if nav_pages -%}
+                        {%- comment -%} Loop through explicitly configured header pages {%- endcomment -%}
                         {%- for path in nav_pages -%}
                             {%- assign nav_page = site.pages | where: "path", path | first -%}
+                            {%- comment -%} Skip pages without a title {%- endcomment -%}
                             {%- if nav_page.title -%}
                     <li class="nav-item">
                         <a class="nav-link site-nav__link{% if page.url == nav_page.url %} site-nav__link--active{% endif %}"
@@ -32,7 +34,9 @@
                             {%- endif -%}
                         {%- endfor -%}
                     {%- else -%}
+                        {%- comment -%} Fallback: loop through all site pages {%- endcomment -%}
                         {%- for nav_page in site.pages -%}
+                            {%- comment -%} Skip pages without a title {%- endcomment -%}
                             {%- if nav_page.title -%}
                     <li class="nav-item">
                         <a class="nav-link site-nav__link{% if page.url == nav_page.url %} site-nav__link--active{% endif %}"

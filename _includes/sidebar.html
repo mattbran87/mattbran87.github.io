@@ -13,6 +13,7 @@
     <div class="sidebar__section">
         <h2 class="sidebar__title">Recent Posts</h2>
         <ul class="sidebar__list" role="list">
+            {%- comment -%} List the 5 most recent post titles as links {%- endcomment -%}
             {%- for post in site.posts limit:5 -%}
             <li>
                 <a class="sidebar__link" href="{{ post.url | relative_url }}">
@@ -30,8 +31,10 @@
         <h2 class="sidebar__title">Archives</h2>
         <ul class="sidebar__list" role="list">
             {%- assign current_year_month = "" -%}
+            {%- comment -%} Iterate posts and emit one link per unique year-month {%- endcomment -%}
             {%- for post in site.posts -%}
                 {%- assign post_year_month = post.date | date: "%B %Y" -%}
+                {%- comment -%} Only emit when we encounter a new month {%- endcomment -%}
                 {%- if post_year_month != current_year_month -%}
                     {%- assign current_year_month = post_year_month -%}
             <li>
@@ -49,12 +52,14 @@
     {%- if site.github_username or site.twitter_username -%}
     <div class="sidebar__section">
         <h2 class="sidebar__title">Elsewhere</h2>
-        <nav aria-label="Social media links">
+        <nav aria-label="Social links">
+            {%- comment -%} Show GitHub link if username configured {%- endcomment -%}
             {%- if site.github_username -%}
             <a class="sidebar__social-link" href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
                 GitHub
             </a>
             {%- endif -%}
+            {%- comment -%} Show Twitter link if username configured {%- endcomment -%}
             {%- if site.twitter_username -%}
             <a class="sidebar__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
                 Twitter
