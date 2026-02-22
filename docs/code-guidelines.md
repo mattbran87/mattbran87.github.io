@@ -197,7 +197,7 @@ CSS custom properties are the primary variable system for all project-authored c
 
 The SCSS entry point lives at `assets/main.scss` (overrides Minima's gem-level file). Partials live in `assets/css/_partials/` and are imported via the Sass load path. Vendored libraries live in `assets/vendor/`.
 
-**Important:** Never add `assets/vendor/` to `_config.yml`'s `exclude` list. Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories, even when `load_paths` points there. This causes CI build failures. The non-partial Bootstrap files that get copied to `_site/` are an acceptable trade-off.
+**Important:** The `.gitignore` pattern for Bundler's vendor directory must use `/vendor/` (leading slash = root-only match), not `vendor/`. Without the leading slash, git ignores ANY directory named `vendor` in the tree — including `assets/vendor/bootstrap/scss/vendor/` which contains `_rfs.scss`. Also never add `assets/vendor/` to `_config.yml`'s `exclude` list — Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories. The non-partial Bootstrap files that get copied to `_site/` are an acceptable trade-off.
 
 ```
 assets/

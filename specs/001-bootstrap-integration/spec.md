@@ -92,7 +92,8 @@ The site currently uses Minima 2.5's built-in styles, which are limited in layou
 **Lessons learned:**
 - Sass underscore convention applies only to filenames, not directories. Always test import paths.
 - Minima 2.5 does not support `exclude_from_nav` front matter. Use `header_pages` in `_config.yml` to control navigation.
-- **Never `exclude` a directory that is also a Sass `load_path`.** Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories, even though `load_paths` points there. This worked locally on Windows but broke the GitHub Actions CI build. The 4 non-partial Bootstrap files in `_site/` are an acceptable trade-off.
+- **`.gitignore` `vendor/` matches nested directories.** The pattern `vendor/` ignores ANY directory named `vendor` in the entire tree, not just the root. This caused `assets/vendor/bootstrap/scss/vendor/_rfs.scss` to be untracked and missing on CI. Fix: use `/vendor/` (leading slash = root-only match).
+- **Never `exclude` a directory that is also a Sass `load_path`.** Jekyll's `exclude` on Linux prevents the Sass compiler from resolving relative imports within excluded directories.
 - Link color #2a7ae2 on white passes AA contrast (4.56:1) but with thin margin. Revisit in spec 002 theme work.
 
 **Remaining gate:** AC10 (GitHub Actions deploy) is verified post-push.
