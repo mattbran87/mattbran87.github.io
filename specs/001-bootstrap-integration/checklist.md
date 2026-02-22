@@ -2,12 +2,12 @@
 
 ## Phase 1: Research & Planning
 
-- [ ] Read and understand the spec
-- [ ] Research approaches and document findings in notes.md
-- [ ] Resolve open questions
-- [ ] Record key decisions in decisions.md
-- [ ] Break down work into tasks in tasks.md
-- [ ] Get sign-off to move to Implementation
+- [x] Read and understand the spec
+- [x] Research approaches and document findings in notes.md
+- [x] Resolve open questions
+- [x] Record key decisions in decisions.md
+- [x] Break down work into tasks in tasks.md
+- [x] Get sign-off to move to Implementation
 
 ## Phase 2: Implementation
 
