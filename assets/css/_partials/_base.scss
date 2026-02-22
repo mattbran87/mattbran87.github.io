@@ -1,0 +1,23 @@
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+//
+// Global defaults that build on Bootstrap's reboot. All values reference
+// Layer 2 CSS custom properties — never SCSS $variables.
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-link);
+}
+
+a:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: 2px;
+}

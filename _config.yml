@@ -34,6 +34,16 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Sass configuration
+sass:
+  load_paths:
+    - assets/vendor
+    - assets/css
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+
 # Exclude from processing.
 exclude:
   - .sass-cache/
@@ -49,3 +59,4 @@ exclude:
   - specs/
   - docs/
   - CLAUDE.md
+  - assets/vendor/

@@ -1,0 +1,67 @@
+// ==========================================================================
+// Project Variables
+// ==========================================================================
+//
+// Two-layer variable architecture:
+//   Layer 1 — SCSS variables for Bootstrap Sass overrides (compile-time)
+//   Layer 2 — CSS custom properties for project component styles (runtime)
+//
+// Layer 1 values feed Bootstrap's Sass compiler. Layer 2 values are used in
+// project-authored partials via var(--*). Both layers share the same values
+// and are maintained in sync manually.
+
+// --------------------------------------------------------------------------
+// Layer 1: Bootstrap Sass overrides (compile-time)
+// --------------------------------------------------------------------------
+// These SCSS variables override Bootstrap defaults before _variables.scss
+// is imported. Only use $variables for Bootstrap overrides — never in
+// project component partials.
+
+// Colors
+$primary: #2a7ae2;
+$body-color: #111111;
+$body-bg: #ffffff;
+$link-color: #2a7ae2;
+$link-decoration: underline;
+
+// Typography
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+// Accessibility
+$focus-ring-width: 3px;
+$focus-ring-opacity: 1;
+$focus-ring-color: #005fcc;
+$focus-ring-blur: 0;
+$min-contrast-ratio: 4.5;
+
+// --------------------------------------------------------------------------
+// Layer 2: CSS custom properties (runtime)
+// --------------------------------------------------------------------------
+// Project design tokens for use in component partials. Always reference
+// var(--*) in project SCSS — never $variables.
+
+:root {
+    // Colors
+    --color-primary: #2a7ae2;
+    --color-text: #111111;
+    --color-background: #ffffff;
+    --color-link: #2a7ae2;
+
+    // Typography
+    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    --font-size-base: 1rem;
+    --line-height-base: 1.5;
+
+    // Spacing
+    --spacing-unit: 1rem;
+
+    // Focus
+    --focus-ring-width: 3px;
+    --focus-ring-color: #005fcc;
+}

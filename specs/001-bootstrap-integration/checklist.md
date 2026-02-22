@@ -11,26 +11,26 @@
 
 ## Phase 2: Implementation
 
-- [ ] Create feature branch (if applicable)
-- [ ] Implement changes per tasks.md
-- [ ] Update affected files list in spec.md
-- [ ] Self-review code for quality and conventions
-- [ ] Get sign-off to move to Testing
+- [x] Create feature branch (if applicable) — content-level change, direct to master per CLAUDE.md
+- [x] Implement changes per tasks.md
+- [x] Update affected files list in spec.md
+- [x] Self-review code for quality and conventions
+- [x] Get sign-off to move to Testing
 
 ## Phase 3: Testing
 
-- [ ] Verify each acceptance criterion in spec.md
-- [ ] Test edge cases and error scenarios
-- [ ] Test on local dev server (`bundle exec jekyll serve`)
-- [ ] Validate HTML output in `_site/`
-- [ ] Document any issues found in notes.md
-- [ ] Get sign-off to move to Acceptance
+- [x] Verify each acceptance criterion in spec.md
+- [x] Test edge cases and error scenarios
+- [x] Test on local dev server (`bundle exec jekyll serve`)
+- [x] Validate HTML output in `_site/`
+- [x] Document any issues found in notes.md
+- [x] Get sign-off to move to Acceptance
 
 ## Phase 4: Acceptance
 
-- [ ] Final review against spec requirements
-- [ ] Confirm all acceptance criteria are met
-- [ ] Update spec.md status to Completed
-- [ ] Update tasks.md — mark all tasks done
-- [ ] Fill in completion notes in spec.md
+- [x] Final review against spec requirements
+- [x] Confirm all acceptance criteria are met
+- [x] Update spec.md status to Completed
+- [x] Update tasks.md — mark all tasks done
+- [x] Fill in completion notes in spec.md
 - [ ] Commit to master (or merge feature branch)

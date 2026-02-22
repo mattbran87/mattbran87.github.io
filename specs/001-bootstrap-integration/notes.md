@@ -54,16 +54,30 @@ All questions resolved during Research & Planning.
 
 ## Implementation
 
-- [Notes captured during implementation — gotchas, surprises, workarounds]
+**Import path correction:** Sass strips leading `_` from filenames (partials) but NOT from directory names. The `_partials/` directory requires `@import "_partials/variables"` — not `@import "partials/variables"` as originally documented in code-guidelines.md. Fixed in both `assets/main.scss` and `docs/code-guidelines.md`.
+
+**Vendor source in `_site/`:** Bootstrap's non-partial entry point files (`bootstrap.scss`, `bootstrap-grid.scss`, `bootstrap-reboot.scss`, `bootstrap-utilities.scss`) were being copied to `_site/assets/vendor/` since they lack the `_` prefix. Fixed by adding `assets/vendor/` to `_config.yml` exclude list. The Sass `load_paths` still resolves the files on disk for compilation — `exclude` only affects what Jekyll copies to output.
+
+**`mixed-decls` deprecation obsolete:** The `mixed-decls` silence_deprecation entry was no longer needed in Dart Sass 1.97.3 (the deprecation was removed). Removed from `_config.yml` to eliminate the harmless "obsolete" warning. Only `import` and `global-builtin` silencing remains.
+
+**Bootstrap 5.3.8 vendored structure:** 92 files across 6 subdirectories (forms/, helpers/, mixins/, utilities/, vendor/). `tests/` directory excluded per spec. The `unzip` command's glob pattern `"bootstrap-5.3.8/scss/*"` only matches top-level files — full extraction required extracting everything then removing tests/.
 
 ---
 
 ## Testing
 
-- [Test observations, edge cases found, performance notes]
+**Minima CSS fully replaced:** Overriding `assets/main.scss` means Minima's CSS classes (`.site-header`, `.wrapper`, `.post-content`, etc.) are no longer styled. Minima's layouts still provide the HTML structure, but all styling is now Bootstrap reboot + project base. This is expected and intentional — visual appearance changes but functionality is preserved. Spec 002 (Custom Theme) will build proper styling on top of Bootstrap.
+
+**`exclude_from_nav` not supported by Minima 2.5:** The `bootstrap-test.html` front matter included `exclude_from_nav: true` but Minima 2.5 doesn't check this key. The test page appeared in the site navigation. Minima uses `header_pages` in `_config.yml` to control nav. Low impact since the page is temporary and has been deleted.
+
+**Link color contrast thin margin:** The link color `#2a7ae2` on white has approximately 4.56:1 contrast — passes WCAG AA (4.5:1) but barely. Future theme work (spec 002) should verify or darken slightly.
+
+**Accessibility audit (15 PASS, 7 WARN, 0 FAIL):** All acceptance criteria for accessible defaults met. WARN items are pre-existing Minima issues (mobile nav a11y, skip link) deferred to spec 002, plus temporary test page heading hierarchy.
+
+**QA audit (49 PASS, 8 WARN, 1 FAIL):** Single FAIL is the non-functional `exclude_from_nav` (low impact, page deleted). WARN items are documentation housekeeping and acknowledged design trade-offs (Layer 1/2 asymmetry, base.scss overlap with reboot).
 
 ---
 
 ## Acceptance
 
-- [Final review notes, user feedback, sign-off details]
+All 16 requirements verified met. All 6 decisions followed. 10 of 11 acceptance criteria confirmed — AC10 (GitHub Actions deploy) is a post-push final gate. No issues found requiring return to Implementation or Testing. Feature declared complete and ready to commit.
