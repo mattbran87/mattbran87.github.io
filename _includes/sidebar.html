@@ -49,7 +49,7 @@
     {%- endif -%}
 
     {%- comment -%} Social / Elsewhere links from _config.yml {%- endcomment -%}
-    {%- if site.github_username or site.twitter_username -%}
+    {%- if site.github_username or site.linkedin_username -%}
     <div class="sidebar__section">
         <h2 class="sidebar__title">Elsewhere</h2>
         <nav aria-label="Social links">
@@ -59,10 +59,10 @@
                 GitHub
             </a>
             {%- endif -%}
-            {%- comment -%} Show Twitter link if username configured {%- endcomment -%}
-            {%- if site.twitter_username -%}
-            <a class="sidebar__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
-                Twitter
+            {%- comment -%} Show LinkedIn link if username configured {%- endcomment -%}
+            {%- if site.linkedin_username -%}
+            <a class="sidebar__social-link" href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" aria-label="LinkedIn">
+                LinkedIn
             </a>
             {%- endif -%}
         </nav>
