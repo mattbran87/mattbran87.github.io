@@ -178,6 +178,14 @@ When a feature passes Acceptance:
 - All checklist items in `checklist.md` are checked off
 - The feature directory remains in `specs/` as documentation
 
+### Commit Strategy
+
+- Create a feature branch at the start of Implementation (e.g., `feature/001-bootstrap-integration`)
+- Commit after completing each task in `tasks.md` — each commit is one logical unit of work
+- No commits during Testing phase unless issues are sent back to Implementation for fixes
+- Merge the feature branch to `master` after Acceptance is complete
+- Delete the feature branch after merge (local and remote)
+
 ### Conventions
 
 - Feature directories use numbered prefixes: `001-`, `002-`, etc.

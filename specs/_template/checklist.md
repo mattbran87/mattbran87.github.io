@@ -11,8 +11,8 @@
 
 ## Phase 2: Implementation
 
-- [ ] Create feature branch (if applicable)
-- [ ] Implement changes per tasks.md
+- [ ] Create feature branch (e.g., `feature/NNN-feature-name`)
+- [ ] Implement changes per tasks.md — commit after each completed task
 - [ ] Update affected files list in spec.md
 - [ ] Self-review code for quality and conventions
 - [ ] Get sign-off to move to Testing
@@ -33,4 +33,5 @@
 - [ ] Update spec.md status to Completed
 - [ ] Update tasks.md — mark all tasks done
 - [ ] Fill in completion notes in spec.md
-- [ ] Commit to master (or merge feature branch)
+- [ ] Merge feature branch to master
+- [ ] Delete feature branch (local and remote)
