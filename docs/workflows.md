@@ -4,10 +4,44 @@
 
 A lightweight process for blog post creation that does not require the spec engineering workflow.
 
+### Target Audience
+
+Intellectual workers and educated professionals. All content must be written at a **12th grade reading level minimum**.
+
+### Drafting Modes
+
+**Assisted Drafting** — use `/content-creator` to help outline and draft a post from a topic or rough notes.
+
+**Self-Written Review** — write the draft yourself, then use `/content-creator` to review for quality, SEO, and grade level.
+
+### Required Front Matter
+
+Every post must include `tags` and `description`:
+
+```yaml
+---
+layout: post
+title: "Post Title"
+date: YYYY-MM-DD HH:MM:SS -0600
+tags: [tag1, tag2]
+description: "Meta description for SEO (150-160 characters)"
+---
+```
+
+`image` and `image_alt` are optional — use hero/featured images only when they add value to the post.
+
+### Content Categories
+
+Posts are organized **by topic**. Tags reflect the subject matter.
+
+### Publishing Cadence
+
+Publish when ready — no fixed schedule.
+
 ### Process
 
-1. **Draft** — create the post in `_drafts/title-with-dashes.md`
-2. **Review** — use `/content-creator` to check SEO, spelling, coherence, and front matter
+1. **Draft** — create the post in `_drafts/title-with-dashes.md` (either mode)
+2. **Review** — use `/content-creator` to run the review checklist (13 items including grade level rating)
 3. **Preview** — run `bundle exec jekyll serve --drafts` to review locally
 4. **Publish** — move to `_posts/YYYY-MM-DD-title-with-dashes.md` with date prefix
 5. **Commit and push** — post goes live via GitHub Actions

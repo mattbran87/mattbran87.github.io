@@ -47,14 +47,15 @@ Gemfile          # Ruby dependencies
 
 - Location: `_posts/`
 - Filename format: `YYYY-MM-DD-title-with-dashes.md`
-- Must include front matter:
+- Must include front matter (tags and description are **required**):
 
 ```yaml
 ---
 layout: post
 title: "Post Title"
 date: YYYY-MM-DD HH:MM:SS -0600
-categories: category1 category2
+tags: [tag1, tag2]
+description: "Meta description for SEO (150-160 characters)"
 ---
 ```
 
