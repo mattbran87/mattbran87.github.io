@@ -25,3 +25,5 @@ Minor changes that do not go through the spec engineering workflow. For feature-
   - Files affected: `_config.yml`
 - **[Config]** Set up custom domain `aicodeblog.com` — added CNAME file and updated `url` in `_config.yml`
   - Files affected: `CNAME`, `_config.yml`
+- **[Config]** Set primary contact email to `matt@aicodeblog.com` (Fastmail)
+  - Files affected: `_config.yml`
