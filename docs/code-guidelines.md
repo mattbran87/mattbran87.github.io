@@ -309,6 +309,38 @@ Read the [installation guide][install] and the [configuration reference][config]
 - Maintain sufficient color contrast (WCAG AA minimum)
 - Ensure keyboard navigability for all interactive elements
 
+## Image Optimization
+
+### Formats
+
+| Format | Use For |
+|--------|---------|
+| **WebP** | Photos and content images (preferred — smaller than JPEG/PNG with similar quality) |
+| **SVG** | Icons, logos, simple graphics (infinitely scalable, tiny file size) |
+| **PNG** | Only when transparency is needed and WebP won't work |
+| **JPEG** | Legacy fallback — prefer WebP for new images |
+
+### Process
+
+1. Optimize images **before committing** using a free tool ([Squoosh](https://squoosh.app/) recommended)
+2. Maximum file size: **200KB per image**
+3. Write `alt` text at the time the image is added — do not defer
+4. The QA SME flags oversized images during Testing
+
+### Naming
+
+- Lowercase with hyphens: `jekyll-build-pipeline-diagram.webp`
+- Descriptive names that reflect content, not generic names like `image1.webp`
+
+### Directory Structure
+
+```
+assets/images/
+├── site/                          # Site-wide (logo, favicon, default og-image)
+└── posts/
+    └── YYYY-MM-DD-post-slug/      # Post-specific images grouped by post
+```
+
 ## Performance Budget
 
 These are guardrails checked during the Testing phase. The QA SME flags violations.
