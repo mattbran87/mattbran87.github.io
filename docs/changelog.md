@@ -17,6 +17,8 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-22
 
+- **[Tweak]** Add email mailto link to footer and sidebar social links
+  - Files affected: `_includes/footer.html`, `_includes/sidebar.html`
 - **[Config]** Add frontmatter to custom commands for Claude Code discovery
   - Files affected: `.claude/commands/*.md`
 - **[Config]** Add Linux platform to Gemfile.lock for GitHub Actions compatibility

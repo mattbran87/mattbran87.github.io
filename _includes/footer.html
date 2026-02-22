@@ -6,8 +6,14 @@
                     {{ site.description | escape }}
                 </p>
                 {%- comment -%} Social links from _config.yml username fields {%- endcomment -%}
-                {%- if site.github_username or site.linkedin_username -%}
+                {%- if site.email or site.github_username or site.linkedin_username -%}
                 <nav aria-label="Social media links">
+                    {%- comment -%} Show email link if configured {%- endcomment -%}
+                    {%- if site.email -%}
+                    <a class="site-footer__social-link" href="mailto:{{ site.email }}" aria-label="Email">
+                        Email
+                    </a>
+                    {%- endif -%}
                     {%- comment -%} Show GitHub link if username configured {%- endcomment -%}
                     {%- if site.github_username -%}
                     <a class="site-footer__social-link" href="https://github.com/{{ site.github_username }}" aria-label="GitHub">
