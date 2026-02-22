@@ -85,6 +85,19 @@ Do not edit files inside the gem directly.
 
 See [`docs/code-guidelines.md`](docs/code-guidelines.md) for full details covering JavaScript (JSDoc), CSS/SCSS (BEM, custom properties), HTML/Liquid (semantic markup, error handling), Markdown, accessibility, and file organization conventions.
 
+## SME Subagents
+
+Six subject matter expert commands are available in `.claude/commands/`. See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/optional rules per phase, invocation order, and conflict resolution.
+
+| Command | Domain |
+|---------|--------|
+| `/jekyll-sme` | Jekyll architecture, Minima theme, plugins, build pipeline |
+| `/bootstrap-sme` | Bootstrap 5 grid, components, utilities, customization |
+| `/css-design-sme` | CSS/SCSS, BEM, visual design, responsive patterns |
+| `/accessibility-sme` | WCAG 2.2, ARIA, keyboard navigation, screen readers |
+| `/seo-sme` | Technical SEO, structured data, content strategy |
+| `/qa-sme` | Code quality, convention enforcement, audits |
+
 ## Spec Engineering Workflow
 
 Features are developed using a spec-driven workflow. Each feature gets its own directory under `specs/` with structured documents and phase-specific prompts.
