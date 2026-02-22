@@ -130,7 +130,67 @@ All resolved during research.
 
 ## Testing
 
-- [Test observations, edge cases found, performance notes]
+### Acceptance Criteria Verification
+
+| AC | Description | Result | Notes |
+|----|-------------|--------|-------|
+| AC1 | Layouts exist and render | **PASS** | All 4 layouts render on index, about, post, 404 |
+| AC2 | Includes exist and render | **PASS** | head, header, footer, sidebar all present in output |
+| AC3 | Minima removed | **PASS** | No `theme: minima` in _config.yml, no `gem "minima"` in Gemfile |
+| AC4 | jekyll-seo-tag added | **PASS** | In both _config.yml plugins and Gemfile |
+| AC5 | Header with title + nav | **PASS** | Site title links to `/`, About nav link present |
+| AC6 | Responsive nav | **PASS** | `navbar-expand-md` handles collapse, hamburger present with aria attrs |
+| AC7 | Footer content | **PASS** | Copyright 2026, description, GitHub + Twitter links |
+| AC8 | Homepage 8/4 grid | **PASS** | `col-md-8` + `col-md-4` in index.html |
+| AC9 | Sidebar sections | **PASS** | About, Recent Posts, Archives, Elsewhere all present |
+| AC10 | Skip-to-content | **PASS** | `.skip-link` targets `#main-content` with `tabindex="-1"` |
+| AC11 | Semantic landmarks | **PASS** | `<header>`, `<nav>`, `<main>`, `<article>`, `<footer>` on all pages |
+| AC12 | Link color #0060df | **PASS** | `--color-link: #0060df` in compiled CSS, applied to `a` elements |
+| AC13 | Typography / line-height 1.65 | **PASS** | `--bs-body-line-height: 1.65` in compiled CSS |
+| AC14 | Post layout elements | **PASS** | Title, date, content present. Tags and prev/next conditional (correct — test post has no tags, only 1 post exists) |
+| AC15 | Page layout centered | **PASS** | `max-width: var(--content-max-width)` (42rem) with `margin: auto` |
+| AC16 | No horizontal overflow | **NEEDS BROWSER** | Cannot verify viewport behavior from static HTML. Bootstrap grid + container should prevent overflow. |
+| AC17 | Build succeeds | **PASS** | `bundle exec jekyll build` — no errors, no warnings |
+| AC18 | GitHub Actions deploy | **NEEDS PUSH** | Cannot verify until feature branch is merged and pushed to master |
+| AC19 | Escape key closes menu | **NEEDS BROWSER** | JS code verified correct by A11y SME. Manual test needed. |
+| AC20 | `<html lang="en">` | **PASS** | Present on all 4 generated pages |
+
+**Result: 17 PASS, 3 deferred (AC16/AC18/AC19 need browser/deploy verification)**
+
+### Accessibility SME Audit (Task 3.4)
+
+15 checks performed. **All PASS** with 2 warnings:
+
+- **A11y-W1: Duplicate nav aria-labels on homepage.** Sidebar and footer both use `aria-label="Social media links"`. Screen readers cannot distinguish them. **Fix:** Differentiate labels (e.g., "Social links" in sidebar, "Social media links" in footer).
+- **A11y-W2: 404.html heading structure.** No `title` in front matter causes empty `<h1>` from page layout, plus content has its own `<h1>404</h1>` = duplicate h1. **Known issue — deferred to spec 014 (Custom 404).**
+
+### QA SME Audit (Task 3.5)
+
+0 errors, 5 warnings, 7 info items.
+
+**Warnings (should fix):**
+- **QA-W1: Duplicated tag pill styles.** `.post-card__tag` and `.post__tag` are identical. Extract shared styles.
+- **QA-W2: Descendant `a` selector in `.post-card__title`.** Should use BEM class.
+- **QA-W3: Descendant element selectors in `__content` blocks.** Accepted pattern for Markdown-generated content — document as deviation.
+- **QA-W4: Missing Liquid comments on nested control flow blocks.** ~13 locations need comments per code guidelines.
+- **QA-W5: Duplicate `aria-label="Social media links"`.** Same as A11y-W1.
+
+**Info (nice to have):**
+- QA-I1: Hardcoded `0.25rem` border-radius could be a token.
+- QA-I2: Content-area element styles duplicated between post/page.
+- QA-I3: Tag wrapper `<span class="ms-2">` has no BEM class.
+- QA-I4: Tag `<span>` elements have `:hover` styles (dead code unless converted to links).
+- QA-I5: Archive links point to individual posts, not archive pages.
+- QA-I6: IIFE pattern instead of ES module (pragmatic choice for Bootstrap global access).
+- QA-I7: Missing `@returns {void}` on JSDoc.
+
+### Edge Cases Tested
+
+- **Single post:** prev/next nav correctly omitted when only 1 post exists
+- **Post with no tags:** tag section correctly omitted
+- **Post with categories:** URL `/jekyll/update/...` preserved and links work
+- **404.html inline styles:** Known W9 — `.container` inline styles override Bootstrap defaults without breaking layout
+- **Empty `header_pages` config:** Fallback loop over `site.pages` works correctly
 
 ---
 

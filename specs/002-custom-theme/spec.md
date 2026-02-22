@@ -116,7 +116,7 @@ The Bootstrap blog template provides the structural reference: centered header, 
 |-------|---------|-----------|-------|
 | Research & Planning | 2026-02-22 | 2026-02-22 | 4 SMEs consulted (Jekyll, Bootstrap, A11y, CSS/Design), user decisions integrated |
 | Implementation | 2026-02-22 | 2026-02-22 | 16 tasks completed, 10 commits on feature branch |
-| Testing | — | — | |
+| Testing | 2026-02-22 | 2026-02-22 | 17/20 AC pass, 3 need browser/deploy. A11y: 2W. QA: 0E/5W/7I. Issues documented for fix review. |
 | Acceptance | — | — | |
 
 ## Completion Notes

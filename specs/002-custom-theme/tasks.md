@@ -43,12 +43,12 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1 | Verify each acceptance criterion (AC1–AC20) | Pending | |
-| 3.2 | Test all pages at 375px, 768px, 1280px — no overflow, readable | Pending | Check 404.html inline `.container` style conflict |
-| 3.3 | Test navbar collapse on mobile — hamburger, Escape key, focus management | Pending | Verify AC19 (Escape returns focus to toggle) |
-| 3.4 | Accessibility SME — audit landmarks, skip link, heading hierarchy, contrast, role="list" | Pending | |
-| 3.5 | QA SME — comprehensive code quality audit | Pending | |
-| 3.6 | Test with `bundle exec jekyll serve` on local dev server | Pending | |
+| 3.1 | Verify each acceptance criterion (AC1–AC20) | Done | 17 PASS, 3 need browser/deploy verification (AC16, AC18, AC19) |
+| 3.2 | Test all pages at 375px, 768px, 1280px — no overflow, readable | Deferred | Needs browser testing — Bootstrap grid/container should prevent overflow |
+| 3.3 | Test navbar collapse on mobile — hamburger, Escape key, focus management | Deferred | JS code verified correct by A11y SME. Manual browser test needed. |
+| 3.4 | Accessibility SME — audit landmarks, skip link, heading hierarchy, contrast, role="list" | Done | 15/15 PASS, 2 warnings: duplicate nav aria-labels, 404 heading structure |
+| 3.5 | QA SME — comprehensive code quality audit | Done | 0E/5W/7I. Key: duplicate tag styles, missing Liquid comments, duplicate aria-labels |
+| 3.6 | Test with `bundle exec jekyll serve` on local dev server | Deferred | Build verified; live server test for AC16/AC19 needs browser |
 
 ### Phase 4: Acceptance
 
@@ -64,5 +64,6 @@
 ## Summary
 
 - **Total tasks:** 32
-- **Completed:** 24
-- **Remaining:** 8
+- **Completed:** 27
+- **Deferred (browser):** 3 (tasks 3.2, 3.3, 3.6)
+- **Remaining:** 6 (Phase 4)

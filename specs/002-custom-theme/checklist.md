@@ -14,16 +14,16 @@
 - [x] Create feature branch (e.g., `feature/002-custom-theme`)
 - [x] Implement changes per tasks.md — commit after each completed task
 - [x] Update affected files list in spec.md
-- [ ] Self-review code for quality and conventions
-- [ ] Get sign-off to move to Testing
+- [x] Self-review code for quality and conventions
+- [x] Get sign-off to move to Testing
 
 ## Phase 3: Testing
 
-- [ ] Verify each acceptance criterion in spec.md
-- [ ] Test edge cases and error scenarios
-- [ ] Test on local dev server (`bundle exec jekyll serve`)
-- [ ] Validate HTML output in `_site/`
-- [ ] Document any issues found in notes.md
+- [x] Verify each acceptance criterion in spec.md
+- [x] Test edge cases and error scenarios
+- [ ] Test on local dev server (`bundle exec jekyll serve`) — deferred: needs browser for AC16/AC19
+- [x] Validate HTML output in `_site/`
+- [x] Document any issues found in notes.md
 - [ ] Get sign-off to move to Acceptance
 
 ## Phase 4: Acceptance
