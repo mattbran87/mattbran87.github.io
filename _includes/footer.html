@@ -6,7 +6,7 @@
                     {{ site.description | escape }}
                 </p>
                 {%- comment -%} Social links from _config.yml username fields {%- endcomment -%}
-                {%- if site.github_username or site.twitter_username -%}
+                {%- if site.github_username or site.linkedin_username -%}
                 <nav aria-label="Social media links">
                     {%- comment -%} Show GitHub link if username configured {%- endcomment -%}
                     {%- if site.github_username -%}
@@ -14,10 +14,10 @@
                         GitHub
                     </a>
                     {%- endif -%}
-                    {%- comment -%} Show Twitter link if username configured {%- endcomment -%}
-                    {%- if site.twitter_username -%}
-                    <a class="site-footer__social-link" href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
-                        Twitter
+                    {%- comment -%} Show LinkedIn link if username configured {%- endcomment -%}
+                    {%- if site.linkedin_username -%}
+                    <a class="site-footer__social-link" href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" aria-label="LinkedIn">
+                        LinkedIn
                     </a>
                     {%- endif -%}
                 </nav>
