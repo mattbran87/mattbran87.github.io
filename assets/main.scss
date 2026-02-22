@@ -6,13 +6,12 @@
 // Main SCSS Entry Point
 // ==========================================================================
 //
-// Overrides Minima's gem-level assets/main.scss so Minima's layouts
-// automatically load Bootstrap + project styles. Import order matters:
+// Bootstrap 5 + project styles. Import order matters:
 //
 //   1. Project variables (Layer 1 SCSS overrides before Bootstrap)
 //   2. Bootstrap infrastructure (required, exact order)
 //   3. Bootstrap foundation components (blog essentials)
-//   4. Bootstrap optional components (commented, uncomment per feature)
+//   4. Bootstrap optional components (enabled per feature)
 //   5. Project partials (use var(--*) only)
 
 // 1. Project variables (Layer 1 SCSS overrides + Layer 2 CSS custom properties)
@@ -37,34 +36,22 @@
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities/api";
 
-// 4. Bootstrap optional components (uncomment as needed per feature spec)
-//    Dependencies noted — import prerequisites before the component.
-//
-// @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";            // Requires: forms/ subdirectory partials
-// @import "bootstrap/scss/buttons";
-// @import "bootstrap/scss/transitions";
-// @import "bootstrap/scss/dropdown";         // Requires: transitions
-// @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/nav";
-// @import "bootstrap/scss/navbar";           // Requires: nav, dropdown
-// @import "bootstrap/scss/card";
-// @import "bootstrap/scss/accordion";
-// @import "bootstrap/scss/breadcrumb";
-// @import "bootstrap/scss/pagination";
-// @import "bootstrap/scss/badge";
-// @import "bootstrap/scss/alert";
-// @import "bootstrap/scss/progress";
-// @import "bootstrap/scss/list-group";
-// @import "bootstrap/scss/close";
-// @import "bootstrap/scss/toasts";
-// @import "bootstrap/scss/modal";            // Requires: transitions, close
-// @import "bootstrap/scss/tooltip";
-// @import "bootstrap/scss/popover";          // Requires: tooltip
-// @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
-// @import "bootstrap/scss/offcanvas";        // Requires: transitions, close
-// @import "bootstrap/scss/placeholders";
+// 4. Bootstrap optional components (enabled for custom theme)
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/pagination";
 
 // 5. Project partials (use var(--*) only)
 @import "_partials/base";
+@import "_partials/skip-link";
+@import "_partials/header";
+@import "_partials/nav";
+@import "_partials/footer";
+@import "_partials/sidebar";
+@import "_partials/post-card";
+@import "_partials/post";
+@import "_partials/page";
