@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="container">
+    <article class="post">
+        <header>
+            <h1 class="post__title">{{ page.title | escape }}</h1>
+            <div class="post__meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%b %-d, %Y" }}
+                </time>
+                {%- comment -%} Display post tags as pills {%- endcomment -%}
+                {%- if page.tags.size > 0 -%}
+                <span class="ms-2">
+                    {%- for tag in page.tags -%}
+                    <span class="post__tag">{{ tag }}</span>
+                    {%- endfor -%}
+                </span>
+                {%- endif -%}
+            </div>
+        </header>
+
+        <div class="post__content">
+            {{ content }}
+        </div>
+
+        {%- comment -%} Previous / Next post navigation {%- endcomment -%}
+        {%- if page.previous or page.next -%}
+        <nav class="post__nav" aria-label="Post navigation">
+            {%- if page.previous -%}
+            <a class="post__nav-link" href="{{ page.previous.url | relative_url }}">
+                <span class="post__nav-label">Previous</span>
+                {{ page.previous.title | escape }}
+            </a>
+            {%- else -%}
+            <span></span>
+            {%- endif -%}
+            {%- if page.next -%}
+            <a class="post__nav-link text-end" href="{{ page.next.url | relative_url }}">
+                <span class="post__nav-label">Next</span>
+                {{ page.next.title | escape }}
+            </a>
+            {%- else -%}
+            <span></span>
+            {%- endif -%}
+        </nav>
+        {%- endif -%}
+    </article>
+</div>
