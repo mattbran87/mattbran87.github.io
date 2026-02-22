@@ -18,10 +18,10 @@
 // project component partials.
 
 // Colors
-$primary: #2a7ae2;
-$body-color: #111111;
+$primary: #0060df;
+$body-color: #1a1a1a;
 $body-bg: #ffffff;
-$link-color: #2a7ae2;
+$link-color: #0060df;
 $link-decoration: underline;
 
 // Typography
@@ -29,7 +29,12 @@ $font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 $font-size-base: 1rem;
-$line-height-base: 1.5;
+$line-height-base: 1.65;
+$headings-font-weight: 700;
+$h1-font-size: 2rem;
+$h2-font-size: 1.5rem;
+$h3-font-size: 1.25rem;
+$h4-font-size: 1.125rem;
 
 // Accessibility
 $focus-ring-width: 3px;
@@ -46,20 +51,51 @@ $min-contrast-ratio: 4.5;
 
 :root {
     // Colors
-    --color-primary: #2a7ae2;
-    --color-text: #111111;
+    --color-primary: #0060df;
+    --color-text: #1a1a1a;
+    --color-heading: #0f1923;
+    --color-muted: #5c6470;
     --color-background: #ffffff;
-    --color-link: #2a7ae2;
+    --color-bg-alt: #f7f8f9;
+    --color-link: #0060df;
+    --color-link-hover: #004cb3;
+    --color-border: #dee2e6;
+    --color-code-bg: #f5f5f5;
+
+    // Nav
+    --color-nav-link: #1a1a1a;
+
+    // Tags
+    --color-tag-bg: #e9ecef;
+    --color-tag-text: #1a1a1a;
+    --color-tag-border: #dee2e6;
 
     // Typography
     --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
     --font-size-base: 1rem;
-    --line-height-base: 1.5;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
+    --line-height-base: 1.65;
+    --headings-font-weight: 700;
 
-    // Spacing
-    --spacing-unit: 1rem;
+    // Spacing scale
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    // Layout
+    --content-max-width: 42rem;
+    --header-height: 3.5rem;
+    --section-padding: 3rem;
+
+    // Post meta
+    --meta-color: #5c6470;
+    --meta-font-size: 0.875rem;
 
     // Focus
     --focus-ring-width: 3px;
