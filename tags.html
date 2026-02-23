@@ -9,14 +9,17 @@ permalink: /tags/
         <div class="col-md-8">
             <h1>Tags</h1>
 
+            {%- comment -%} Show tag cloud and per-tag post listings if any tags exist {%- endcomment -%}
             {%- if site.tags.size > 0 -%}
             <div class="tag-index">
                 {%- comment -%} Sort tags alphabetically {%- endcomment -%}
                 {%- assign sorted_tags = site.tags | sort -%}
+                {%- comment -%} Render each tag as a pill link with post count {%- endcomment -%}
                 {%- for tag_data in sorted_tags -%}
                     {%- assign tag_name = tag_data[0] -%}
                     {%- assign tag_posts = tag_data[1] -%}
-                <a class="tag tag--lg" href="{%- assign tag_slug = tag_name | slugify -%}{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">
+                    {%- assign tag_slug = tag_name | slugify -%}
+                <a class="tag tag--lg" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" aria-label="Posts tagged {{ tag_name }} ({{ tag_posts.size }})">
                     {{ tag_name }} <span class="tag__count">{{ tag_posts.size }}</span>
                 </a>
                 {%- endfor -%}
@@ -24,17 +27,20 @@ permalink: /tags/
 
             <h2 class="mt-5">All posts by tag</h2>
 
+            {%- comment -%} List posts grouped under each tag heading {%- endcomment -%}
             {%- for tag_data in sorted_tags -%}
                 {%- assign tag_name = tag_data[0] -%}
                 {%- assign tag_posts = tag_data[1] -%}
-            <section class="tag-section" id="tag-{{ tag_name | slugify }}">
+                {%- assign tag_slug = tag_name | slugify -%}
+            <section class="tag-section" id="tag-{{ tag_slug }}">
                 <h3>
-                    <a href="{%- assign tag_slug = tag_name | slugify -%}{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">
+                    <a href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">
                         {{ tag_name }}
                     </a>
-                    <small>({{ tag_posts.size }})</small>
+                    <span class="tag-section__count">({{ tag_posts.size }})</span>
                 </h3>
                 <ul class="tag-section__list">
+                    {%- comment -%} Render each post as a title + date row {%- endcomment -%}
                     {%- for post in tag_posts -%}
                     <li>
                         <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>

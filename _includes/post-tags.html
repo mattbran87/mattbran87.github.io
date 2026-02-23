@@ -5,7 +5,11 @@
     {% include post-tags.html tags=post.tags %}
     {% include post-tags.html tags=page.tags %}
 {%- endcomment -%}
-{%- for tag in include.tags -%}
-{%- assign tag_slug = tag | slugify -%}
-<a class="tag" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a>
-{%- endfor -%}
+{%- comment -%} Guard against nil or empty tags array {%- endcomment -%}
+{%- if include.tags and include.tags.size > 0 -%}
+    {%- comment -%} Render each tag as a linked pill to its archive page {%- endcomment -%}
+    {%- for tag in include.tags -%}
+        {%- assign tag_slug = tag | slugify -%}
+        <a class="tag" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}" aria-label="Posts tagged {{ tag }}">{{ tag }}</a>
+    {%- endfor -%}
+{%- endif -%}
