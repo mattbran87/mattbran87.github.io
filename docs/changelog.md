@@ -17,6 +17,8 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-22
 
+- **[Docs]** Add ad integration research findings and roadmap entry (#018)
+  - Files affected: `docs/ad-integration-research.md`, `specs/roadmap.md`
 - **[Docs]** Add multi-language support research findings and roadmap entry (#017)
   - Files affected: `docs/multi-language-research.md`, `specs/roadmap.md`
 
