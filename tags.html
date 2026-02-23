@@ -1,0 +1,57 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Tags</h1>
+
+            {%- if site.tags.size > 0 -%}
+            <div class="tag-index">
+                {%- comment -%} Sort tags alphabetically {%- endcomment -%}
+                {%- assign sorted_tags = site.tags | sort -%}
+                {%- for tag_data in sorted_tags -%}
+                    {%- assign tag_name = tag_data[0] -%}
+                    {%- assign tag_posts = tag_data[1] -%}
+                <a class="tag tag--lg" href="{%- assign tag_slug = tag_name | slugify -%}{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">
+                    {{ tag_name }} <span class="tag__count">{{ tag_posts.size }}</span>
+                </a>
+                {%- endfor -%}
+            </div>
+
+            <h2 class="mt-5">All posts by tag</h2>
+
+            {%- for tag_data in sorted_tags -%}
+                {%- assign tag_name = tag_data[0] -%}
+                {%- assign tag_posts = tag_data[1] -%}
+            <section class="tag-section" id="tag-{{ tag_name | slugify }}">
+                <h3>
+                    <a href="{%- assign tag_slug = tag_name | slugify -%}{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">
+                        {{ tag_name }}
+                    </a>
+                    <small>({{ tag_posts.size }})</small>
+                </h3>
+                <ul class="tag-section__list">
+                    {%- for post in tag_posts -%}
+                    <li>
+                        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%b %-d, %Y" }}
+                        </time>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </section>
+            {%- endfor -%}
+            {%- else -%}
+            <p>No tags yet.</p>
+            {%- endif -%}
+        </div>
+        <div class="col-md-4">
+            {%- include sidebar.html -%}
+        </div>
+    </div>
+</div>
