@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Posts tagged "{{ page.title }}"</h1>
+
+            {%- if page.posts.size > 0 -%}
+                {%- for post in page.posts -%}
+            <article class="post-card">
+                <h2 class="post-card__title">
+                    <a href="{{ post.url | relative_url }}">
+                        {{ post.title | escape }}
+                    </a>
+                </h2>
+                <p class="post-card__meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%b %-d, %Y" }}
+                    </time>
+                </p>
+                <div class="post-card__excerpt">
+                    {{ post.excerpt }}
+                </div>
+                {%- if post.tags.size > 0 -%}
+                <div class="post-card__tags">
+                    {%- include post-tags.html tags=post.tags -%}
+                </div>
+                {%- endif -%}
+            </article>
+                {%- endfor -%}
+            {%- else -%}
+            <p>No posts with this tag.</p>
+            {%- endif -%}
+        </div>
+        <div class="col-md-4">
+            {%- include sidebar.html -%}
+        </div>
+    </div>
+</div>
