@@ -15,6 +15,11 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ---
 
+### 2026-02-23
+
+- **[Docs]** Add Schema markup research and update #008 SEO Foundation description
+  - Files affected: `docs/schema-markup-research.md`, `specs/roadmap.md`
+
 ### 2026-02-22
 
 - **[Docs]** Add ad integration research findings and roadmap entry (#018)

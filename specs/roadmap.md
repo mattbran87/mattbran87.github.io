@@ -117,7 +117,7 @@ Replace the default post list with a designed landing page featuring a hero sect
 
 ### 008 — SEO Foundation
 
-Implement structured data (JSON-LD for BlogPosting, Person, WebSite), Open Graph meta tags for social sharing, XML sitemap via jekyll-sitemap, and canonical URLs. Configure jekyll-seo-tag for maximum coverage.
+Implement comprehensive structured data and meta tag strategy. jekyll-seo-tag (v2.8.0) already generates basic JSON-LD (WebSite, BlogPosting) and Open Graph tags — this feature enriches that foundation. Key additions: configure `site.logo` and `site.social.links` to unlock plugin features; add `image` to post front matter for Article rich results; build custom `_includes/schema/` templates for BreadcrumbList, enhanced BlogPosting (wordCount, keywords, articleSection, inLanguage), and Person schema on the about page. Also: XML sitemap via jekyll-sitemap, canonical URL verification, and WebSite SearchAction after #009 Search is built. Research findings: [`docs/schema-markup-research.md`](../docs/schema-markup-research.md).
 
 ### 009 — Search
 
