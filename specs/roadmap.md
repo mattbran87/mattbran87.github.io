@@ -11,7 +11,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 |---|---------|------|--------|
 | 001 | Bootstrap Integration | `specs/001-bootstrap-integration/` | Completed |
 | 002 | Custom Theme | `specs/002-custom-theme/` | Completed |
-| 003 | Tags & Categories | `specs/003-tags-categories/` | Not Started |
+| 003 | Tags & Categories | `specs/003-tags-categories/` | Completed |
 | 004 | Series Support | `specs/004-series-support/` | Not Started |
 | 005 | Contact Form | `specs/005-contact-form/` | Not Started |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
@@ -26,6 +26,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 015 | Uses Page | `specs/015-uses-page/` | Not Started |
 | 016 | Resume/CV Page | `specs/016-resume-page/` | Not Started |
 | 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
+| 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
 
 ## Natural Groupings
 
@@ -70,6 +71,12 @@ Features that share dependencies or are closely related and benefit from being d
 | # | Feature | Rationale |
 |---|---------|-----------|
 | 017 | Multi-Language Support | Translate the site into Spanish, French, and German using jekyll-polyglot; includes language switcher, detection banner, and translator subagent |
+
+### Monetization
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 018 | Ad Integration | Revenue generation via Google AdSense initially, graduating to Carbon Ads or EthicalAds for better tech-audience fit |
 
 ### Enhancements
 
@@ -144,6 +151,10 @@ Create a `/uses/` page listing tools, hardware, software, and development setup.
 
 Create a dedicated `/resume/` page with professional experience, skills, education, and contact information. Styled for both web viewing and print. Separate from the about page.
 
+### 018 — Ad Integration
+
+Add advertising to generate revenue. Start with Google AdSense for broad coverage, then graduate to Carbon Ads or EthicalAds for better developer-audience alignment. Client-side JavaScript integration only (static site constraint). Load ad scripts only in production. Ad placement locations to be determined during implementation. Requires a privacy policy page for AdSense compliance. Research findings: [`docs/ad-integration-research.md`](../docs/ad-integration-research.md).
+
 ### 017 — Multi-Language Support
 
 Add multi-language support using jekyll-polyglot. Translate the full site (posts, pages, UI chrome) into Spanish, French, and German with English as the default. English content serves from root URLs; translated content gets language-prefixed paths (`/es/`, `/fr/`, `/de/`). Includes a language switcher in the nav, a JavaScript browser-language detection banner, hreflang SEO tags, and a custom `/translator` subagent for AI-assisted translation. Research findings: [`docs/multi-language-research.md`](../docs/multi-language-research.md).
@@ -158,6 +169,7 @@ Features with hard dependencies on prior work:
 - **014 Custom 404** depends on **002 Custom Theme**
 
 - **017 Multi-Language Support** benefits from **008 SEO Foundation** being in place first (shared concerns around meta tags, sitemaps, structured data)
+- **018 Ad Integration** benefits from **002 Custom Theme** (ad placement needs finalized layouts) and **012 Analytics** (traffic data informs provider choice and placement)
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 
