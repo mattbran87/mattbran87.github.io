@@ -28,10 +28,24 @@ url: "https://aicodeblog.com" # the base hostname & protocol for your site, e.g.
 github_username: mattbran87
 linkedin_username: mattbran87
 
+# Navigation links (controls which pages appear in the header nav)
+header_pages:
+  - about.markdown
+  - tags.html
+
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-archives
+
+# Tag archives
+jekyll-archives:
+  enabled:
+    - tags
+  layout: tag-archive
+  permalinks:
+    tag: "/tags/:name/"
 
 # Sass configuration
 sass:
