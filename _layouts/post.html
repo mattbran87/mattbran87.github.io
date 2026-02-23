@@ -10,13 +10,9 @@ layout: default
                 <time datetime="{{ page.date | date_to_xmlschema }}">
                     {{ page.date | date: "%b %-d, %Y" }}
                 </time>
-                {%- comment -%} Display post tags as pills {%- endcomment -%}
                 {%- if page.tags.size > 0 -%}
                 <span class="ms-2">
-                    {%- comment -%} Render each tag as a pill {%- endcomment -%}
-                    {%- for tag in page.tags -%}
-                    <span class="tag">{{ tag }}</span>
-                    {%- endfor -%}
+                    {%- include post-tags.html tags=page.tags -%}
                 </span>
                 {%- endif -%}
             </div>

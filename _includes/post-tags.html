@@ -1,0 +1,11 @@
+{%- comment -%}
+  Render tags as linked pills.
+
+  Usage:
+    {% include post-tags.html tags=post.tags %}
+    {% include post-tags.html tags=page.tags %}
+{%- endcomment -%}
+{%- for tag in include.tags -%}
+{%- assign tag_slug = tag | slugify -%}
+<a class="tag" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag }}</a>
+{%- endfor -%}
