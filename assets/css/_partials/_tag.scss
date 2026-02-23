@@ -2,9 +2,8 @@
 // Tag Pill
 // ==========================================================================
 //
-// Shared tag pill styling used in post cards (homepage) and post layout.
-// Tags are currently non-interactive <span> elements. Convert to <a>
-// links when tag archive pages are added.
+// Shared tag pill styling used in post cards (homepage), post layout,
+// tag archive, and tags index page. Tags are <a> links to tag archives.
 
 .tag {
     display: inline-block;
@@ -15,4 +14,65 @@
     border-radius: 1rem;
     font-size: var(--font-size-xs);
     margin-right: var(--spacing-xs);
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+        background-color: var(--color-tag-border);
+        border-color: var(--color-tag-border);
+        color: var(--color-tag-text);
+        text-decoration: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 2px;
+    }
+}
+
+// Larger variant for the tags index page
+.tag--lg {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+// Post count badge inside a tag pill
+.tag__count {
+    display: inline-block;
+    min-width: 1.25em;
+    padding: 0 0.3em;
+    margin-left: 0.25em;
+    background-color: var(--color-tag-text);
+    color: var(--color-tag-bg);
+    border-radius: 0.75rem;
+    font-size: 0.85em;
+    text-align: center;
+    line-height: 1.4;
+}
+
+// Tags index — section list styling
+.tag-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tag-section__list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        padding: var(--spacing-xs) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: var(--spacing-sm);
+    }
+
+    time {
+        color: var(--color-meta);
+        font-size: var(--font-size-sm);
+        white-space: nowrap;
+    }
 }
