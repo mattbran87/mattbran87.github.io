@@ -12,7 +12,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 001 | Bootstrap Integration | `specs/001-bootstrap-integration/` | Completed |
 | 002 | Custom Theme | `specs/002-custom-theme/` | Completed |
 | 003 | Tags & Categories | `specs/003-tags-categories/` | Completed |
-| 004 | Series Support | `specs/004-series-support/` | Not Started |
+| 004 | Series Support | `specs/004-series-support/` | Completed |
 | 005 | Contact Form | `specs/005-contact-form/` | Not Started |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
 | 007 | Custom Homepage | `specs/007-custom-homepage/` | Not Started |
