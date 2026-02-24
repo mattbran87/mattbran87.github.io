@@ -1,23 +1,33 @@
 /**
  * @file search.js
- * @description Client-side blog search using Lunr.js. Fetches a JSON search
- * index generated at build time, builds a Lunr index with boosted fields
- * (title, tags, categories, excerpt, content), and renders results as the
- * user types. Debounced at 300ms to avoid excessive index queries. Handles
- * empty query, no results, and loading states. Supports ?q= URL parameter
- * for SearchAction integration (arriving from search engines).
+ * @description Client-side blog search using Lunr.js. Operates in two modes:
+ *
+ * 1. **Navbar mode** (all pages): The navbar search input (#navbar-search-input)
+ *    triggers smart navigation on Enter — if exactly 1 result, navigates directly
+ *    to that post; otherwise navigates to /search/?q=... for full results.
+ *
+ * 2. **Results page mode** (/search/): The search page input (#search-input) and
+ *    results container (#search-results) provide live, debounced search with full
+ *    result rendering. Reads ?q= URL parameter on load for SearchAction integration.
+ *
+ * Both modes share the same Lunr index (fetched once from /search-index.json).
  */
 
 (function () {
     /** @type {HTMLInputElement|null} */
-    var searchInput = document.getElementById('search-input');
+    var navbarInput = document.getElementById('navbar-search-input');
+    /** @type {HTMLInputElement|null} */
+    var pageInput = document.getElementById('search-input');
     /** @type {HTMLElement|null} */
     var resultsContainer = document.getElementById('search-results');
 
-    // Guard: only run on pages with the search input
-    if (!searchInput || !resultsContainer) {
+    // Guard: only run if at least one search element exists
+    if (!navbarInput && !pageInput) {
         return;
     }
+
+    /** @type {boolean} True when on the /search/ page with full results UI */
+    var isSearchPage = !!(pageInput && resultsContainer);
 
     /** @type {lunr.Index|null} Lunr search index, built after data loads */
     var searchIndex = null;
@@ -37,9 +47,11 @@
      *
      * @param {string} message - The message text to display
      * @param {string} modifier - BEM modifier for the status element
-     *     (e.g., "default", "loading", "no-results")
      */
     function showStatus(message, modifier) {
+        if (!resultsContainer) {
+            return;
+        }
         resultsContainer.innerHTML =
             '<p class="search-results__status search-results__status--' + modifier + '">' +
             message +
@@ -60,12 +72,29 @@
     }
 
     /**
+     * Queries the Lunr index and returns the results array.
+     * Returns an empty array if the index isn't ready or the query is invalid.
+     *
+     * @param {string} query - The search query string
+     * @returns {Array<Object>} Lunr search result objects
+     */
+    function queryIndex(query) {
+        if (!searchIndex || !query.trim()) {
+            return [];
+        }
+        try {
+            return searchIndex.search(query);
+        } catch (e) {
+            return [];
+        }
+    }
+
+    /**
      * Renders an array of search results into the results container. Each
      * result is displayed as a post card with linked title, date, excerpt,
-     * and tags. Matches the existing `.post-card` styling pattern.
+     * and tags.
      *
-     * @param {Array<Object>} results - Lunr search result objects with
-     *     `ref` and `score` properties
+     * @param {Array<Object>} results - Lunr search result objects
      */
     function renderResults(results) {
         if (results.length === 0) {
@@ -92,7 +121,6 @@
             html += '</div>';
             html += '<p class="post-card__excerpt">' + escapeHtml(doc.excerpt) + '</p>';
 
-            // Render tags as pill links
             if (doc.tags && doc.tags.length > 0) {
                 html += '<div class="post-card__tags">';
                 for (var j = 0; j < doc.tags.length; j++) {
@@ -111,13 +139,14 @@
     }
 
     /**
-     * Performs a search against the Lunr index using the current input value.
-     * Handles empty queries by showing the default state. Wraps the Lunr
-     * search call in a try/catch to gracefully handle malformed queries
-     * (e.g., unmatched quotes or invalid syntax).
+     * Performs a search on the results page — renders results into the
+     * results container. Used for live/debounced search on /search/.
      */
-    function performSearch() {
-        var query = searchInput.value.trim();
+    function performPageSearch() {
+        if (!pageInput || !resultsContainer) {
+            return;
+        }
+        var query = pageInput.value.trim();
 
         if (query.length === 0) {
             showStatus('Enter a search term to find posts.', 'default');
@@ -129,49 +158,81 @@
             return;
         }
 
-        try {
-            var results = searchIndex.search(query);
-            renderResults(results);
-        } catch (e) {
-            // Lunr throws on malformed queries (e.g., lone wildcard, unmatched quotes)
-            showStatus('No posts found. Try a different search term.', 'no-results');
+        var results = queryIndex(query);
+        renderResults(results);
+    }
+
+    /**
+     * Handles navbar search submission. Queries the index and navigates:
+     * - 1 result: directly to the matching post URL
+     * - 0 or 2+ results: to /search/?q=...
+     *
+     * @param {string} query - The trimmed search query
+     */
+    function handleNavbarSearch(query) {
+        if (!query) {
+            return;
         }
+
+        if (!searchIndex) {
+            // Index not ready yet — fall back to search page
+            window.location.href = '/search/?q=' + encodeURIComponent(query);
+            return;
+        }
+
+        var results = queryIndex(query);
+
+        if (results.length === 1) {
+            var doc = searchDocuments[results[0].ref];
+            if (doc && doc.url) {
+                window.location.href = doc.url;
+                return;
+            }
+        }
+
+        // 0 or multiple results — go to search page
+        window.location.href = '/search/?q=' + encodeURIComponent(query);
     }
 
     /**
-     * Debounced input handler. Clears any pending timer and schedules a new
-     * search after DEBOUNCE_MS milliseconds of inactivity.
+     * Debounced input handler for the search page input.
      */
-    function onInput() {
+    function onPageInput() {
         clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(performSearch, DEBOUNCE_MS);
+        debounceTimer = setTimeout(performPageSearch, DEBOUNCE_MS);
     }
 
     /**
-     * Fetches the search index JSON from the server, builds the Lunr index
-     * with field boosts, and stores the raw documents for result rendering.
-     * Shows a loading state while the index is being built.
+     * Fetches the search index JSON, builds the Lunr index with field boosts,
+     * and stores the raw documents for result rendering.
+     *
+     * @param {Function} [callback] - Called after index is ready
      */
-    function loadSearchIndex() {
-        showStatus('Loading search index...', 'loading');
+    function loadSearchIndex(callback) {
+        if (isSearchPage) {
+            showStatus('Loading search index...', 'loading');
+        }
 
         var request = new XMLHttpRequest();
         request.open('GET', '/search-index.json', true);
 
         request.onload = function () {
             if (request.status < 200 || request.status >= 400) {
-                showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+                if (isSearchPage) {
+                    showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+                }
                 return;
             }
 
             try {
                 searchDocuments = JSON.parse(request.responseText);
             } catch (e) {
-                showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+                if (isSearchPage) {
+                    showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+                }
                 return;
             }
 
-            // Build the Lunr index with field boosts
             searchIndex = lunr(function () {
                 this.ref('id');
                 this.field('title', { boost: 10 });
@@ -193,44 +254,63 @@
                 }
             });
 
-            // Index ready — show default state or run pending query
-            if (searchInput.value.trim().length > 0) {
-                performSearch();
-            } else {
-                showStatus('Enter a search term to find posts.', 'default');
+            if (callback) {
+                callback();
             }
         };
 
         request.onerror = function () {
-            showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+            if (isSearchPage) {
+                showStatus('Failed to load search index. Please try refreshing the page.', 'error');
+            }
         };
 
         request.send();
     }
 
-    // Populate search input from ?q= URL parameter (e.g., from SearchAction)
-    try {
-        var urlParams = new URLSearchParams(window.location.search);
-        var queryParam = urlParams.get('q');
-        if (queryParam) {
-            searchInput.value = queryParam;
+    // --- Search page setup ---
+    if (isSearchPage) {
+        // Populate search page input from ?q= URL parameter
+        try {
+            var urlParams = new URLSearchParams(window.location.search);
+            var queryParam = urlParams.get('q');
+            if (queryParam) {
+                pageInput.value = queryParam;
+            }
+        } catch (e) {
+            // URLSearchParams not supported — ignore
         }
-    } catch (e) {
-        // URLSearchParams not supported — ignore
+
+        // Bind input event for live search on the search page
+        pageInput.addEventListener('input', onPageInput);
+
+        // Enter key on search page input triggers immediate search
+        pageInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                clearTimeout(debounceTimer);
+                performPageSearch();
+            }
+        });
     }
 
-    // Bind input event for live search
-    searchInput.addEventListener('input', onInput);
+    // --- Navbar search setup ---
+    if (navbarInput) {
+        navbarInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var query = navbarInput.value.trim();
+                handleNavbarSearch(query);
+            }
+        });
+    }
 
-    // Also search on Enter key (for keyboard users)
-    searchInput.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            clearTimeout(debounceTimer);
-            performSearch();
+    // Load the search index — on search page, auto-run if ?q= param present
+    loadSearchIndex(function () {
+        if (isSearchPage && pageInput.value.trim().length > 0) {
+            performPageSearch();
+        } else if (isSearchPage) {
+            showStatus('Enter a search term to find posts.', 'default');
         }
     });
-
-    // Load the search index (will auto-search if ?q= param populated the input)
-    loadSearchIndex();
 })();

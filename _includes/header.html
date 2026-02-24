@@ -49,6 +49,12 @@
                         {%- endfor -%}
                     {%- endif -%}
                 </ul>
+                <form class="d-flex mt-2 mt-md-0 ms-md-3" role="search" id="navbar-search" onsubmit="return false;">
+                    <label for="navbar-search-input" class="visually-hidden">Search posts</label>
+                    <input id="navbar-search-input" class="form-control form-control-sm navbar-search__input"
+                           type="search" placeholder="Search..." autocomplete="off"
+                           aria-label="Search posts">
+                </form>
             </div>
         </div>
     </nav>
