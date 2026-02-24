@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-> **Last Updated:** 2026-02-23
+> **Last Updated:** 2026-02-24
 > **Research docs:** [`docs/`](../docs/)
 
 ## Feature Queue
@@ -15,7 +15,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 004 | Series Support | `specs/004-series-support/` | Completed |
 | 005 | Contact Form | `specs/005-contact-form/` | Completed |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
-| 007 | Custom Homepage | `specs/007-custom-homepage/` | Not Started |
+| 007 | Custom Homepage | `specs/007-custom-homepage/` | Deferred |
 | 008 | SEO Foundation | `specs/008-seo-foundation/` | Not Started |
 | 009 | Search | `specs/009-search/` | Not Started |
 | 010 | Related Posts | `specs/010-related-posts/` | Not Started |
@@ -27,6 +27,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 016 | Resume/CV Page | `specs/016-resume-page/` | Not Started |
 | 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
+| 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
 
 ## Natural Groupings
 
@@ -65,6 +66,7 @@ Features that share dependencies or are closely related and benefit from being d
 | 008 | SEO Foundation | Meta tags and structured data live in layouts — best done with the custom theme |
 | 009 | Search | Client-side search for readers to find content |
 | 012 | Analytics | Traffic tracking and user behavior insights |
+| 019 | Featured Posts | Curated/automated "most popular" posts section |
 
 ### Internationalization
 
@@ -155,6 +157,10 @@ Create a dedicated `/resume/` page with professional experience, skills, educati
 
 Add advertising to generate revenue. Start with Google AdSense for broad coverage, then graduate to Carbon Ads or EthicalAds for better developer-audience alignment. Client-side JavaScript integration only (static site constraint). Load ad scripts only in production. Ad placement locations to be determined during implementation. Requires a privacy policy page for AdSense compliance. Research findings: [`docs/ad-integration-research.md`](../docs/ad-integration-research.md).
 
+### 019 — Featured Posts
+
+Display a curated "Featured Posts" section on the site highlighting the most popular articles. Phase 1: manually curated via `_data/featured_posts.yml` with a reusable Liquid include. Phase 2: automate data refresh with a scheduled GitHub Action that queries the Google Analytics Data API (GA4) for top-performing posts and commits updated data weekly, triggering a site rebuild. The same data file and templates are used in both phases — only the update mechanism changes. Research findings: [`docs/featured-posts-research.md`](../docs/featured-posts-research.md).
+
 ### 017 — Multi-Language Support
 
 Add multi-language support using jekyll-polyglot. Translate the full site (posts, pages, UI chrome) into Spanish, French, and German with English as the default. English content serves from root URLs; translated content gets language-prefixed paths (`/es/`, `/fr/`, `/de/`). Includes a language switcher in the nav, a JavaScript browser-language detection banner, hreflang SEO tags, and a custom `/translator` subagent for AI-assisted translation. Research findings: [`docs/multi-language-research.md`](../docs/multi-language-research.md).
@@ -170,6 +176,8 @@ Features with hard dependencies on prior work:
 
 - **017 Multi-Language Support** benefits from **008 SEO Foundation** being in place first (shared concerns around meta tags, sitemaps, structured data)
 - **018 Ad Integration** benefits from **002 Custom Theme** (ad placement needs finalized layouts) and **012 Analytics** (traffic data informs provider choice and placement)
+
+- **019 Featured Posts** Phase 2 depends on **012 Analytics** (GA4 must be collecting data); Phase 1 has no dependencies
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 
