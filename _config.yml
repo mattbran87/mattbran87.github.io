@@ -33,6 +33,7 @@ header_pages:
   - about.markdown
   - series.html
   - tags.html
+  - contact.markdown
 
 # Build settings
 plugins:
