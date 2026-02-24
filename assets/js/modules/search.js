@@ -117,7 +117,7 @@
             html += '<a href="' + escapeHtml(doc.url) + '">' + escapeHtml(doc.title) + '</a>';
             html += '</h2>';
             html += '<div class="post-card__meta">';
-            html += '<time>' + escapeHtml(doc.date) + '</time>';
+            html += '<time' + (doc.isoDate ? ' datetime="' + escapeHtml(doc.isoDate) + '"' : '') + '>' + escapeHtml(doc.date) + '</time>';
             html += '</div>';
             html += '<p class="post-card__excerpt">' + escapeHtml(doc.excerpt) + '</p>';
 
@@ -296,6 +296,9 @@
 
     // --- Navbar search setup ---
     if (navbarInput) {
+        var navbarForm = document.getElementById('navbar-search');
+
+        // Handle Enter key on the input
         navbarInput.addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
@@ -303,6 +306,15 @@
                 handleNavbarSearch(query);
             }
         });
+
+        // Handle form submit (AT or mobile may trigger submit directly)
+        if (navbarForm) {
+            navbarForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                var query = navbarInput.value.trim();
+                handleNavbarSearch(query);
+            });
+        }
     }
 
     // Load the search index — on search page, auto-run if ?q= param present

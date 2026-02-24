@@ -1,6 +1,6 @@
 # Tasks: Search
 
-> **Status:** In Progress
+> **Status:** Completed
 
 ## Task Breakdown
 
@@ -35,20 +35,25 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1 | Verify all acceptance criteria | Pending | Test each criterion from spec.md |
-| 3.2 | Test edge cases | Pending | Empty queries, special characters, long queries, single-character queries |
-| 3.3 | Test accessibility | Pending | Keyboard navigation, screen reader, focus management |
-| 3.4 | Validate HTML and build output | Pending | Check `_site/` output, HTML validation |
+| 3.1 | Verify all acceptance criteria | Done | All 19 criteria passed |
+| 3.2 | Test edge cases | Done | Code review: empty queries, malformed Lunr queries, index not ready |
+| 3.3 | Test accessibility | Done | Audit found 5 issues, all fixed (see notes.md) |
+| 3.4 | Validate HTML and build output | Done | No duplicate IDs, no missing attrs, clean build |
+| 3.5 | Fix: Add aria-label to navbar form | Done | `aria-label="Quick search"` distinguishes landmarks |
+| 3.6 | Fix: Remove redundant aria-label from input | Done | Kept `<label for>`, removed `aria-label` |
+| 3.7 | Fix: Progressive enhancement for navbar form | Done | `action="/search/"` + `name="q"` + submit handler |
+| 3.8 | Fix: Focus styles for High Contrast Mode | Done | `:focus-visible` + transparent outline |
+| 3.9 | Fix: Add datetime to time elements | Done | `isoDate` field in index, `datetime` attr in JS |
 
 ### Phase 4: Acceptance
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | Final review against spec requirements | Pending | |
-| 4.2 | Update documentation and mark complete | Pending | |
+| 4.1 | Final review against spec requirements | Done | All requirements and acceptance criteria met |
+| 4.2 | Update documentation and mark complete | Done | spec.md, tasks.md, checklist.md, notes.md updated |
 
 ## Summary
 
-- **Total tasks:** 23
-- **Completed:** 17
-- **Remaining:** 6
+- **Total tasks:** 28
+- **Completed:** 28
+- **Remaining:** 0

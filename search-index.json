@@ -9,6 +9,7 @@ permalink: /search-index.json
         "title": {{ post.title | jsonify }},
         "url": "{{ post.url | relative_url }}",
         "date": "{{ post.date | date: '%b %-d, %Y' }}",
+        "isoDate": "{{ post.date | date: '%Y-%m-%d' }}",
         "tags": {{ post.tags | jsonify }},
         "categories": {{ post.categories | jsonify }},
         "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncatewords: 50 | jsonify }},

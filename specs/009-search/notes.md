@@ -67,16 +67,41 @@
 
 ## Implementation
 
-- [Notes captured during implementation — gotchas, surprises, workarounds]
+- Tasks 2.1–2.8: Initial search feature (search index, search page, JS, SCSS, nav link, SearchAction schema)
+- Tasks 2.9–2.14: Moved search from nav link to inline navbar form with smart navigation (1 result → direct post, N results → search page)
+- Lunr.js and search.js moved from search.html to default.html for global loading
 
 ---
 
 ## Testing
 
-- [Test observations, edge cases found, performance notes]
+### Acceptance Criteria Verification
+- All 19 acceptance criteria passed (HTML structure, build output, code review)
+- Search index generated: 8KB, 4 posts, all required fields present
+- Navbar search input present on all 18 built HTML pages
+- SearchAction schema confirmed on homepage
+- No-JS fallback present on search page
+
+### Accessibility Audit Findings (fixed)
+1. **Navbar form missing aria-label** — Two `role="search"` landmarks indistinguishable on /search/ page. Fixed: added `aria-label="Quick search"` to navbar form.
+2. **Redundant label on navbar input** — Had both `<label for>` and `aria-label`. Fixed: removed `aria-label`, keeping `<label for>` as the semantic approach.
+3. **No progressive enhancement** — Navbar form used `onsubmit="return false;"` with no fallback. Fixed: added `action="/search/"` and `name="q"` so form works without JS. Added submit event listener in JS for AT compatibility.
+4. **Focus styles break in High Contrast Mode** — `outline: none` removes focus indicator in Windows HCM. Fixed: changed to `:focus-visible` with `outline: 2px solid transparent; outline-offset: 2px`.
+5. **`<time>` missing datetime attribute** — Search result time elements lacked machine-readable date. Fixed: added `isoDate` field to search index, used as `datetime` attribute in JS rendering.
+
+### HTML Validation
+- No duplicate IDs on any page
+- No missing required attributes
+- No unclosed or malformed tags
+- All script tags properly formed with `defer`
 
 ---
 
 ## Acceptance
 
-- [Final review notes, user feedback, sign-off details]
+- All 12 requirements checked off
+- All 19 acceptance criteria checked off
+- Affected files list updated to reflect actual changes (header.html, default.html added; _config.yml change noted)
+- Phase history completed with dates and summaries
+- Completion notes documented deviations and lessons learned
+- Ready for commit, merge to master, and branch cleanup
