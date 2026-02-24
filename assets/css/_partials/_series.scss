@@ -181,13 +181,13 @@
 }
 
 .series-archive__status--in-progress {
-    background-color: #fff3cd;
-    color: #4d3a02;
+    background-color: var(--color-status-progress-bg);
+    color: var(--color-status-progress-text);
 }
 
 .series-archive__status--complete {
-    background-color: #d1e7dd;
-    color: #051f13;
+    background-color: var(--color-status-complete-bg);
+    color: var(--color-status-complete-text);
 }
 
 .series-archive__count {
