@@ -33,7 +33,7 @@ pre {
 }
 
 // Rouge wraps fenced code blocks in div.highlighter-rouge
-// The .code-block class is added via JS when the copy button is injected
+// Copy button is appended inside this container via JS
 .highlighter-rouge,
 figure.highlight {
     position: relative;

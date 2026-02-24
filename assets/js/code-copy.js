@@ -86,6 +86,9 @@
                 button.classList.remove('code-block__copy--copied');
                 statusRegion.textContent = '';
             }, FEEDBACK_DURATION);
+        }).catch(function () {
+            // Clipboard write failed — notify the user
+            statusRegion.textContent = 'Failed to copy code';
         });
     }
 
@@ -99,7 +102,6 @@
         button.type = 'button';
         button.className = 'code-block__copy';
         button.textContent = 'Copy';
-        button.setAttribute('aria-label', 'Copy code to clipboard');
         return button;
     }
 
