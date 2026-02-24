@@ -50,6 +50,8 @@
 - [ ] Update spec.md status to Completed
 - [ ] Update tasks.md — mark all tasks done
 - [ ] Fill in structured completion notes in spec.md (all 5 sections)
+- [ ] Update docs/lessons-learned.md if any reusable lessons emerged
+- [ ] Flag any lessons that require rule/convention changes to user
 - [ ] Merge feature branch to master
 - [ ] Delete feature branch (local and remote)
 - [ ] Verify GitHub Actions deploy succeeded

@@ -1,6 +1,6 @@
 # Prompt: Testing
 
-Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting documents in that directory.
+Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting documents in that directory. Also read `docs/lessons-learned.md` for known pitfalls to check during testing.
 
 This phase has two stages. Complete Stage 1 (Claude verification + SME audits) before moving to Stage 2 (user testing).
 

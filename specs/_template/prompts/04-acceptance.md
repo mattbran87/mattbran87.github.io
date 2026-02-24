@@ -28,6 +28,15 @@ Fill in the Completion Notes section in `spec.md` using the structured template.
 - **What Didn't Go Well** — friction points, rework, surprises, or time sinks
 - **Lessons Learned** — specific takeaways to carry forward to future features
 
+## Knowledge Base Update Check
+
+After filling in Completion Notes, review the Lessons Learned section and ask:
+
+1. **Does any lesson apply to future features?** If yes, add it to `docs/lessons-learned.md` under the appropriate category with the spec number as source.
+2. **Does any lesson require a rule or convention change?** If yes, flag it to the user and propose updates to `CLAUDE.md`, `docs/code-guidelines.md`, or other process docs.
+
+If no reusable lessons emerged, note "No updates needed" and move on.
+
 ## Deploy Verification (mandatory)
 
 After merging the feature branch to master:

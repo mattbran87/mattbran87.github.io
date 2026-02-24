@@ -36,6 +36,7 @@ Read the feature roadmap at `specs/roadmap.md` and all active feature specs in t
 
 Provide a clear summary:
 - **Retrospective Check** — flag any completed roadmap groups missing a milestone retrospective in `docs/retrospectives/`. Recommend completing the retro before starting new features.
+- **Lessons Learned Check** — confirm `docs/lessons-learned.md` is up to date. If a retrospective was recently completed, verify its actionable items have been added to the lessons-learned document.
 - **Project Status** — completed, in progress, and upcoming features
 - **Recommendation** — which feature to start next with rationale
 - **Prep Needed** — any decisions or setup required before kicking off the spec

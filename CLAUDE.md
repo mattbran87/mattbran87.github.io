@@ -86,6 +86,10 @@ Do not edit files inside the gem directly.
 
 See [`docs/code-guidelines.md`](docs/code-guidelines.md) for full details covering JavaScript (JSDoc), CSS/SCSS (BEM, custom properties), HTML/Liquid (semantic markup, error handling), Markdown, accessibility, and file organization conventions.
 
+## Lessons Learned
+
+See [`docs/lessons-learned.md`](docs/lessons-learned.md) for known pitfalls, validated patterns, and reusable lessons extracted from feature retrospectives. Consult during Research & Planning and Testing phases.
+
 ## Change Tiers
 
 Not all changes require the full spec workflow. Choose the tier that matches the scope.

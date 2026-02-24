@@ -159,6 +159,12 @@ A milestone review covers:
 - Process improvements to adopt for the next group
 - Updated conventions to add to `CLAUDE.md` or `docs/code-guidelines.md`
 
+**After completing a milestone review (mandatory):**
+
+1. Extract reusable lessons and add them to [`docs/lessons-learned.md`](lessons-learned.md) under the appropriate categories with the retro as source. This is the living reference that phase prompts consult — retro insights only reach future features if they're captured there.
+2. Review the "Process Improvements for Next Group" section. If any improvement requires a rule or convention change, update `CLAUDE.md`, `docs/code-guidelines.md`, or other process docs. Document what was updated.
+3. If no lessons or rule changes are needed, note that explicitly in the retro.
+
 ## Branch Cleanup
 
 After a feature branch has been merged into `master`:

@@ -1,6 +1,6 @@
 # Prompt: Research & Planning
 
-Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting documents in that directory.
+Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting documents in that directory. Also read `docs/lessons-learned.md` for known pitfalls and patterns relevant to this feature.
 
 This phase has two stages separated by a **mandatory conversation checkpoint**. Complete Research first, then stop for discussion before moving to Planning.
 
