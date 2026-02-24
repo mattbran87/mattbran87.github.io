@@ -2,7 +2,7 @@
 
 ## Overview
 
-The main Claude agent orchestrates SME (Subject Matter Expert) subagents during the spec engineering workflow. Each SME is invoked via custom slash commands in `.claude/commands/`. This document defines when each SME is required, when they are optional, and how conflicts are resolved.
+The main Claude agent orchestrates SME (Subject Matter Expert) consultations during the spec engineering workflow. Each SME is a custom slash command in `.claude/commands/`, invoked via the **Skill tool** (e.g., `/jekyll-sme`). Do **not** use the Task tool to invoke SMEs — the Task tool only supports built-in agent types. This document defines when each SME is required, when they are optional, and how conflicts are resolved.
 
 ## Available SMEs
 

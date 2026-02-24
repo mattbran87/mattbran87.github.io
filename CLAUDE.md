@@ -117,9 +117,11 @@ For user-facing features, significant architectural changes, and anything that r
 
 Available in `.claude/commands/`. Start a new session to pick up new or changed commands.
 
-### SME Subagents
+### SME Commands
 
 See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/optional rules per phase, invocation order, and conflict resolution.
+
+**Important:** SMEs are custom slash commands invoked via the **Skill tool** (e.g., `/jekyll-sme`). They are **not** Task subagents — do not use the Task tool to invoke them. The Task tool only supports built-in agent types (`Bash`, `general-purpose`, `Explore`, `Plan`, etc.).
 
 | Command | Domain |
 |---------|--------|
