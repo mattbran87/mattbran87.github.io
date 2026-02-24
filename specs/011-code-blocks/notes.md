@@ -130,4 +130,4 @@ All SME findings across every phase, with disposition. Add rows as findings come
 
 ## Acceptance
 
-- [Final review notes, user feedback, sign-off details]
+- Deploy verification: `gh` CLI not installed — user verified deploy and live site manually. Consider installing `gh` CLI for future automated deploy checks.
