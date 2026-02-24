@@ -32,6 +32,8 @@
 - [ ] Test edge cases and error scenarios
 - [ ] Test on local dev server (`bundle exec jekyll serve`)
 - [ ] Validate HTML output in `_site/`
+- [ ] Provide user testing plan (if manual/visual testing needed)
+- [ ] Complete user testing plan together with user
 - [ ] Document any issues found in notes.md
 - [ ] Get sign-off to move to Acceptance
 

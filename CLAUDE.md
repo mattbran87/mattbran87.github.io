@@ -163,6 +163,8 @@ Each feature progresses through four phases in order. A phase must be completed 
 
 **Phase 1 has a mandatory conversation checkpoint.** Research is completed first (findings, approaches, tradeoffs documented). Then Claude must stop and present: what was found, what is recommended, and how to build it. Planning and task breakdown only begin after the user discusses and approves the direction.
 
+**Phase 3 requires a user testing plan.** When testing requires user involvement (visual checks, browser interaction, device testing), Claude must provide a detailed step-by-step testing plan as a checklist. Claude and the user walk through the list together, checking off items only with the user's confirmation.
+
 ### Using Phase Prompts
 
 Each `prompts/0N-phase.md` file is a self-contained prompt designed to be fed to Claude Code to initiate that phase. The prompt instructs Claude to:
