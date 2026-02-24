@@ -1,0 +1,74 @@
+{%- comment -%} Guard: only compute related posts if the current post has tags {%- endcomment -%}
+{%- if page.tags and page.tags.size > 0 -%}
+
+    {%- comment -%} Build a scored list of related posts by counting shared tags {%- endcomment -%}
+    {%- assign related_collector = "" -%}
+    {%- for candidate in site.posts -%}
+        {%- comment -%} Skip the current post {%- endcomment -%}
+        {%- unless candidate.url == page.url -%}
+            {%- comment -%} Count how many tags overlap with the current post {%- endcomment -%}
+            {%- assign shared_count = 0 -%}
+            {%- for tag in page.tags -%}
+                {%- if candidate.tags contains tag -%}
+                    {%- assign shared_count = shared_count | plus: 1 -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- comment -%} Append scored entry if any tags overlap (zero-padded for lexicographic sort) {%- endcomment -%}
+            {%- if shared_count > 0 -%}
+                {%- if shared_count < 10 -%}
+                    {%- assign padded_score = shared_count | prepend: "0" -%}
+                {%- else -%}
+                    {%- assign padded_score = shared_count -%}
+                {%- endif -%}
+                {%- assign entry = padded_score | append: "|" | append: candidate.url -%}
+                {%- if related_collector == "" -%}
+                    {%- assign related_collector = entry -%}
+                {%- else -%}
+                    {%- assign related_collector = related_collector | append: "," | append: entry -%}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endunless -%}
+    {%- endfor -%}
+
+    {%- comment -%} Sort scored entries descending and take the top 3 {%- endcomment -%}
+    {%- if related_collector != "" -%}
+        {%- assign sorted_entries = related_collector | split: "," | sort | reverse -%}
+        {%- assign related_limit = 3 -%}
+
+        <aside class="related-posts" aria-labelledby="related-posts-heading">
+            <h2 class="related-posts__heading" id="related-posts-heading">Related Posts</h2>
+            <ul class="related-posts__list" role="list">
+                {%- assign related_count = 0 -%}
+                {%- for entry in sorted_entries -%}
+                    {%- comment -%} Stop after 3 related posts {%- endcomment -%}
+                    {%- if related_count >= related_limit -%}
+                        {%- break -%}
+                    {%- endif -%}
+                    {%- comment -%} Extract the URL from the scored entry {%- endcomment -%}
+                    {%- assign entry_parts = entry | split: "|" -%}
+                    {%- assign related_url = entry_parts[1] -%}
+                    {%- comment -%} Look up the full post object by URL {%- endcomment -%}
+                    {%- for post in site.posts -%}
+                        {%- if post.url == related_url -%}
+                <li class="related-posts__item">
+                    <h3 class="related-posts__title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                    </h3>
+                    <p class="related-posts__meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%b %-d, %Y" }}
+                        </time>
+                    </p>
+                    <p class="related-posts__excerpt">
+                        {{ post.excerpt | default: "" | strip_html | truncatewords: 20 }}
+                    </p>
+                </li>
+                            {%- assign related_count = related_count | plus: 1 -%}
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                {%- endfor -%}
+            </ul>
+        </aside>
+    {%- endif -%}
+{%- endif -%}
