@@ -20,7 +20,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 009 | Search | `specs/009-search/` | Completed |
 | 010 | Related Posts | `specs/010-related-posts/` | Completed |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Completed |
-| 012 | Analytics | `specs/012-analytics/` | Not Started |
+| 012 | Analytics | `specs/012-analytics/` | Deferred (Research complete) |
 | 013 | Dark Mode | `specs/013-dark-mode/` | Not Started |
 | 014 | Custom 404 | `specs/014-custom-404/` | Not Started |
 | 015 | Uses Page | `specs/015-uses-page/` | Not Started |

@@ -17,6 +17,11 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-24
 
+- **[Docs]** Spec 012 Analytics — Research phase completed and deferred
+  - Rationale: Full research completed (4 SMEs consulted, 27 findings, 10 decisions). Deferred pending private repository and server migration.
+  - Summary: GA4 with cookie consent banner and privacy policy page. Research covers: production-only loading, Consent Mode v2, accessible non-modal banner (role="region"), privacy policy SEO (no noindex), script loading strategy, JS file organization. QA corrections applied to spec (acceptance criteria, SCSS path, edge cases).
+  - Files affected: `specs/012-analytics/` (all files), `specs/roadmap.md`
+
 - **[Docs]** Content Organization milestone retrospective (003, 004, 010)
   - Covers cross-feature patterns (Liquid complexity, BEM consistency, tags as universal connector), workflow observations, and process improvements for the next group
   - Files affected: `docs/retrospectives/2026-02-24-content-organization.md`
