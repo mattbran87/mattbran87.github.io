@@ -28,6 +28,12 @@ layout: default
                 <div class="post-card__excerpt">
                     {{ post.excerpt }}
                 </div>
+                {%- comment -%} Show series badge if the post belongs to a series {%- endcomment -%}
+                {%- if post.series and post.series_part -%}
+                <div class="post-card__series">
+                    {%- include series-badge.html series=post.series series_part=post.series_part -%}
+                </div>
+                {%- endif -%}
                 {%- if post.tags.size > 0 -%}
                 <div class="post-card__tags">
                     {%- include post-tags.html tags=post.tags -%}
