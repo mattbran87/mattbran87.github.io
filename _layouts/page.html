@@ -10,3 +10,9 @@ layout: default
         </div>
     </article>
 </div>
+
+{%- comment -%} Structured data — about page gets BreadcrumbList and Person schema {%- endcomment -%}
+{%- if page.permalink == "/about/" -%}
+    {%- include schema/breadcrumbs.html -%}
+    {%- include schema/person.html -%}
+{%- endif -%}

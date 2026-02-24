@@ -1,0 +1,16 @@
+{%- comment -%} Person JSON-LD for the about page — E-E-A-T anchor {%- endcomment -%}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "url": "{{ '/about/' | absolute_url }}",
+    "jobTitle": "Software Developer",
+    "description": {{ page.description | default: site.description | jsonify }},
+    "sameAs": [
+        {%- for link in site.social.links -%}
+        {{ link | jsonify }}{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+    ]
+}
+</script>

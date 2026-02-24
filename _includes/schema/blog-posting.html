@@ -1,0 +1,29 @@
+{%- comment -%} Enhanced BlogPosting JSON-LD — supplements jekyll-seo-tag output {%- endcomment -%}
+{%- assign word_count = content | number_of_words -%}
+{%- comment -%} Use the first tag as articleSection if tags exist {%- endcomment -%}
+{%- if page.tags.size > 0 -%}
+    {%- assign article_section = page.tags | first -%}
+{%- else -%}
+    {%- assign article_section = nil -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+    },
+    "wordCount": {{ word_count }},
+    "inLanguage": "{{ page.lang | default: site.lang | default: 'en' }}",
+    "isAccessibleForFree": true
+    {%- comment -%} Add keywords from tags if available {%- endcomment -%}
+    {%- if page.tags.size > 0 -%}
+    ,"keywords": {{ page.tags | jsonify }}
+    {%- endif -%}
+    {%- comment -%} Add articleSection from first tag if available {%- endcomment -%}
+    {%- if article_section -%}
+    ,"articleSection": {{ article_section | jsonify }}
+    {%- endif -%}
+}
+</script>
