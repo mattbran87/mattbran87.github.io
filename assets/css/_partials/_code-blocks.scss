@@ -1,0 +1,105 @@
+// ==========================================================================
+// Code Blocks
+// ==========================================================================
+//
+// Styles for inline code, code blocks, and the copy-to-clipboard button.
+// Syntax highlighting colors are in _syntax.scss (Rouge github theme).
+
+// ---------------------------------------------------------------------------
+// Inline code
+// ---------------------------------------------------------------------------
+
+code {
+    background-color: var(--color-code-bg);
+    padding: 0.125em 0.25em;
+    border-radius: 0.25rem;
+    font-size: var(--font-size-sm);
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Code block container
+// ---------------------------------------------------------------------------
+
+pre {
+    background-color: var(--color-code-bg);
+    padding: var(--spacing-md);
+    border-radius: 0.25rem;
+    overflow-x: auto;
+}
+
+// Rouge wraps fenced code blocks in div.highlighter-rouge
+// The .code-block class is added via JS when the copy button is injected
+.highlighter-rouge,
+figure.highlight {
+    position: relative;
+}
+
+// ---------------------------------------------------------------------------
+// Copy button — BEM block: .code-block__copy
+// ---------------------------------------------------------------------------
+
+.code-block__copy {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    z-index: 1;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    background-color: var(--color-background);
+    color: var(--color-muted);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast);
+
+    &:hover {
+        opacity: 1;
+        color: var(--color-text);
+        border-color: var(--color-text);
+    }
+
+    &:focus-visible {
+        opacity: 1;
+        color: var(--color-text);
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: 2px;
+    }
+
+    // Copied state
+    &--copied {
+        color: #116329;
+        border-color: #116329;
+        opacity: 1;
+    }
+}
+
+// On hover-capable devices, hide the button until the container is hovered
+@media (hover: hover) {
+    .code-block__copy {
+        opacity: 0;
+    }
+
+    .highlighter-rouge:hover .code-block__copy,
+    figure.highlight:hover .code-block__copy,
+    .code-block__copy:focus-visible,
+    .code-block__copy--copied {
+        opacity: 1;
+    }
+}
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+    .code-block__copy {
+        transition: none;
+    }
+}

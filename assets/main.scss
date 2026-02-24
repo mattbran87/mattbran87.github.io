@@ -47,6 +47,8 @@
 
 // 5. Project partials (use var(--*) only)
 @import "_partials/base";
+@import "_partials/syntax";
+@import "_partials/code-blocks";
 @import "_partials/skip-link";
 @import "_partials/header";
 @import "_partials/nav";

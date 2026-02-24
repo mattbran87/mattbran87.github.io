@@ -38,22 +38,4 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-// Code
-code {
-    background-color: var(--color-code-bg);
-    padding: 0.125em 0.25em;
-    border-radius: 0.25rem;
-    font-size: var(--font-size-sm);
-}
-
-pre code {
-    background-color: transparent;
-    padding: 0;
-}
-
-pre {
-    background-color: var(--color-code-bg);
-    padding: var(--spacing-md);
-    border-radius: 0.25rem;
-    overflow-x: auto;
-}
+// Code — styles moved to _code-blocks.scss
