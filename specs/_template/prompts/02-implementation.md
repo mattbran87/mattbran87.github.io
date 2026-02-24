@@ -16,9 +16,18 @@ Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting doc
 
 - Follow the project conventions in `CLAUDE.md`
 - Only implement what is defined in the spec — do not add unrequested features
-- If you encounter a decision not covered in `decisions.md`, stop and ask before proceeding
-- If a task turns out to be more complex than expected, update `tasks.md` with subtasks
 - Do not merge to master — the feature branch is merged after Acceptance
+
+## Checkpoint Rule (mandatory)
+
+**Never guess — always surface.** You must pause and check in with the user whenever:
+
+- A task uncovers a problem not anticipated during planning (unexpected dependency, missing data, conflicting requirements)
+- The implementation is deviating from the planned approach in `tasks.md`
+- A decision needs to be made that isn't covered in `decisions.md`
+- A task is significantly more complex than expected
+
+When pausing, explain what you found, what the options are, and what you recommend. Wait for the user's direction before continuing. If a task needs to be split into subtasks, update `tasks.md` and confirm with the user.
 
 ## Deliverables
 

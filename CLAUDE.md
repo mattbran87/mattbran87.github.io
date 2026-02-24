@@ -86,14 +86,32 @@ Do not edit files inside the gem directly.
 
 See [`docs/code-guidelines.md`](docs/code-guidelines.md) for full details covering JavaScript (JSDoc), CSS/SCSS (BEM, custom properties), HTML/Liquid (semantic markup, error handling), Markdown, accessibility, and file organization conventions.
 
-## Minor Changes
+## Change Tiers
 
-Not all changes require the spec workflow. For small fixes, config tweaks, content edits, and other minor work:
+Not all changes require the full spec workflow. Choose the tier that matches the scope.
+
+### Minor Changes
+
+For small fixes, config tweaks, content edits, and other minor work:
 
 - **Do not** create a spec directory — just make the change directly
 - **Do** log the change in [`docs/changelog.md`](docs/changelog.md) with date, type, description, and affected files
 - **Types:** Fix, Tweak, Config, Content, Docs, Chore
 - This applies only to sessions that do not use the spec engineering workflow — if a spec is active, changes are tracked in that spec's documents instead
+
+### Mini-Spec Changes
+
+For work that touches 3+ files or modifies workflow/process/shared infrastructure — but does not add a user-facing feature and does not require research into multiple approaches.
+
+- **Do not** create a spec directory or go through the 4-phase workflow
+- **Do** discuss the change with the user before implementing (what, why, which files)
+- **Do** log in [`docs/changelog.md`](docs/changelog.md) with an expanded entry: rationale, summary of what changed, and files affected
+- **Types:** Process, Workflow, Infrastructure
+- **Use full spec instead when:** the change affects site output, requires evaluating multiple approaches, or has acceptance criteria that need testing
+
+### Full Spec
+
+For user-facing features, significant architectural changes, and anything that requires research, SME consultation, and structured testing. See [Spec Engineering Workflow](#spec-engineering-workflow) below.
 
 ## Custom Commands
 
@@ -163,7 +181,11 @@ Each feature progresses through four phases in order. A phase must be completed 
 
 **Phase 1 has a mandatory conversation checkpoint.** Research is completed first (findings, approaches, tradeoffs documented). Then Claude must stop and present: what was found, what is recommended, and how to build it. Planning and task breakdown only begin after the user discusses and approves the direction.
 
-**Phase 3 requires a user testing plan.** When testing requires user involvement (visual checks, browser interaction, device testing), Claude must provide a detailed step-by-step testing plan as a checklist. Claude and the user walk through the list together, checking off items only with the user's confirmation.
+**Phase 2 has an implicit checkpoint rule.** Claude must pause and check in with the user whenever: a task uncovers an unanticipated problem, the implementation deviates from the plan in `tasks.md`, a decision is needed that isn't covered in `decisions.md`, or a task is significantly more complex than expected. Never guess — always surface issues before continuing.
+
+**Phase 3 has two internal stages.** Stage 1: Claude verification and SME audits (automated checks, acceptance criteria, HTML validation, SME reviews). Stage 2: User testing plan — a detailed checklist walked through together with the user, items checked off only with user confirmation.
+
+**Phase 3 bug fix flow.** When a bug is found during Testing, Claude documents it in `notes.md`, presents it to the user with a severity assessment, and asks: fix now or continue testing? If "fix now," the phase returns to Implementation, Claude fixes and commits, then Testing resumes where it left off. The round-trip is logged in the Phase History. If "continue testing," all issues are batched and fixed in a single return to Implementation.
 
 ### Using Phase Prompts
 
@@ -190,6 +212,15 @@ When a feature passes Acceptance:
 - No commits during Testing phase unless issues are sent back to Implementation for fixes
 - Merge the feature branch to `master` after Acceptance is complete
 - Delete the feature branch after merge (local and remote)
+
+### Multi-Session Coordination
+
+When multiple Claude sessions are running simultaneously:
+
+- **The implementation session owns the feature branch.** It has priority for all commits and file changes on that branch.
+- **Other sessions** (process improvements, minor fixes, documentation) should commit to `master` directly. The feature branch picks up those changes on merge.
+- **If a non-primary session must commit to the feature branch**, it should only touch files outside the feature's affected files list in `spec.md`.
+- **Shared files** (`_config.yml`, layouts, includes) are owned by the implementation session during an active feature. Other sessions flag needed changes but do not make them.
 
 ### Conventions
 

@@ -48,6 +48,38 @@ Publish when ready — no fixed schedule.
 
 No changelog entry needed for new posts or content edits — these are the site's primary purpose.
 
+## Mini-Spec Workflow
+
+For changes that are bigger than a minor fix but don't warrant the full spec engineering workflow. Typically: process changes, workflow updates, shared infrastructure modifications, or documentation overhauls that touch 3+ files.
+
+### When to Use
+
+- The change touches 3 or more files
+- The change modifies workflow, process, or shared infrastructure
+- The change does NOT add a user-facing feature
+- The change does NOT require researching multiple approaches
+
+If the change affects site output, requires evaluating alternatives, or has acceptance criteria that need testing — use the full spec workflow instead.
+
+### Process
+
+1. **Discuss** — Claude presents the proposed change to the user: what, why, and which files
+2. **Implement** — after user approval, make the changes
+3. **Log** — add an expanded changelog entry in `docs/changelog.md` with:
+   - **Type:** Process, Workflow, or Infrastructure
+   - **Rationale:** why the change was made
+   - **Summary:** what changed
+   - **Files affected:** list of modified files
+
+### Changelog Entry Format
+
+```markdown
+- **[Process]** Add mandatory research discussion checkpoint to Phase 1
+  - Rationale: Research findings need user review before planning begins
+  - Summary: Split Phase 1 into Research and Planning stages with a mandatory conversation gate
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/01-research-planning.md`, `specs/_template/checklist.md`, `specs/_template/tasks.md`, `docs/sme-orchestration.md`
+```
+
 ## Incident/Hotfix Workflow
 
 When the live site is broken or has a critical issue, use the **spec engineering workflow** to document what happened and how it was fixed. This ensures incidents are thoroughly recorded for future reference.

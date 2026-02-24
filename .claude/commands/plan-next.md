@@ -28,12 +28,14 @@ Read the feature roadmap at `specs/roadmap.md` and all active feature specs in t
 
 1. Read `specs/roadmap.md` for the full feature list, priorities, groupings, and dependencies
 2. Scan `specs/` for any existing feature directories and check their `spec.md` for current status and phase
-3. Summarize the project state
-4. Recommend next steps
+3. **Check for missing retrospectives:** Compare completed natural groupings in the roadmap against `docs/retrospectives/`. If a group is fully completed but has no retrospective file, flag it as a blocker before recommending new work.
+4. Summarize the project state
+5. Recommend next steps
 
 ## Output
 
 Provide a clear summary:
+- **Retrospective Check** — flag any completed roadmap groups missing a milestone retrospective in `docs/retrospectives/`. Recommend completing the retro before starting new features.
 - **Project Status** — completed, in progress, and upcoming features
 - **Recommendation** — which feature to start next with rationale
 - **Prep Needed** — any decisions or setup required before kicking off the spec

@@ -22,16 +22,22 @@
 
 - [ ] Create feature branch (e.g., `feature/NNN-feature-name`)
 - [ ] Implement changes per tasks.md — commit after each completed task
+- [ ] Pause and check in with user on any unanticipated problems or deviations
 - [ ] Update affected files list in spec.md
 - [ ] Self-review code for quality and conventions
 - [ ] Get sign-off to move to Testing
 
 ## Phase 3: Testing
 
+### Stage 1: Claude Verification & SME Audits
 - [ ] Verify each acceptance criterion in spec.md
 - [ ] Test edge cases and error scenarios
 - [ ] Test on local dev server (`bundle exec jekyll serve`)
 - [ ] Validate HTML output in `_site/`
+- [ ] Run required SME audits (Accessibility, QA)
+- [ ] Follow bug fix flow for any issues (document → ask user → fix or batch)
+
+### Stage 2: User Testing
 - [ ] Provide user testing plan (if manual/visual testing needed)
 - [ ] Complete user testing plan together with user
 - [ ] Document any issues found in notes.md
