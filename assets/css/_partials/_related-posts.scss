@@ -1,0 +1,65 @@
+// ==========================================================================
+// Related Posts
+// ==========================================================================
+//
+// Supplementary section at the bottom of blog posts showing related content.
+// Standalone BEM block — reusable in any layout context.
+
+.related-posts {
+    max-width: var(--content-max-width);
+    margin: var(--spacing-xxl) auto 0;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.related-posts__heading {
+    font-size: 1.25rem;
+    font-weight: var(--headings-font-weight);
+    margin-bottom: var(--spacing-lg);
+}
+
+.related-posts__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.related-posts__item {
+    padding-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+.related-posts__title {
+    font-size: 1.125rem;
+    font-weight: var(--headings-font-weight);
+    margin-bottom: var(--spacing-xs);
+
+    a {
+        color: var(--color-heading);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.related-posts__meta {
+    color: var(--meta-color);
+    font-size: var(--meta-font-size);
+    margin-bottom: var(--spacing-sm);
+}
+
+.related-posts__excerpt {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin-bottom: 0;
+}
