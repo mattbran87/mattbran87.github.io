@@ -1,0 +1,16 @@
+{%- comment -%} WebSite SearchAction JSON-LD — tells search engines about the site's search page {%- endcomment -%}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "{{ '/' | absolute_url }}",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "{{ '/search/' | absolute_url }}?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+    }
+}
+</script>

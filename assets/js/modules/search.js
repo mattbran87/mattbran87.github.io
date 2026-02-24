@@ -4,7 +4,8 @@
  * index generated at build time, builds a Lunr index with boosted fields
  * (title, tags, categories, excerpt, content), and renders results as the
  * user types. Debounced at 300ms to avoid excessive index queries. Handles
- * empty query, no results, and loading states.
+ * empty query, no results, and loading states. Supports ?q= URL parameter
+ * for SearchAction integration (arriving from search engines).
  */
 
 (function () {
@@ -207,6 +208,17 @@
         request.send();
     }
 
+    // Populate search input from ?q= URL parameter (e.g., from SearchAction)
+    try {
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryParam = urlParams.get('q');
+        if (queryParam) {
+            searchInput.value = queryParam;
+        }
+    } catch (e) {
+        // URLSearchParams not supported — ignore
+    }
+
     // Bind input event for live search
     searchInput.addEventListener('input', onInput);
 
@@ -219,6 +231,6 @@
         }
     });
 
-    // Load the search index
+    // Load the search index (will auto-search if ?q= param populated the input)
     loadSearchIndex();
 })();
