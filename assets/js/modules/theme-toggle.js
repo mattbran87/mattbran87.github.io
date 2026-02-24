@@ -11,30 +11,6 @@
 const ANNOUNCEMENT_DURATION = 2000;
 
 /**
- * Retrieves the user's stored theme preference from localStorage and
- * falls back to the system preference if no stored value exists. Checks
- * the prefers-color-scheme media query to determine the system default.
- *
- * @returns {string} The theme name — either "light" or "dark"
- */
-function getPreferredTheme() {
-    // Check localStorage first
-    try {
-        const stored = localStorage.getItem('theme');
-        if (stored) {
-            return stored;
-        }
-    } catch (e) {
-        // Storage unavailable — fall through to system preference
-    }
-
-    // Fall back to system preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-}
-
-/**
  * Applies the given theme to the document root by setting the
  * data-bs-theme attribute. Bootstrap and project custom properties
  * respond to this attribute automatically.
