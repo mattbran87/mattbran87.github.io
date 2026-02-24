@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-> **Last Updated:** 2026-02-22
+> **Last Updated:** 2026-02-23
 > **Research docs:** [`docs/`](../docs/)
 
 ## Feature Queue
@@ -13,7 +13,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 002 | Custom Theme | `specs/002-custom-theme/` | Completed |
 | 003 | Tags & Categories | `specs/003-tags-categories/` | Completed |
 | 004 | Series Support | `specs/004-series-support/` | Completed |
-| 005 | Contact Form | `specs/005-contact-form/` | Not Started |
+| 005 | Contact Form | `specs/005-contact-form/` | Completed |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
 | 007 | Custom Homepage | `specs/007-custom-homepage/` | Not Started |
 | 008 | SEO Foundation | `specs/008-seo-foundation/` | Not Started |
