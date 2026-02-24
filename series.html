@@ -11,31 +11,33 @@ permalink: /series/
 
             {%- comment -%} Show all series from the data file if any exist {%- endcomment -%}
             {%- if site.data.series.size > 0 -%}
+            <section aria-label="Available series">
                 {%- comment -%} Loop through each series defined in _data/series.yml {%- endcomment -%}
                 {%- for series_entry in site.data.series -%}
                     {%- assign series_slug = series_entry[0] -%}
                     {%- assign series_meta = series_entry[1] -%}
                     {%- comment -%} Count posts in this series {%- endcomment -%}
                     {%- assign series_posts = site.posts | where: "series", series_slug | sort: "series_part" -%}
-            <article class="series-card">
-                <h2 class="series-card__title">
-                    <a href="{{ '/series/' | append: series_slug | append: '/' | relative_url }}">
-                        {{ series_meta.title }}
-                    </a>
-                </h2>
-                {%- comment -%} Show series status badge {%- endcomment -%}
-                {%- if series_meta.status == "in_progress" -%}
-                <span class="series-archive__status series-archive__status--in-progress">In progress</span>
-                {%- elsif series_meta.status == "complete" -%}
-                <span class="series-archive__status series-archive__status--complete">Complete</span>
-                {%- endif -%}
-                {%- comment -%} Show description if available {%- endcomment -%}
-                {%- if series_meta.description -%}
-                <p class="series-card__description">{{ series_meta.description }}</p>
-                {%- endif -%}
-                <p class="series-card__count">{{ series_posts.size }} {% if series_posts.size == 1 %}part{% else %}parts{% endif %}</p>
-            </article>
+                <article class="series-card">
+                    <h2 class="series-card__title">
+                        <a href="{{ '/series/' | append: series_slug | append: '/' | relative_url }}">
+                            {{ series_meta.title }}
+                        </a>
+                    </h2>
+                    {%- comment -%} Show series status badge {%- endcomment -%}
+                    {%- if series_meta.status == "in_progress" -%}
+                    <span class="series-archive__status series-archive__status--in-progress">In progress</span>
+                    {%- elsif series_meta.status == "complete" -%}
+                    <span class="series-archive__status series-archive__status--complete">Complete</span>
+                    {%- endif -%}
+                    {%- comment -%} Show description if available {%- endcomment -%}
+                    {%- if series_meta.description -%}
+                    <p class="series-card__description">{{ series_meta.description }}</p>
+                    {%- endif -%}
+                    <p class="series-card__count">{{ series_posts.size }} {% if series_posts.size == 1 %}part{% else %}parts{% endif %}</p>
+                </article>
                 {%- endfor -%}
+            </section>
             {%- else -%}
             <p>No series yet.</p>
             {%- endif -%}

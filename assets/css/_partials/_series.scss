@@ -73,6 +73,11 @@
         &:hover {
             text-decoration: underline;
         }
+
+        &:focus-visible {
+            outline: var(--focus-ring-width) solid var(--focus-ring-color);
+            outline-offset: 2px;
+        }
     }
 }
 
@@ -98,6 +103,11 @@
 
     &:hover {
         text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: 2px;
     }
 }
 
@@ -172,12 +182,12 @@
 
 .series-archive__status--in-progress {
     background-color: #fff3cd;
-    color: #664d03;
+    color: #4d3a02;
 }
 
 .series-archive__status--complete {
     background-color: #d1e7dd;
-    color: #0a3622;
+    color: #051f13;
 }
 
 .series-archive__count {
