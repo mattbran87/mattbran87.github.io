@@ -42,6 +42,26 @@ Minor changes that do not go through the spec engineering workflow. For feature-
   - Summary: Added SME Finding Tracker table to notes.md template, standardized finding format (SME Name — Phase with Finding/Recommendation), added Documentation Requirements to all 6 SME command files, added documentation standard to sme-orchestration.md
   - Files affected: `specs/_template/notes.md`, `docs/sme-orchestration.md`, `.claude/commands/jekyll-sme.md`, `.claude/commands/accessibility-sme.md`, `.claude/commands/qa-sme.md`, `.claude/commands/bootstrap-sme.md`, `.claude/commands/css-design-sme.md`, `.claude/commands/seo-sme.md`
 
+- **[Process]** Add session handoff protocol to all phase prompts
+  - Rationale: New sessions had no structured way to know where the previous session stopped, especially after unexpected ends
+  - Summary: Added Last Session block to tasks.md template (updated when starting each task and ending a session). Added Session Handoff section to all 4 phase prompts as a mandatory deliverable.
+  - Files affected: `CLAUDE.md`, `specs/_template/tasks.md`, `specs/_template/prompts/01-research-planning.md`, `specs/_template/prompts/02-implementation.md`, `specs/_template/prompts/03-testing.md`, `specs/_template/prompts/04-acceptance.md`
+
+- **[Process]** Add deploy verification to Acceptance phase
+  - Rationale: Features were marked complete at merge but deploy success was not verified — a failed deploy meant the feature wasn't actually shipped
+  - Summary: Acceptance checklist and prompt now require waiting for GitHub Actions deploy, spot-checking the live site, and returning to Implementation if deploy fails
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/04-acceptance.md`, `specs/_template/checklist.md`
+
+- **[Process]** Add structured completion notes template
+  - Rationale: Completion notes were freeform, making it hard to compare retros across features or extract patterns during milestone reviews
+  - Summary: Replaced placeholder with 5-section template: Delivered, Deviations, What Went Well, What Didn't Go Well, Lessons Learned
+  - Files affected: `specs/_template/spec.md`, `specs/_template/prompts/04-acceptance.md`
+
+- **[Process]** Add template check rule for in-progress specs
+  - Rationale: Template updates don't propagate to specs already in progress, causing process-critical changes (like the SME tracker table) to be missed
+  - Summary: When resuming an in-progress spec, sessions must compare against specs/_template/ and adopt process-critical changes. Added to Implementation and Testing prompts.
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/02-implementation.md`, `specs/_template/prompts/03-testing.md`
+
 - **[Config]** Remove Contact page from header navigation
   - Files affected: `_config.yml`
 
