@@ -38,10 +38,6 @@ social:
     - https://github.com/mattbran87
     - https://www.linkedin.com/in/mattbran87
 
-# Twitter/X card format
-twitter:
-  card: summary_large_image
-
 # Navigation links (controls which pages appear in the header nav)
 header_pages:
   - about.markdown
