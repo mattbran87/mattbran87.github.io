@@ -20,6 +20,12 @@ All SME findings across every phase, with disposition. Add rows as findings come
 | S12 | Research | CSS | BEM block name `.code-block` with elements `__copy`, `__copy--copied` | Add `.code-block` class via JS alongside Rouge's existing classes | Adopted |
 | S13 | Research | CSS | Existing code styles in `_base.scss` should move to `_code-blocks.scss` | Consolidate all code block styles in one partial | Adopted |
 | S14 | Research | CSS | Opacity hover pattern needs reduced-motion and touch-device handling | Use `@media (hover: hover)` for hover-only behavior; `prefers-reduced-motion` to disable transitions | Adopted → D6 |
+| S15 | Testing | A11y | `aria-label` overrides visible text during "Copied!" state (WCAG 2.5.3) | Remove `aria-label`; visible text is clear enough | Fixed in 8689e77 |
+| S16 | Testing | A11y | Missing `.catch()` on clipboard promise — no failure feedback | Add `.catch()` with status region message | Fixed in 8689e77 |
+| S17 | Testing | A11y | Comment syntax color (#6e7781 on #f5f5f5) is 4.19:1 — below 4.5:1 AA | Standard GitHub theme trade-off; not a blocker | N/A |
+| S18 | Testing | A11y | Overflowing code blocks not keyboard-scrollable | Could add `tabindex="0"` + `role="region"` — deferred | Deferred |
+| S19 | Testing | QA | Misleading SCSS comment about `.code-block` class injection | Update comment to reflect actual approach | Fixed in 8689e77 |
+| S20 | Testing | QA | Syntax theme lines 11-12 use single-line format from generator | Acceptable for generated code | N/A |
 
 ---
 
@@ -91,20 +97,34 @@ All SME findings across every phase, with disposition. Add rows as findings come
 ### Stage 1: Claude Verification & SME Audits
 
 #### Accessibility SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+- **Finding:** `aria-label` overrode visible text, creating WCAG 2.5.3 mismatch during "Copied!" state
+- **Recommendation:** Remove `aria-label` — visible text "Copy"/"Copied!" is clear. **Fixed.**
+
+- **Finding:** No `.catch()` on clipboard promise — failure gives no user feedback
+- **Recommendation:** Add `.catch()` with status region announcement. **Fixed.**
+
+- **Finding:** Comment syntax color (#6e7781 on #f5f5f5) measures ~4.19:1, just below 4.5:1 AA
+- **Recommendation:** Standard GitHub theme trade-off. Not blocking.
+
+- **Finding:** Overflowing code blocks not keyboard-scrollable (no `tabindex`)
+- **Recommendation:** Deferred — current posts don't have extreme line lengths.
 
 #### QA SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+- **Finding:** Misleading SCSS comment said `.code-block` class added via JS (it isn't)
+- **Recommendation:** Updated comment to describe actual approach. **Fixed.**
+
+- **Finding:** Syntax theme lines 11-12 use single-line format from rougify generator
+- **Recommendation:** Acceptable for generated code. No action needed.
+
+- **Finding:** All other checks pass — JSDoc, BEM, custom properties, indentation, imports, build
 
 ### Stage 2: User Testing
 
-- [User testing observations, pass/fail results]
+- All 8 test items passed — syntax highlighting, copy button, feedback, inline code, responsive, keyboard
 
 ### Issues Found
 
-- [Issues documented with steps to reproduce, severity, and fix status]
+- None — all user testing items passed
 
 ---
 

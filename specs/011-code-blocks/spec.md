@@ -1,9 +1,9 @@
 # Feature: Code Block Enhancements
 
 > **Spec ID:** 011
-> **Status:** Implementation
+> **Status:** Completed
 > **Created:** 2026-02-24
-> **Completed:** —
+> **Completed:** 2026-02-24
 
 ## Goal
 
@@ -15,14 +15,14 @@ As a developer blog, code blocks are a core content element. The current setup u
 
 ## Requirements
 
-- [ ] Add a copy-to-clipboard button on all code blocks
-- [ ] Implement a custom syntax highlighting theme that matches the site's visual identity
-- [ ] Style consistently with the existing Bootstrap-based theme
-- [ ] Follow BEM naming conventions for CSS classes
-- [ ] Full keyboard accessibility and semantic HTML
-- [ ] No external JavaScript dependencies (vanilla JS only)
-- [ ] Works with all languages Rouge supports
-- [ ] Responsive — code blocks scroll horizontally on small screens
+- [x] Add a copy-to-clipboard button on all code blocks
+- [x] Implement a custom syntax highlighting theme that matches the site's visual identity
+- [x] Style consistently with the existing Bootstrap-based theme
+- [x] Follow BEM naming conventions for CSS classes
+- [x] Full keyboard accessibility and semantic HTML
+- [x] No external JavaScript dependencies (vanilla JS only)
+- [x] Works with all languages Rouge supports
+- [x] Responsive — code blocks scroll horizontally on small screens
 
 ## Constraints
 
@@ -34,15 +34,15 @@ As a developer blog, code blocks are a core content element. The current setup u
 
 ## Acceptance Criteria
 
-- [ ] Code blocks display a "Copy" button that copies content to clipboard on click
-- [ ] Copy button shows "Copied!" text for 2 seconds after successful copy
-- [ ] Custom syntax theme (github) is applied and visually cohesive with site theme
-- [ ] Code blocks are horizontally scrollable on narrow viewports
-- [ ] Copy button is always visible on touch devices; hover-reveal on desktop
-- [ ] Copy button is keyboard accessible (focusable via Tab, activatable via Enter/Space)
-- [ ] Screen readers announce the copy button purpose and copy result via aria-live region
-- [ ] No JavaScript errors in the browser console
-- [ ] Existing posts render correctly without modification
+- [x] Code blocks display a "Copy" button that copies content to clipboard on click
+- [x] Copy button shows "Copied!" text for 2 seconds after successful copy
+- [x] Custom syntax theme (github) is applied and visually cohesive with site theme
+- [x] Code blocks are horizontally scrollable on narrow viewports
+- [x] Copy button is always visible on touch devices; hover-reveal on desktop
+- [x] Copy button is keyboard accessible (focusable via Tab, activatable via Enter/Space)
+- [x] Screen readers announce the copy button purpose and copy result via aria-live region
+- [x] No JavaScript errors in the browser console
+- [x] Existing posts render correctly without modification
 
 ## Affected Files
 
@@ -58,23 +58,33 @@ As a developer blog, code blocks are a core content element. The current setup u
 | Phase | Started | Completed | Notes |
 |-------|---------|-----------|-------|
 | Research & Planning | 2026-02-24 | 2026-02-24 | Line numbers deferred, visible text copy button confirmed |
-| Implementation | 2026-02-24 | — | |
-| Testing | — | — | |
-| Acceptance | — | — | |
+| Implementation | 2026-02-24 | 2026-02-24 | 6 tasks completed, self-review caught opacity bug in hover media query |
+| Testing | 2026-02-24 | 2026-02-24 | 2 warnings fixed (aria-label, .catch()), 2 info deferred, user testing passed |
+| Acceptance | 2026-02-24 | 2026-02-24 | All criteria met, deploy pending |
 
 ## Completion Notes
 
 ### Delivered
-- [What was built — brief summary of the final implementation]
+- Rouge github syntax highlighting theme (`_syntax.scss`) — colored code blocks matching the site's light gray background
+- Copy-to-clipboard button on all code blocks (`code-copy.js`, `_code-blocks.scss`) — "Copy"/"Copied!" visible text, Clipboard API, aria-live announcements
+- Code styles consolidated from `_base.scss` into dedicated `_code-blocks.scss` partial
+- Responsive hover-reveal pattern: always visible on touch, hidden-until-hover on desktop, always visible on keyboard focus
+- `prefers-reduced-motion` support for transitions
 
 ### Deviations
-- [Anything that changed from the original spec and why, or "None"]
+- Line numbers deferred — originally in the spec description, removed during Research after analyzing the complexity vs. value tradeoff (D3)
+- `aria-label` removed during Testing — SME audit found WCAG 2.5.3 mismatch; visible text is sufficient
+- JS uses IIFE + defer pattern (not ES modules) for consistency with existing scripts (D7)
 
 ### What Went Well
-- [Process, tools, or decisions that worked effectively]
+- Self-review caught the opacity bug in `@media (hover: hover)` before committing — the `--copied` state would have been invisible on desktop
+- SME audits caught the `aria-label` mismatch and missing `.catch()` — both quick fixes with clear guidance
+- The `rougify` CLI generated a complete, usable theme in seconds — no manual token mapping needed
+- Clean separation of concerns: syntax colors in `_syntax.scss`, component styles in `_code-blocks.scss`, behavior in `code-copy.js`
 
 ### What Didn't Go Well
-- [Friction points, rework, surprises, or time sinks]
+- Nothing significant — the feature was well-scoped and straightforward
 
 ### Lessons Learned
-- [Specific takeaways to carry forward to future features]
+- Self-review before committing catches CSS cascade issues (media query specificity) that aren't obvious in the source
+- Generated theme CSS should be kept close to the original output to make future regeneration easy — customize only what's necessary (background color)

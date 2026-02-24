@@ -25,31 +25,31 @@
 - [x] Pause and check in with user on any unanticipated problems or deviations
 - [x] Update affected files list in spec.md
 - [x] Self-review code for quality and conventions
-- [ ] Get sign-off to move to Testing
+- [x] Get sign-off to move to Testing
 
 ## Phase 3: Testing
 
 ### Stage 1: Claude Verification & SME Audits
-- [ ] Verify each acceptance criterion in spec.md
-- [ ] Test edge cases and error scenarios
-- [ ] Test on local dev server (`bundle exec jekyll serve`)
-- [ ] Validate HTML output in `_site/`
-- [ ] Run required SME audits (Accessibility, QA)
-- [ ] Follow bug fix flow for any issues (document → ask user → fix or batch)
+- [x] Verify each acceptance criterion in spec.md
+- [x] Test edge cases and error scenarios
+- [x] Test on local dev server (`bundle exec jekyll serve`)
+- [x] Validate HTML output in `_site/`
+- [x] Run required SME audits (Accessibility, QA)
+- [x] Follow bug fix flow for any issues (document → ask user → fix or batch)
 
 ### Stage 2: User Testing
-- [ ] Provide user testing plan (if manual/visual testing needed)
-- [ ] Complete user testing plan together with user
-- [ ] Document any issues found in notes.md
-- [ ] Get sign-off to move to Acceptance
+- [x] Provide user testing plan (if manual/visual testing needed)
+- [x] Complete user testing plan together with user
+- [x] Document any issues found in notes.md
+- [x] Get sign-off to move to Acceptance
 
 ## Phase 4: Acceptance
 
-- [ ] Final review against spec requirements
-- [ ] Confirm all acceptance criteria are met
-- [ ] Update spec.md status to Completed
-- [ ] Update tasks.md — mark all tasks done
-- [ ] Fill in structured completion notes in spec.md (all 5 sections)
+- [x] Final review against spec requirements
+- [x] Confirm all acceptance criteria are met
+- [x] Update spec.md status to Completed
+- [x] Update tasks.md — mark all tasks done
+- [x] Fill in structured completion notes in spec.md (all 5 sections)
 - [ ] Update docs/lessons-learned.md if any reusable lessons emerged
 - [ ] Flag any lessons that require rule/convention changes to user
 - [ ] Merge feature branch to master

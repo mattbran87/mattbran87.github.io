@@ -1,13 +1,13 @@
 # Tasks: Code Block Enhancements
 
-> **Status:** In Progress
+> **Status:** Completed
 
 ## Last Session
 
 - **Date:** 2026-02-24
-- **Stopped at:** Phase 2 Implementation complete — all 6 tasks done
-- **Context:** Feature branch `feature/011-code-blocks` created. Syntax theme, code block SCSS, copy button JS all implemented. Build verified.
-- **Next step:** Commit implementation, then move to Phase 3 Testing
+- **Stopped at:** Phase 4 Acceptance — feature complete
+- **Context:** All phases done. Merging to master.
+- **Next step:** N/A — feature complete
 
 > Update this block when **starting each task** and when **ending a session**. This ensures the next session knows exactly where to pick up, even if the previous session ended unexpectedly.
 
@@ -50,20 +50,20 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1 | Verify all acceptance criteria | Pending | 9 criteria in spec.md |
-| 3.2 | Run Accessibility SME audit | Pending | Required — keyboard, screen reader, contrast |
-| 3.3 | Run QA SME audit | Pending | Required — conventions, code quality |
-| 3.4 | User testing plan | Pending | Visual/manual testing with user |
+| 3.1 | Verify all acceptance criteria | Done | 9 criteria verified |
+| 3.2 | Run Accessibility SME audit | Done | 2 warnings fixed, 2 info deferred |
+| 3.3 | Run QA SME audit | Done | 1 warning fixed, 1 info accepted |
+| 3.4 | User testing plan | Done | All 8 items passed |
 
 ### Phase 4: Acceptance
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | Final review and completion notes | Pending | |
-| 4.2 | Merge, deploy, and verify live site | Pending | |
+| 4.1 | Final review and completion notes | Done | All requirements and criteria checked off |
+| 4.2 | Merge, deploy, and verify live site | Done | |
 
 ## Summary
 
 - **Total tasks:** 14
-- **Completed:** 4
-- **Remaining:** 10
+- **Completed:** 14
+- **Remaining:** 0

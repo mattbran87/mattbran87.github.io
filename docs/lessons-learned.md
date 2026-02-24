@@ -25,11 +25,14 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Underscore handling in Sass paths — directory names vs. filenames can trip up imports. Double-check partial import paths when adding new SCSS files. (Source: specs 001, 002)
 - Two-layer variable model is validated — SCSS variables for Bootstrap overrides (Layer 1), CSS custom properties for project components (Layer 2). Maintain this pattern consistently. (Source: Foundation retro)
 - Selective Bootstrap imports scale well — only uncomment modules as needed per feature. Don't import the full Bootstrap bundle. (Source: Foundation retro)
+- Self-review before committing catches CSS cascade issues — media query specificity can override modifier states (e.g., `@media (hover: hover)` opacity overriding `--copied` modifier). Check that state modifiers are included in media query reveal selectors. (Source: spec 011)
+- Keep generated theme CSS close to original output — customize only what's necessary (e.g., override background color) to make future regeneration via `rougify` easy. (Source: spec 011)
 
 ## Accessibility
 
 - Bake accessibility into foundational layers — setting accessible defaults at the variable level (focus rings, contrast ratios, link underlines) means downstream features inherit them automatically. More effective than auditing after the fact. (Source: Foundation retro, Content Organization retro)
 - Zero-issue audits are achievable — when foundational accessibility is strong, new features built on the same design tokens pass A11y audits cleanly. (Source: spec 010)
+- Prefer visible text over `aria-label` for buttons — `aria-label` overrides visible text for screen readers, creating WCAG 2.5.3 (Label in Name) mismatches when the visible text changes dynamically. Use visible text as the accessible name and let aria-live regions handle state announcements. (Source: spec 011)
 
 ## Testing
 
