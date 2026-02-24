@@ -140,7 +140,8 @@ See [`docs/sme-orchestration.md`](docs/sme-orchestration.md) for required/option
 
 | Command | Purpose |
 |---------|---------|
-| `/brainstorm` | Project bootstrap (`init`), feature planning (`project`), or feature deep dive (`feature <name>`) |
+| `/project-init` | Bootstrap a new project with CLAUDE.md, docs, specs, and custom commands |
+| `/brainstorm` | Brainstorm new features for the roadmap or deep dive into a specific feature |
 | `/plan-next` | Review roadmap and recommend what to work on next |
 | `/content-creator` | Draft, review, and optimize blog posts (SEO, spelling, coherence) |
 

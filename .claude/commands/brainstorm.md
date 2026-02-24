@@ -1,5 +1,5 @@
 ---
-description: Brainstorm features, build the project roadmap, or break down large features
+description: Brainstorm new features for the roadmap or deep dive into a specific feature
 allowed-tools: Read, Glob, Grep, WebFetch, WebSearch
 ---
 
@@ -10,95 +10,14 @@ A conversational planning session for shaping what gets built and how. This is f
 ## Determine the Mode
 
 **Commands:**
-- `/brainstorm init` → Project Bootstrap (first-time setup)
-- `/brainstorm project` or `/brainstorm` (no args) → Project-Level Planning (default)
+- `/brainstorm` or `/brainstorm project` → Project-Level Planning (default)
 - `/brainstorm feature <name>` → Feature Deep Dive
 
 **Auto-detection (when no keyword matches):**
-1. If `CLAUDE.md` and `specs/roadmap.md` do not exist → `init`
-2. If arguments name a specific feature → `feature`
-3. Otherwise → `project`
+1. If arguments name a specific feature → `feature`
+2. Otherwise → `project`
 
 If still unclear, ask the user which mode they want.
-
----
-
-## Mode: Init — Project Bootstrap
-
-Use for first-time project setup. This is the full bootstrap — product planning AND development rules. Only used once per project.
-
-### Step 1: Project Discussion
-
-Start a conversation with the user to understand the project:
-
-- What is this project? What are you building?
-- What's the tech stack? (languages, frameworks, hosting)
-- Who is the audience?
-- What's the long-term vision?
-- Is this a solo project or a team? (affects workflow complexity)
-
-### Step 2: Convention Discussion
-
-Discuss and establish coding standards:
-
-- Code style — indentation, naming conventions, file organization
-- Language-specific conventions — comments, documentation, error handling
-- Asset management — images, CSS methodology, JavaScript patterns
-- Version control — branching strategy, commit conventions
-- What matters most to the user? What do they want enforced?
-
-### Step 3: Workflow Discussion
-
-Discuss and configure the development workflow:
-
-- **Phases:** How structured should the process be? Options range from:
-  - Lightweight: plan → build → review
-  - Standard: research & planning → implementation → testing → acceptance (this project's model)
-  - Custom: user-defined phases
-- **Quality gates:** What checks happen between phases? (SME consultations, user sign-offs, automated checks)
-- **Change tiers:** Does the project need multiple tiers? (minor changes, mini-specs, full specs)
-- **Testing:** What testing approach? (manual, automated, user testing plans)
-- **Documentation:** What gets documented? (decisions, notes, changelogs, retrospectives)
-- **SME subagents:** Does the project benefit from domain expert consultations? Which domains? (accessibility, SEO, code quality, framework-specific, etc.)
-
-Scale the workflow to the project — a personal blog doesn't need the same rigor as a production application.
-
-### Step 4: Roadmap Discussion
-
-Brainstorm initial features:
-
-- What are the most important things to build first?
-- What's the minimum viable version?
-- What can wait for later?
-- For each feature: short name, 1-3 sentence description, dependencies
-- Prioritize together, group into natural clusters
-
-### Step 5: Scaffold
-
-After all discussions are complete, create the full project structure. Tailor the content of each file to the decisions made in Steps 1-4.
-
-**Always create:**
-- `CLAUDE.md` — project overview, commands, conventions, workflow rules
-- `docs/code-guidelines.md` — coding standards from Step 2
-- `docs/workflows.md` — workflow processes from Step 3
-- `docs/changelog.md` — starter changelog with format and types
-- `docs/lessons-learned.md` — empty starter with category headings
-- `docs/retrospectives/` — empty directory
-- `specs/roadmap.md` — populated with features from Step 4
-- `specs/_template/` — full template set:
-  - `spec.md`, `tasks.md`, `checklist.md`, `notes.md`, `decisions.md`
-  - `prompts/01-research-planning.md`, `prompts/02-implementation.md`, `prompts/03-testing.md`, `prompts/04-acceptance.md`
-
-**Create if applicable (based on Step 3 decisions):**
-- `.claude/commands/` — utility commands (`plan-next.md`, `brainstorm.md`, `content-creator.md`)
-- `.claude/commands/<sme>.md` — SME commands for each domain the user wants
-- `docs/sme-orchestration.md` — if SMEs are configured
-
-All template content should reflect the workflow decisions — if the user chose 3 phases instead of 4, the templates should have 3 phases. If no SMEs, omit SME sections from prompts and checklists.
-
-### Output
-
-A fully scaffolded project ready to start development. The user should be able to run `/plan-next` and begin work on the first feature immediately.
 
 ---
 
