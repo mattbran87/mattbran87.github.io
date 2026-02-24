@@ -1,0 +1,16 @@
+{%- comment -%}
+  Render a compact series badge for homepage post cards.
+
+  Usage:
+    {% include series-badge.html series=post.series series_part=post.series_part %}
+
+  Displays "Part N of Series Title" linking to the series archive page.
+{%- endcomment -%}
+{%- comment -%} Guard against missing series data {%- endcomment -%}
+{%- if include.series and include.series_part -%}
+    {%- assign series_meta = site.data.series[include.series] -%}
+    <a class="series-badge" href="{{ '/series/' | append: include.series | append: '/' | relative_url }}" aria-label="Part {{ include.series_part }} of series: {{ series_meta.title | default: include.series }}">
+        <span class="series-badge__part">Part {{ include.series_part }}</span>
+        <span class="series-badge__title">{{ series_meta.title | default: include.series }}</span>
+    </a>
+{%- endif -%}
