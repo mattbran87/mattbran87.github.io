@@ -31,6 +31,7 @@ linkedin_username: mattbran87
 # Navigation links (controls which pages appear in the header nav)
 header_pages:
   - about.markdown
+  - series.html
   - tags.html
 
 # Build settings
