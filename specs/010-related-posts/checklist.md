@@ -50,5 +50,5 @@
 - [x] Update spec.md status to Completed
 - [x] Update tasks.md — mark all tasks done
 - [x] Fill in completion notes in spec.md
-- [ ] Merge feature branch to master
-- [ ] Delete feature branch (local and remote)
+- [x] Merge feature branch to master
+- [x] Delete feature branch (local and remote)
