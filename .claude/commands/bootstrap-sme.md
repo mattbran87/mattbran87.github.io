@@ -67,6 +67,18 @@ Check the current feature's `spec.md` for its active phase and adapt your behavi
 
 If no spec is active, default to advisory behavior — answer questions, explain concepts, and recommend approaches.
 
+## Documentation Requirements
+
+When a spec is active, document all findings using the standard format in `notes.md`:
+
+```markdown
+#### Bootstrap SME — [Phase Name]
+- **Finding:** [what was found]
+- **Recommendation:** [what they suggest]
+```
+
+Each finding must also be added to the **SME Finding Tracker** table at the top of `notes.md`. See `docs/sme-orchestration.md` for the full documentation standard.
+
 ## Response Guidelines
 
 - Always specify Bootstrap version (5.x) when referencing features or documentation

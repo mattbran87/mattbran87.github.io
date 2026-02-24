@@ -133,6 +133,46 @@ SMEs are invoked **sequentially**, not in parallel. Within a phase, follow this 
 1. Optional SMEs — only if acceptance criteria require their domain
 2. QA SME — final quality gate (always last)
 
+## SME Finding Documentation
+
+All SME findings must be documented using a standard format for traceability across phases.
+
+### Standard Finding Format
+
+Each SME's findings go in `notes.md` under a labeled subsection using this structure:
+
+```markdown
+#### [SME Name] — [Phase Name]
+- **Finding:** [what was found]
+- **Recommendation:** [what they suggest]
+```
+
+Use the exact SME names: `Jekyll SME`, `Accessibility SME`, `Bootstrap SME`, `CSS/Design SME`, `SEO SME`, `QA SME`.
+
+### SME Finding Tracker
+
+Every finding must also be added to the **SME Finding Tracker** table at the top of `notes.md`:
+
+```markdown
+| # | Phase | SME | Finding | Recommendation | Disposition |
+|---|-------|-----|---------|----------------|-------------|
+| S1 | Research | Jekyll | Use Liquid JSON, no plugin | Build-time index | Adopted → D1 |
+| S2 | Research | A11y | Needs focus-visible on input | 3px outline | Adopted → Task 2.4 |
+| S3 | Testing | QA | Missing BEM modifier | Add --active class | Fixed in abc123 |
+```
+
+**Disposition values:**
+- `Adopted → D#` — became a formal decision
+- `Adopted → Task #` — incorporated into a task
+- `Deferred` — acknowledged but not addressed in this feature
+- `Overridden by D#` — a decision chose a different direction
+- `Fixed in [commit]` — resolved during testing
+- `N/A` — informational only, no action needed
+
+### Cross-Phase Comparison
+
+During Testing, SME audits should explicitly compare against Research findings. The tracker table makes this possible — any finding from Research that was `Adopted` should be verifiable in the implementation. Testing SMEs should flag if a Research finding was not implemented as expected.
+
 ## Conflict Resolution
 
 When two or more SMEs provide conflicting recommendations:

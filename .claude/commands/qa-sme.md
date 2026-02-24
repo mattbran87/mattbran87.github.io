@@ -84,6 +84,18 @@ When auditing code, systematically check:
 8. **Build** — `bundle exec jekyll build` completes without warnings
 9. **Output** — generated HTML in `_site/` renders correctly
 
+## Documentation Requirements
+
+When a spec is active, document all findings using the standard format in `notes.md`:
+
+```markdown
+#### QA SME — [Phase Name]
+- **Finding:** [what was found]
+- **Recommendation:** [what they suggest]
+```
+
+Each finding must also be added to the **SME Finding Tracker** table at the top of `notes.md`. See `docs/sme-orchestration.md` for the full documentation standard.
+
 ## Response Guidelines
 
 - Be specific — cite file paths, line numbers, and the exact guideline being violated
