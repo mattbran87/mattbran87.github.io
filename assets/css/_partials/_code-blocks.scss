@@ -77,8 +77,8 @@ figure.highlight {
 
     // Copied state
     &--copied {
-        color: #116329;
-        border-color: #116329;
+        color: var(--color-success);
+        border-color: var(--color-success);
         opacity: 1;
     }
 }

@@ -7,5 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
     {%- endif -%}
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    {%- comment -%} Hide theme toggle when JavaScript is disabled {%- endcomment -%}
+    <noscript><style>.theme-toggle{display:none}</style></noscript>
     {%- feed_meta -%}
 </head>

@@ -6,6 +6,10 @@
                     {{ site.title | escape }}
                 </a>
             </p>
+            {%- comment -%} Theme toggle — outside collapse so it's always visible on mobile {%- endcomment -%}
+            <div class="d-flex align-items-center order-md-1">
+                {%- include theme-toggle.html -%}
+            </div>
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#main-nav"

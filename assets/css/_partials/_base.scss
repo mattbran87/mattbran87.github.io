@@ -39,3 +39,31 @@ a:focus-visible {
 }
 
 // Code — styles moved to _code-blocks.scss
+
+// --------------------------------------------------------------------------
+// Theme transition
+// --------------------------------------------------------------------------
+// Smooth color transitions when toggling between light and dark mode.
+// Only structural elements with visible color areas — not a broad * selector.
+
+body,
+.site-header,
+.site-footer,
+.post-card,
+.series-toc,
+.sidebar__about,
+.search-noscript {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .site-header,
+    .site-footer,
+    .post-card,
+    .series-toc,
+    .sidebar__about,
+    .search-noscript {
+        transition: none;
+    }
+}
