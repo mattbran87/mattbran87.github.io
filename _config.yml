@@ -19,14 +19,28 @@
 # in the templates via {{ site.myvariable }}.
 
 title: AI Code Blog
-author: "Matthew Brandenburg"
+author:
+  name: "Matthew Brandenburg"
+  url: "https://aicodeblog.com/about/"
 email: matt@aicodeblog.com
 description: >- # this means to ignore newlines until "baseurl:"
   Documenting AI-assisted coding experiences, tools, and development processes.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://aicodeblog.com" # the base hostname & protocol for your site, e.g. http://example.com
+lang: en
+logo: /assets/images/site/logo.svg
 github_username: mattbran87
 linkedin_username: mattbran87
+
+# Social profile links (used by jekyll-seo-tag for sameAs in JSON-LD)
+social:
+  links:
+    - https://github.com/mattbran87
+    - https://www.linkedin.com/in/mattbran87
+
+# Twitter/X card format
+twitter:
+  card: summary_large_image
 
 # Navigation links (controls which pages appear in the header nav)
 header_pages:
@@ -38,7 +52,16 @@ header_pages:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
   - jekyll-archives
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      image: /assets/images/site/default-og.png
 
 # Tag archives
 jekyll-archives:
