@@ -11,11 +11,36 @@ Minor changes that do not go through the spec engineering workflow. For feature-
   - Files affected: `path/to/file`
 ```
 
-**Types:** Fix, Tweak, Config, Content, Docs, Chore
+**Types:** Fix, Tweak, Config, Content, Docs, Chore, Process, Workflow, Infrastructure
 
 ---
 
 ### 2026-02-24
+
+- **[Process]** Add mandatory research discussion checkpoint to Phase 1
+  - Rationale: Research findings need user review and discussion before planning begins
+  - Summary: Split Phase 1 into Research and Planning stages with a mandatory conversation gate between them
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/01-research-planning.md`, `specs/_template/checklist.md`, `specs/_template/tasks.md`, `docs/sme-orchestration.md`
+
+- **[Process]** Add mandatory user testing plan to Phase 3
+  - Rationale: User needs a detailed checklist for manual/visual testing rather than ad-hoc verification
+  - Summary: When testing requires user involvement, Claude must provide a step-by-step testing plan walked through together
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/03-testing.md`, `specs/_template/checklist.md`
+
+- **[Workflow]** Add 6 workflow improvements from process review
+  - Rationale: Process review identified gaps in multi-session coordination, implementation oversight, testing structure, change tiers, retrospective tracking, and bug fix flow
+  - Summary: (1) Multi-session coordination rules — implementation session owns feature branch. (2) Implementation checkpoint rule — pause on problems/deviations. (3) Testing internal stages — Stage 1 Claude+SME, Stage 2 user testing. (4) Mini-spec tier for medium changes. (5) Retrospective check in `/plan-next`. (6) Bug fix flow during testing — document, ask user, fix now or batch.
+  - Files affected: `CLAUDE.md`, `specs/_template/prompts/02-implementation.md`, `specs/_template/prompts/03-testing.md`, `specs/_template/checklist.md`, `docs/workflows.md`, `.claude/commands/plan-next.md`
+
+- **[Process]** Clarify SMEs are Skills, not Task subagents
+  - Rationale: Claude instances were attempting to invoke SME commands via the Task tool instead of the Skill tool
+  - Summary: Added explicit notes that SME commands must be invoked via the Skill tool
+  - Files affected: `CLAUDE.md`, `docs/sme-orchestration.md`
+
+- **[Process]** Standardize SME finding documentation and add tracker table
+  - Rationale: SME findings were documented inconsistently across specs with no structured way to compare findings across phases
+  - Summary: Added SME Finding Tracker table to notes.md template, standardized finding format (SME Name — Phase with Finding/Recommendation), added Documentation Requirements to all 6 SME command files, added documentation standard to sme-orchestration.md
+  - Files affected: `specs/_template/notes.md`, `docs/sme-orchestration.md`, `.claude/commands/jekyll-sme.md`, `.claude/commands/accessibility-sme.md`, `.claude/commands/qa-sme.md`, `.claude/commands/bootstrap-sme.md`, `.claude/commands/css-design-sme.md`, `.claude/commands/seo-sme.md`
 
 - **[Config]** Remove Contact page from header navigation
   - Files affected: `_config.yml`
