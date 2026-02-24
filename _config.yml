@@ -43,6 +43,7 @@ header_pages:
   - about.markdown
   - series.html
   - tags.html
+  - search.html
 
 # Build settings
 plugins:
