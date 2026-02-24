@@ -16,7 +16,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 005 | Contact Form | `specs/005-contact-form/` | Completed |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
 | 007 | Custom Homepage | `specs/007-custom-homepage/` | Deferred |
-| 008 | SEO Foundation | `specs/008-seo-foundation/` | Not Started |
+| 008 | SEO Foundation | `specs/008-seo-foundation/` | Completed |
 | 009 | Search | `specs/009-search/` | Not Started |
 | 010 | Related Posts | `specs/010-related-posts/` | Not Started |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Not Started |
@@ -29,6 +29,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
 | 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
 | 020 | Social Sharing | [`docs/social-sharing-research.md`](../docs/social-sharing-research.md) | Not Started |
+| 021 | Comments | [`docs/commenting-system-research.md`](../docs/commenting-system-research.md) | Not Started |
 
 ## Natural Groupings
 
@@ -68,7 +69,13 @@ Features that share dependencies or are closely related and benefit from being d
 | 009 | Search | Client-side search for readers to find content |
 | 012 | Analytics | Traffic tracking and user behavior insights |
 | 019 | Featured Posts | Curated/automated "most popular" posts section |
-| 020 | Social Sharing | Share buttons on posts for social platforms and link copying |
+
+### Engagement
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 020 | Social Sharing | Share buttons for readers to spread content |
+| 021 | Comments | Per-post discussion threads via Giscus |
 
 ### Internationalization
 
@@ -167,6 +174,10 @@ Display a curated "Featured Posts" section on the site highlighting the most pop
 
 Add share buttons to blog posts so readers can easily share articles to social platforms, copy the link, or send via email. Plain URL-based share links for Twitter/X, LinkedIn, Reddit, and Hacker News — no third-party scripts, no tracking, no cookies. Includes a copy-to-clipboard button and progressive Web Share API support for mobile. Placed below post content in a reusable `_includes/social-share.html` component. Benefits from #008 SEO Foundation for rich link previews via Open Graph tags. Research findings: [`docs/social-sharing-research.md`](../docs/social-sharing-research.md).
 
+### 021 — Comments
+
+Add per-post commenting using Giscus, which stores comments as GitHub Discussions in the repository. Each post maps to its own Discussion thread via URL pathname. Single `<script>` tag integration — no backend, no tracking, no cookies. Readers authenticate with their GitHub account. Comments can be disabled per post via `comments: false` in front matter. Supports threaded replies, emoji reactions, and automatic dark mode matching. Configuration stored in `_config.yml`, rendered via `_includes/comments.html` in the post layout. Research findings: [`docs/commenting-system-research.md`](../docs/commenting-system-research.md).
+
 ### 017 — Multi-Language Support
 
 Add multi-language support using jekyll-polyglot. Translate the full site (posts, pages, UI chrome) into Spanish, French, and German with English as the default. English content serves from root URLs; translated content gets language-prefixed paths (`/es/`, `/fr/`, `/de/`). Includes a language switcher in the nav, a JavaScript browser-language detection banner, hreflang SEO tags, and a custom `/translator` subagent for AI-assisted translation. Research findings: [`docs/multi-language-research.md`](../docs/multi-language-research.md).
@@ -185,6 +196,7 @@ Features with hard dependencies on prior work:
 
 - **019 Featured Posts** Phase 2 depends on **012 Analytics** (GA4 must be collecting data); Phase 1 has no dependencies
 - **020 Social Sharing** benefits from **008 SEO Foundation** (Open Graph tags enable rich link previews when shared)
+- **021 Comments** has no hard dependencies; benefits from **013 Dark Mode** for theme matching
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 
