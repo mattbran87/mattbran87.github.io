@@ -49,6 +49,8 @@
 - [ ] Confirm all acceptance criteria are met
 - [ ] Update spec.md status to Completed
 - [ ] Update tasks.md — mark all tasks done
-- [ ] Fill in completion notes in spec.md
+- [ ] Fill in structured completion notes in spec.md (all 5 sections)
 - [ ] Merge feature branch to master
 - [ ] Delete feature branch (local and remote)
+- [ ] Verify GitHub Actions deploy succeeded
+- [ ] Spot-check live site at production URL

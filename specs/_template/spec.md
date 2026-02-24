@@ -45,4 +45,17 @@
 
 ## Completion Notes
 
-[Filled in when status is set to Completed. Summary of what was delivered, any deviations from the original spec, and lessons learned.]
+### Delivered
+- [What was built — brief summary of the final implementation]
+
+### Deviations
+- [Anything that changed from the original spec and why, or "None"]
+
+### What Went Well
+- [Process, tools, or decisions that worked effectively]
+
+### What Didn't Go Well
+- [Friction points, rework, surprises, or time sinks]
+
+### Lessons Learned
+- [Specific takeaways to carry forward to future features]

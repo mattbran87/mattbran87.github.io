@@ -2,6 +2,15 @@
 
 > **Status:** Not Started | In Progress | Completed
 
+## Last Session
+
+- **Date:** —
+- **Stopped at:** —
+- **Context:** —
+- **Next step:** —
+
+> Update this block when **starting each task** and when **ending a session**. This ensures the next session knows exactly where to pick up, even if the previous session ended unexpectedly.
+
 ## Task Breakdown
 
 ### Phase 1: Research & Planning

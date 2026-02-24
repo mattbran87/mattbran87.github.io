@@ -51,13 +51,20 @@ Only begin this stage after the Research Discussion is complete and the user has
 3. Update `checklist.md` as items are completed
 4. Update Phase History in `spec.md`
 
+### Session Handoff (mandatory)
+
+Update the **Last Session** block at the top of `tasks.md`:
+- **When starting each task** — record the date, task number, and what you're about to do
+- **When ending a session** — record where you stopped, relevant context, and what the next session should do first
+
 ### Planning Deliverables
 
 - [ ] Decisions from discussion recorded in `decisions.md`
 - [ ] Tasks broken down in `tasks.md`
 - [ ] Research & Planning items checked off in `checklist.md`
+- [ ] Last Session block updated in `tasks.md`
 - [ ] Phase History updated in `spec.md`
 
 ### When Done
 
-Summarize the task breakdown for final review before moving to Implementation.
+Update the Last Session block with final status. Summarize the task breakdown for final review before moving to Implementation.

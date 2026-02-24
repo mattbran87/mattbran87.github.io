@@ -189,6 +189,12 @@ Each feature progresses through four phases in order. A phase must be completed 
 
 **Phase 3 bug fix flow.** When a bug is found during Testing, Claude documents it in `notes.md`, presents it to the user with a severity assessment, and asks: fix now or continue testing? If "fix now," the phase returns to Implementation, Claude fixes and commits, then Testing resumes where it left off. The round-trip is logged in the Phase History. If "continue testing," all issues are batched and fixed in a single return to Implementation.
 
+**Phase 4 requires deploy verification.** Acceptance is not complete until the GitHub Actions deploy succeeds and the live site is spot-checked. If the deploy fails, return to Implementation.
+
+**Session handoff is mandatory.** The Last Session block in `tasks.md` must be updated when starting each task and when ending a session. This ensures the next session can pick up exactly where the previous one left off, even after an unexpected end.
+
+**Template check on resume.** When resuming an in-progress spec, compare the spec's files against `specs/_template/` for process-critical changes (e.g., new required sections). Adopt process-critical changes; structural improvements are optional.
+
 ### Using Phase Prompts
 
 Each `prompts/0N-phase.md` file is a self-contained prompt designed to be fed to Claude Code to initiate that phase. The prompt instructs Claude to:

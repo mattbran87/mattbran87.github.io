@@ -55,6 +55,16 @@ If any testing requires the user (e.g., visual checks, browser interaction, devi
 
 Present this plan as a checklist. Walk through each item together with the user, checking them off as you go. Do not skip ahead or mark user-testing items complete without the user's confirmation.
 
+## Session Handoff (mandatory)
+
+Update the **Last Session** block at the top of `tasks.md`:
+- **When starting each task** — record the date, task number, and what you're about to do
+- **When ending a session** — record where you stopped, relevant context, and what the next session should do first
+
+## Template Check (on resume)
+
+If resuming an in-progress spec, compare the spec's files against `specs/_template/` for any process-critical template changes. Adopt process-critical changes; structural improvements are optional. Flag any differences to the user.
+
 ## Deliverables
 
 - [ ] Each acceptance criterion verified and documented
@@ -65,8 +75,9 @@ Present this plan as a checklist. Walk through each item together with the user,
 - [ ] Issues documented in `notes.md` with steps to reproduce
 - [ ] Testing tasks in `tasks.md` marked complete
 - [ ] Testing items checked off in `checklist.md`
+- [ ] Last Session block updated in `tasks.md`
 - [ ] Phase History updated in `spec.md`
 
 ## When Done
 
-Provide a test report: what passed, what failed, and what needs to be fixed before Acceptance.
+Update the Last Session block with final status. Provide a test report: what passed, what failed, and what needs to be fixed before Acceptance.

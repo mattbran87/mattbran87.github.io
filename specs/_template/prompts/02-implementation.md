@@ -29,6 +29,18 @@ Read the feature spec at `specs/NNN-feature-name/spec.md` and all supporting doc
 
 When pausing, explain what you found, what the options are, and what you recommend. Wait for the user's direction before continuing. If a task needs to be split into subtasks, update `tasks.md` and confirm with the user.
 
+## Session Handoff (mandatory)
+
+Update the **Last Session** block at the top of `tasks.md`:
+- **When starting each task** — record the date, task number, and what you're about to do
+- **When ending a session** — record where you stopped, relevant context, and what the next session should do first
+
+This ensures the next session can pick up exactly where you left off, even if this session ends unexpectedly. The block is overwritten each time, not appended.
+
+## Template Check (on resume)
+
+If resuming an in-progress spec, compare the spec's files against `specs/_template/` for any process-critical template changes (e.g., new required sections like the SME Finding Tracker in `notes.md`). Adopt process-critical changes; structural improvements are optional. Flag any differences to the user.
+
 ## Deliverables
 
 - [ ] Feature branch created
@@ -38,8 +50,9 @@ When pausing, explain what you found, what the options are, and what you recomme
 - [ ] Implementation notes captured in `notes.md`
 - [ ] Any new decisions recorded in `decisions.md`
 - [ ] Implementation items checked off in `checklist.md`
+- [ ] Last Session block updated in `tasks.md`
 - [ ] Phase History updated in `spec.md`
 
 ## When Done
 
-Summarize what was implemented and flag anything that needs attention during Testing.
+Update the Last Session block with final status. Summarize what was implemented and flag anything that needs attention during Testing.
