@@ -27,7 +27,7 @@ layout: default
 
             {%- comment -%} Show posts or a fallback message {%- endcomment -%}
             {%- if series_posts.size > 0 -%}
-            <p class="series-archive__count">{{ series_posts.size }} {{ series_posts.size | pluralize: "part", "parts" | default: "parts" }}</p>
+            <p class="series-archive__count">{{ series_posts.size }} {% if series_posts.size == 1 %}part{% else %}parts{% endif %}</p>
             <ol class="series-archive__list">
                 {%- comment -%} Render each post as a card with part number, title, date, and excerpt {%- endcomment -%}
                 {%- for post in series_posts -%}

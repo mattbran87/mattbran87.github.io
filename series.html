@@ -33,7 +33,7 @@ permalink: /series/
                 {%- if series_meta.description -%}
                 <p class="series-card__description">{{ series_meta.description }}</p>
                 {%- endif -%}
-                <p class="series-card__count">{{ series_posts.size }} {{ series_posts.size | pluralize: "part", "parts" | default: "parts" }}</p>
+                <p class="series-card__count">{{ series_posts.size }} {% if series_posts.size == 1 %}part{% else %}parts{% endif %}</p>
             </article>
                 {%- endfor -%}
             {%- else -%}
