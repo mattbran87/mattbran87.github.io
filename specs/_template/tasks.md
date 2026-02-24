@@ -6,10 +6,25 @@
 
 ### Phase 1: Research & Planning
 
+**Stage 1: Research**
+
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 1.1 | | Pending | |
 | 1.2 | | Pending | |
+
+**Research Discussion** — Present findings to user and get approval before planning.
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.R | Research discussion with user | Pending | Mandatory checkpoint |
+
+**Stage 2: Planning**
+
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1.3 | | Pending | |
+| 1.4 | | Pending | |
 
 ### Phase 2: Implementation
 

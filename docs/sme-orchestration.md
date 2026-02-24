@@ -108,10 +108,16 @@ The main Claude agent invokes optional SMEs when the feature meets any of the fo
 SMEs are invoked **sequentially**, not in parallel. Within a phase, follow this order:
 
 ### Phase 1: Research & Planning
+
+**Stage 1: Research**
 1. Jekyll SME — architectural assessment
 2. Accessibility SME — identify a11y requirements
 3. Optional SMEs (Bootstrap, CSS/Design, SEO) — as triggered by rules above
-4. QA SME — review spec completeness (always last in this phase)
+4. QA SME — review spec completeness (always last in research)
+
+**Mandatory Research Discussion** — Present all SME findings to user and get approval before planning.
+
+**Stage 2: Planning** — Break down tasks per the approved direction. No additional SME invocations unless the discussion changed scope.
 
 ### Phase 2: Implementation
 1. Jekyll SME — template and configuration work
