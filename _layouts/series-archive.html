@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {%- comment -%} Look up series metadata from data file {%- endcomment -%}
+            {%- assign series_meta = site.data.series[page.series] -%}
+
+            <h1>{{ series_meta.title | default: page.series }}</h1>
+
+            {%- comment -%} Show series description if available {%- endcomment -%}
+            {%- if series_meta.description -%}
+            <p class="series-archive__description">{{ series_meta.description }}</p>
+            {%- endif -%}
+
+            {%- comment -%} Show series status badge {%- endcomment -%}
+            {%- if series_meta.status == "in_progress" -%}
+            <span class="series-archive__status series-archive__status--in-progress">In progress</span>
+            {%- elsif series_meta.status == "complete" -%}
+            <span class="series-archive__status series-archive__status--complete">Complete</span>
+            {%- endif -%}
+
+            {%- comment -%} Gather and sort all posts in this series by part number {%- endcomment -%}
+            {%- assign series_posts = site.posts | where: "series", page.series | sort: "series_part" -%}
+
+            {%- comment -%} Show posts or a fallback message {%- endcomment -%}
+            {%- if series_posts.size > 0 -%}
+            <p class="series-archive__count">{{ series_posts.size }} {% if series_posts.size == 1 %}part{% else %}parts{% endif %}</p>
+            <ol class="series-archive__list">
+                {%- comment -%} Render each post as a card with part number, title, date, and excerpt {%- endcomment -%}
+                {%- for post in series_posts -%}
+                <li class="series-archive__item">
+                    <article class="post-card">
+                        <h2 class="post-card__title">
+                            <a href="{{ post.url | relative_url }}">
+                                {{ post.title | escape }}
+                            </a>
+                        </h2>
+                        <p class="post-card__meta">
+                            <time datetime="{{ post.date | date_to_xmlschema }}">
+                                {{ post.date | date: "%b %-d, %Y" }}
+                            </time>
+                        </p>
+                        <div class="post-card__excerpt">
+                            {{ post.excerpt }}
+                        </div>
+                        {%- comment -%} Show tag pills if the post has tags {%- endcomment -%}
+                        {%- if post.tags.size > 0 -%}
+                        <div class="post-card__tags">
+                            {%- include post-tags.html tags=post.tags -%}
+                        </div>
+                        {%- endif -%}
+                    </article>
+                </li>
+                {%- endfor -%}
+            </ol>
+            {%- else -%}
+            <p>No posts in this series yet.</p>
+            {%- endif -%}
+        </div>
+        <div class="col-md-4">
+            {%- include sidebar.html -%}
+        </div>
+    </div>
+</div>
