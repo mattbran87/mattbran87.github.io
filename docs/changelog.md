@@ -15,6 +15,11 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ---
 
+### 2026-02-24
+
+- **[Config]** Remove Contact page from header navigation
+  - Files affected: `_config.yml`
+
 ### 2026-02-23
 
 - **[Docs]** Add Schema markup research and update #008 SEO Foundation description
