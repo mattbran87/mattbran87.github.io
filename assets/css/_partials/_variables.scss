@@ -107,4 +107,15 @@ $min-contrast-ratio: 4.5;
     // Focus
     --focus-ring-width: 3px;
     --focus-ring-color: #005fcc;
+
+    // Semantic colors
+    --color-success: #116329;
+    --color-error: #c62828;
+    --color-focus-shadow: rgba(0, 96, 223, 0.25);
+
+    // Series status badges
+    --color-status-progress-bg: #fff3cd;
+    --color-status-progress-text: #4d3a02;
+    --color-status-complete-bg: #d1e7dd;
+    --color-status-complete-text: #051f13;
 }
