@@ -51,6 +51,9 @@ layout: default
         </nav>
         {%- endif -%}
     </article>
+
+    {%- comment -%} Related posts — shown if matching posts exist {%- endcomment -%}
+    {%- include related-posts.html -%}
 </div>
 
 {%- comment -%} Structured data — BreadcrumbList and enhanced BlogPosting {%- endcomment -%}
