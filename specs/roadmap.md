@@ -17,8 +17,8 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
 | 007 | Custom Homepage | `specs/007-custom-homepage/` | Deferred |
 | 008 | SEO Foundation | `specs/008-seo-foundation/` | Completed |
-| 009 | Search | `specs/009-search/` | Not Started |
-| 010 | Related Posts | `specs/010-related-posts/` | Not Started |
+| 009 | Search | `specs/009-search/` | Completed |
+| 010 | Related Posts | `specs/010-related-posts/` | Completed |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Not Started |
 | 012 | Analytics | `specs/012-analytics/` | Not Started |
 | 013 | Dark Mode | `specs/013-dark-mode/` | Not Started |
