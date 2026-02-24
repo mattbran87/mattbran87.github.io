@@ -18,6 +18,11 @@ layout: default
             </div>
         </header>
 
+        {%- comment -%} Series table of contents — shown if post belongs to a series {%- endcomment -%}
+        {%- if page.series and page.series_part -%}
+            {%- include series-toc.html -%}
+        {%- endif -%}
+
         <div class="post__content">
             {{ content }}
         </div>
