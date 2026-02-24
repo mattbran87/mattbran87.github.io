@@ -1,0 +1,234 @@
+// ==========================================================================
+// Series Components
+// ==========================================================================
+//
+// Styles for series TOC (post page), series badge (homepage cards),
+// series archive page, and series index cards.
+
+// --------------------------------------------------------------------------
+// Series TOC — displayed below post title/meta on series posts
+// --------------------------------------------------------------------------
+
+.series-toc {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-badge);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.series-toc__header {
+    margin-bottom: var(--spacing-md);
+}
+
+.series-toc__label {
+    display: block;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.series-toc__title {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xs);
+
+    a {
+        color: var(--color-heading);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.series-toc__count {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+}
+
+.series-toc__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-md);
+    counter-reset: series-part;
+}
+
+.series-toc__item {
+    padding: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    counter-increment: series-part;
+
+    &::before {
+        content: counter(series-part) ". ";
+        color: var(--color-muted);
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.series-toc__item--current {
+    font-weight: 600;
+    color: var(--color-heading);
+
+    &::before {
+        color: var(--color-primary);
+    }
+}
+
+.series-toc__nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+}
+
+.series-toc__nav-link {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.series-toc__nav-arrow {
+    font-size: var(--font-size-xs);
+}
+
+// --------------------------------------------------------------------------
+// Series Badge — compact indicator for homepage post cards
+// --------------------------------------------------------------------------
+
+.series-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-xs);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+
+    &:hover {
+        background-color: var(--color-border);
+        border-color: var(--color-border);
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 2px;
+    }
+}
+
+.series-badge__part {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.series-badge__title {
+    color: var(--color-muted);
+}
+
+// Post card series container
+.post-card__series {
+    margin-bottom: var(--spacing-sm);
+}
+
+// --------------------------------------------------------------------------
+// Series Archive — per-series page
+// --------------------------------------------------------------------------
+
+.series-archive__description {
+    color: var(--color-muted);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.series-archive__status {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.series-archive__status--in-progress {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.series-archive__status--complete {
+    background-color: #d1e7dd;
+    color: #0a3622;
+}
+
+.series-archive__count {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.series-archive__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.series-archive__item {
+    // Posts are already styled by .post-card inside
+}
+
+// --------------------------------------------------------------------------
+// Series Index Card — on the /series/ page
+// --------------------------------------------------------------------------
+
+.series-card {
+    margin-bottom: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xxl);
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.series-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+
+    a {
+        color: var(--color-heading);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.series-card__description {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.series-card__count {
+    color: var(--color-muted);
+    font-size: var(--font-size-sm);
+}
