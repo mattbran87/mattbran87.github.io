@@ -119,3 +119,49 @@ $min-contrast-ratio: 4.5;
     --color-status-complete-bg: #d1e7dd;
     --color-status-complete-text: #051f13;
 }
+
+// --------------------------------------------------------------------------
+// Layer 2: Dark mode overrides
+// --------------------------------------------------------------------------
+// Equivalent to @include color-mode(dark) — written as raw selector because
+// this file is imported before Bootstrap's mixins. Only color tokens are
+// overridden; spacing, typography, and layout tokens stay the same.
+
+[data-bs-theme="dark"] {
+    // Colors
+    --color-primary: #4dabf7;
+    --color-text: #c9d1d9;
+    --color-heading: #e6edf3;
+    --color-muted: #8b949e;
+    --color-background: #0d1117;
+    --color-bg-alt: #161b22;
+    --color-link: #4dabf7;
+    --color-link-hover: #79c0ff;
+    --color-border: #30363d;
+    --color-code-bg: #161b22;
+
+    // Nav
+    --color-nav-link: #c9d1d9;
+
+    // Tags
+    --color-tag-bg: #21262d;
+    --color-tag-text: #c9d1d9;
+    --color-tag-border: #30363d;
+
+    // Post meta
+    --meta-color: #8b949e;
+
+    // Focus
+    --focus-ring-color: #58a6ff;
+
+    // Semantic colors
+    --color-success: #3fb950;
+    --color-error: #f85149;
+    --color-focus-shadow: rgba(77, 171, 247, 0.3);
+
+    // Series status badges
+    --color-status-progress-bg: #3d2e00;
+    --color-status-progress-text: #ffd866;
+    --color-status-complete-bg: #0d3320;
+    --color-status-complete-text: #56d364;
+}
