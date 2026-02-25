@@ -33,8 +33,8 @@ function createStatusRegion() {
  * @param {HTMLElement} statusRegion - The aria-live status region
  */
 function handleCopy(button, statusRegion) {
-    var url = button.getAttribute('data-url');
-    var label = button.querySelector('[data-social-share-label]');
+    const url = button.getAttribute('data-url');
+    const label = button.querySelector('[data-social-share-label]');
 
     navigator.clipboard.writeText(url).then(function () {
         // Visual feedback
@@ -66,8 +66,8 @@ function handleCopy(button, statusRegion) {
  * @param {HTMLButtonElement} button - The share button that was clicked
  */
 function handleNativeShare(button) {
-    var url = button.getAttribute('data-url');
-    var title = button.getAttribute('data-title');
+    const url = button.getAttribute('data-url');
+    const title = button.getAttribute('data-title');
 
     navigator.share({ title: title, url: url }).catch(function () {
         // User cancelled or share failed — no action needed
@@ -80,16 +80,16 @@ function handleNativeShare(button) {
  * Web Share API feature detection.
  */
 export function initSocialShare() {
-    var copyButtons = document.querySelectorAll('[data-social-share="copy"]');
-    var nativeButtons = document.querySelectorAll('[data-social-share="native"]');
-    var compactContainers = document.querySelectorAll('[data-social-share-compact]');
+    const copyButtons = document.querySelectorAll('[data-social-share="copy"]');
+    const nativeButtons = document.querySelectorAll('[data-social-share="native"]');
+    const compactContainers = document.querySelectorAll('[data-social-share-compact]');
 
     // No share components on this page
     if (copyButtons.length === 0 && nativeButtons.length === 0) {
         return;
     }
 
-    var statusRegion = createStatusRegion();
+    const statusRegion = createStatusRegion();
 
     // Reveal and wire up Copy Link buttons
     copyButtons.forEach(function (button) {
