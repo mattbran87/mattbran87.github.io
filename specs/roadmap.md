@@ -42,6 +42,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 031 | Series Badge Redesign | — | Completed |
 | 032 | Sidebar Tags Widget | — | Not Started |
 | 033 | Sidebar Series Widget | — | Not Started |
+| 034 | Sidebar Author Links Redesign | — | Not Started |
 
 ## Natural Groupings
 
@@ -110,8 +111,14 @@ Features that share dependencies or are closely related and benefit from being d
 | 013 | Dark Mode | Theming enhancement — requires custom theme CSS custom properties in place |
 | 022 | JS Module Migration | Migrate existing IIFE scripts to ES module pattern per code guidelines |
 | 023 | Read More Link | Explicit "Read more" call-to-action on post cards for clearer content discovery |
+
+### Sidebar Redesign
+
+| # | Feature | Rationale |
+|---|---------|-----------|
 | 032 | Sidebar Tags Widget | Move tags from post cards to a top-10 sidebar widget with link to tags page |
 | 033 | Sidebar Series Widget | Replace Archives section with a recent series widget and link to series page |
+| 034 | Sidebar Author Links Redesign | Rename Elsewhere to Site Author Links, replace text with icons and hover text |
 
 ### Reading Experience
 
@@ -263,6 +270,10 @@ Remove tags from post-card elements on the homepage, tag archive, and series arc
 ### 033 — Sidebar Series Widget
 
 Remove the Archives section from the sidebar and replace it with a "Series" section. Display the 5 most recent series (by latest post date) as links to their series archive pages, plus a "View all series" link to the existing `/series/` page. Series metadata (title, slug) comes from `_data/series.yml`. Touches `_includes/sidebar.html` (remove archives, add series section) and `assets/css/_partials/_sidebar.scss` if new styling is needed.
+
+### 034 — Sidebar Author Links Redesign
+
+Redesign the "Elsewhere" section in the sidebar. Rename the title to "Site Author Links". Replace the text labels (Email, GitHub, LinkedIn) with icons using Bootstrap Icons (already available in the project). Add `title` attributes for hover text: "Contact by email" for the email link, "GitHub" for the GitHub link, and "LinkedIn" for the LinkedIn link. Touches `_includes/sidebar.html` (markup changes) and `assets/css/_partials/_sidebar.scss` (icon sizing and spacing).
 
 ## Dependencies
 
