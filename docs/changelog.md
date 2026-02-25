@@ -17,6 +17,10 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Move "Read more" link below excerpt element
+  - Summary: Moved the "Read more" link from inline within the excerpt paragraph to a standalone element below the `post-card__excerpt` div. Cleaner separation now that tags are no longer in post cards.
+  - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `assets/css/_partials/_post-card.scss`
+
 - **[Tweak]** Add sidebar tags widget, replace post-card tags (#032)
   - Summary: Removed tag pills from post cards on homepage, tag archive, and series archive. Added "Popular Tags" section to sidebar with top 10 tags (alphabetical) and "View all tags" link.
   - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `_includes/sidebar.html`, `assets/css/_partials/_sidebar.scss`

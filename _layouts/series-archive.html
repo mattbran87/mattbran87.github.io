@@ -47,9 +47,9 @@ layout: default
                         </p>
                         {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%}
                         <div class="post-card__excerpt">
-                            {%- assign excerpt_body = post.excerpt | split: '</p>' | first -%}
-                            {{ excerpt_body }} <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a></p>
+                            {{ post.excerpt }}
                         </div>
+                        <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a>
                     </article>
                 </li>
                 {%- endfor -%}
