@@ -1,13 +1,13 @@
 # Tasks: Social Sharing
 
-> **Status:** In Progress (Implementation)
+> **Status:** Completed
 
 ## Last Session
 
 - **Date:** 2026-02-25
-- **Stopped at:** All Implementation tasks (2.1–2.9) complete. Build verified.
-- **Context:** All 9 new/modified files committed to `feature/020-social-sharing`. Jekyll build succeeds, HTML output verified for both full (post page) and compact (homepage post-cards) variants. Production URLs correct.
-- **Next step:** Phase 2 sign-off, then Phase 3 Testing
+- **Stopped at:** Acceptance complete. Merging to master.
+- **Context:** All 4 phases complete. 15 acceptance criteria met. 4 SME findings fixed. 12/12 user tests passed. Completion notes filled.
+- **Next step:** Merge to master, push, verify deploy
 
 > Update this block when **starting each task** and when **ending a session**. This ensures the next session knows exactly where to pick up, even after an unexpected end.
 
@@ -53,21 +53,21 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1 | Verify all acceptance criteria | Pending | |
-| 3.2 | Run Accessibility SME audit | Pending | |
-| 3.3 | Run QA SME audit | Pending | |
-| 3.4 | User testing plan | Pending | |
+| 3.1 | Verify all acceptance criteria | Done | See test report below |
+| 3.2 | Run Accessibility SME audit | Done | 11 pass, 1 minor |
+| 3.3 | Run QA SME audit | Done | 0 errors, 2 warnings, 3 info |
+| 3.4 | User testing plan | Done | 12/12 items passed |
 
 ### Phase 4: Acceptance
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | Final review, completion notes, merge | Pending | |
-| 4.2 | Deploy verification | Pending | |
+| 4.1 | Final review, completion notes, merge | Done | |
+| 4.2 | Deploy verification | Pending | Verify after push to master |
 
 ## Summary
 
 - **Total tasks:** 17
-- **Completed:** 13 (R&P + Implementation)
+- **Completed:** 16
 - **In Progress:** 0
-- **Remaining:** 4 (Testing + Acceptance)
+- **Remaining:** 1 (deploy verification)

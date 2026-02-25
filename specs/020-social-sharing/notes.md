@@ -156,7 +156,11 @@ All other checks passed: file naming, SCSS import, JS import, BEM naming, CSS to
 
 ### Stage 2: User Testing
 
-- [User testing observations, pass/fail results]
+All 12 items passed:
+- Visual: full variant, compact variant (homepage + tag archive), dark mode, mobile width — all pass
+- Interaction: Copy Link (full + compact with multiple cards), platform links, email, Web Share — all pass
+- Keyboard: tab navigation with visible focus rings — pass
+- Edge case: JS disabled graceful degradation — pass
 
 ### Issues Found
 

@@ -10,6 +10,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 
 ## Liquid
 
+- Pass front matter flags as include parameters in post loops — `page` refers to the list page, not the individual post. When an include needs access to a post's front matter value (e.g., `share: false`), pass it explicitly as a parameter. (Source: spec 020)
 - Verify filter availability during Research — Jekyll's Liquid is missing `pluralize` and other common filters. List all filters the feature will use and confirm each exists. (Source: spec 004)
 - Add inline comments when Liquid logic exceeds simple iteration — nested loops, sort keys, and scoring algorithms need thorough documentation for maintainability. (Source: spec 010)
 - Pure Liquid vs. plugin tradeoff — Liquid solutions keep the build simple and GitHub Pages-compatible, but complexity grows fast. Consider a Jekyll plugin when Liquid logic requires nested loops over all posts. (Source: Content Organization retro)
@@ -50,6 +51,10 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 ## Layouts
 
 - `layout: page` with BEM content blocks is sufficient for standalone pages — dedicated layouts are unnecessary overhead. Use `:has()` to scope page-specific styling without modifying the shared layout. (Source: Page Builds retro, specs 005, 014, 015)
+
+## Visual Design
+
+- Do a visual review with the user before committing styling — when a component has visual design decisions (borders, spacing, placement), show the user before locking in commits. Reduces adjustment commits and rework. (Source: spec 020)
 
 ## Spec Workflow
 

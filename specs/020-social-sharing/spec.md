@@ -1,9 +1,9 @@
 # Feature: Social Sharing
 
 > **Spec ID:** 020
-> **Status:** Implementation
+> **Status:** Completed
 > **Created:** 2026-02-25
-> **Completed:** —
+> **Completed:** 2026-02-25
 
 ## Goal
 
@@ -43,21 +43,21 @@ The site currently has no way for readers to share posts. Social sharing buttons
 
 ## Acceptance Criteria
 
-- [ ] Full share buttons appear below post content on all published posts (unless `share: false`)
-- [ ] Compact share buttons (Copy Link + Web Share) appear on post-cards on homepage, tag archive, and series archive
-- [ ] Each platform link opens the correct sharing URL per the URL patterns in `docs/social-sharing-research.md`
-- [ ] Copy Link button copies the post URL and shows visual feedback ("Copied!")
-- [ ] Copy Link works correctly on pages with multiple post-cards (each copies its own URL)
-- [ ] Web Share API button appears only on devices that support it
-- [ ] Email link opens the default mail client with subject and body pre-filled
-- [ ] All buttons are keyboard accessible (focusable, activatable with Enter/Space)
-- [ ] Screen readers announce each button's purpose
-- [ ] Share buttons do not render on posts with `share: false` in front matter
-- [ ] Component renders correctly in both light and dark mode
-- [ ] Component is responsive — works at mobile, tablet, and desktop widths
-- [ ] No JavaScript errors when JS is disabled (full variant: share links still work, copy/Web Share hidden; compact variant: nothing renders)
-- [ ] Generated HTML is valid
-- [ ] No third-party network requests from the share component
+- [x] Full share buttons appear in post header on all published posts (unless `share: false`)
+- [x] Compact share buttons (Copy Link + Web Share) appear on post-cards on homepage, tag archive, and series archive
+- [x] Each platform link opens the correct sharing URL per the URL patterns in `docs/social-sharing-research.md`
+- [x] Copy Link button copies the post URL and shows visual feedback ("Copied!")
+- [x] Copy Link works correctly on pages with multiple post-cards (each copies its own URL)
+- [x] Web Share API button appears only on devices that support it
+- [x] Email link opens the default mail client with subject and body pre-filled
+- [x] All buttons are keyboard accessible (focusable, activatable with Enter/Space)
+- [x] Screen readers announce each button's purpose
+- [x] Share buttons do not render on posts with `share: false` in front matter
+- [x] Component renders correctly in both light and dark mode
+- [x] Component is responsive — works at mobile, tablet, and desktop widths
+- [x] No JavaScript errors when JS is disabled (full variant: share links still work, copy/Web Share hidden; compact variant: nothing renders)
+- [x] Generated HTML is valid
+- [x] No third-party network requests from the share component
 
 ## Affected Files
 
@@ -77,22 +77,34 @@ The site currently has no way for readers to share posts. Social sharing buttons
 |-------|---------|-----------|-------|
 | Research & Planning | 2026-02-25 | 2026-02-25 | 4 SMEs consulted, 23 findings, 13 decisions. Post-card compact variant added, Hacker News removed per user request. |
 | Implementation | 2026-02-25 | 2026-02-25 | 8 commits, no deviations from plan. Build verified. |
-| Testing | — | — | |
-| Acceptance | — | — | |
+| Testing | 2026-02-25 | 2026-02-25 | 4 SME findings fixed (S24-S27), 12/12 user tests passed |
+| Acceptance | 2026-02-25 | 2026-02-25 | All ACs met, completion notes filled, merged to master |
 
 ## Completion Notes
 
 ### Delivered
-- [What was built — brief summary of the final implementation]
+- Social share component (`_includes/social-share.html`) with two variants: full (Twitter/X, LinkedIn, Reddit, Email, Copy Link, Web Share) and compact (Copy Link + Web Share)
+- Full variant in post header below date/tags on all post pages
+- Compact variant on post-cards across homepage, tag archive, and series archive
+- ES module (`social-share.js`) for Clipboard API copy with "Copied!" feedback and Web Share API feature detection
+- BEM-styled ghost pill buttons with dark mode support, keyboard accessibility, aria-live announcements, and reduced-motion respect
+- `share: false` front matter opt-out for both variants, `rel="noopener noreferrer"` on external links
 
 ### Deviations
-- [Anything that changed from the original spec and why, or "None"]
+- Share buttons moved from after `.post__content` to inside `<header>` below `.post__meta` — user preferred top-of-page placement (D2 revised)
+- Bottom border separator instead of top border — user styling preference
+- Added `share` parameter to include for compact variant opt-out (not in original spec, added during Testing per S26)
+- Added `rel="noreferrer"` to external links for privacy (not in original spec, added during Testing per S27)
 
 ### What Went Well
-- [Process, tools, or decisions that worked effectively]
+- 13 decisions from Research held up during Implementation — zero mid-build churn
+- code-copy.js provided a proven, tested pattern to mirror for Clipboard API and aria-live
+- Single include with `compact` parameter (D13) kept markup DRY across both variants
+- SME audits caught 4 real issues that were all quick fixes
 
 ### What Didn't Go Well
-- [Friction points, rework, surprises, or time sinks]
+- Multiple styling adjustment commits during Implementation (border position, spacing, placement) — could have been one pass if visual review happened before committing
 
 ### Lessons Learned
-- [Specific takeaways to carry forward to future features]
+- When a component has visual design decisions (borders, spacing, placement), do a visual review with the user before committing — reduces adjustment commits
+- Pass front matter flags as include parameters when calling includes from post loops — `page` refers to the list page, not the individual post
