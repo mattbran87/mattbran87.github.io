@@ -31,6 +31,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Keep generated theme CSS close to original output — customize only what's necessary (e.g., override background color) to make future regeneration via `rougify` easy. (Source: spec 011)
 - Verify SCSS mixin availability at the actual import point during Research — a mixin recommended by one SME may not be usable where another SME recommends placing the code (e.g., `color-mode()` unavailable in `_variables.scss` because it's imported before Bootstrap's mixins). (Source: spec 013)
 - Use `:has()` to scope page-specific styles without modifying shared layouts — e.g., `.page:has(.error-page) .page__title` centers the title only on the 404 page. Avoids adding flags to front matter or classes to shared layout files. (Source: spec 014)
+- Check for inherited element-type selectors when placing JS-generated elements inside styled containers — e.g., `.post__content h2` overrode `.article-toc__heading` styles. Scope component selectors to match or beat the container's specificity. (Source: spec 025)
 
 ## Accessibility
 
@@ -55,6 +56,10 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 ## Visual Design
 
 - Do a visual review with the user before committing styling — when a component has visual design decisions (borders, spacing, placement), show the user before locking in commits. Reduces adjustment commits and rework. (Source: spec 020)
+
+## Roadmap
+
+- Verify dependency claims in feature descriptions — when a roadmap description references a library or tool being "already available," confirm against actual project state during implementation rather than trusting the description. (Source: Sidebar Redesign retro, re: spec 034)
 
 ## Spec Workflow
 

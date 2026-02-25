@@ -17,6 +17,14 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Add back-to-top button (#026)
+  - Summary: Floating button fixed to bottom-right corner, appears after 300px scroll. Smooth-scrolls to top on click. Respects `prefers-reduced-motion` (instant scroll). Supports dark mode via `--color-primary`. Hidden by default with `[hidden]` attribute removed by JS.
+  - Files affected: `_includes/back-to-top.html` (new), `assets/js/modules/back-to-top.js` (new), `assets/css/_partials/_back-to-top.scss` (new), `_layouts/default.html`, `assets/js/main.js`, `assets/main.scss`
+
+- **[Tweak]** Add scroll progress indicator (#027)
+  - Summary: Thin 3px progress bar fixed to the top of the viewport, fills left-to-right as the reader scrolls through a post. Only displays on post pages (`.post__content`). Uses `transform: scaleX()` for GPU-accelerated rendering. JS creates the DOM element and prepends to `<body>`. Respects `prefers-reduced-motion`.
+  - Files affected: `assets/js/modules/scroll-progress.js` (new), `assets/css/_partials/_scroll-progress.scss` (new), `assets/js/main.js`, `assets/main.scss`
+
 - **[Tweak]** Move "Read more" link below excerpt element
   - Summary: Moved the "Read more" link from inline within the excerpt paragraph to a standalone element below the `post-card__excerpt` div. Cleaner separation now that tags are no longer in post cards.
   - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `assets/css/_partials/_post-card.scss`

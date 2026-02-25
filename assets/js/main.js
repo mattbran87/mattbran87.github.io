@@ -12,6 +12,8 @@ import { initSearch } from './modules/search.js';
 import { initThemeToggle } from './modules/theme-toggle.js';
 import { initSocialShare } from './modules/social-share.js';
 import { initToc } from './modules/toc.js';
+import { initBackToTop } from './modules/back-to-top.js';
+import { initScrollProgress } from './modules/scroll-progress.js';
 
 initNavKeyboard();
 initCodeCopy();
@@ -19,3 +21,5 @@ initSearch();
 initThemeToggle();
 initSocialShare();
 initToc();
+initBackToTop();
+initScrollProgress();
