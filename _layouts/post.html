@@ -22,12 +22,12 @@ layout: default
             {%- include social-share.html -%}
         </header>
 
-        {%- comment -%} Series table of contents — shown if post belongs to a series {%- endcomment -%}
-        {%- if page.series and page.series_part -%}
-            {%- include series-toc.html -%}
-        {%- endif -%}
-
-        <div class="post__content">
+        <div class="post__content"{% if page.toc == false %} data-toc="false"{% endif %}>
+            {%- comment -%} Series indicator — shown if post belongs to a series {%- endcomment -%}
+            {%- if page.series and page.series_part -%}
+                {%- assign series_meta = site.data.series[page.series] -%}
+            <p class="post__series-line">This is part {{ page.series_part }} of the series <a href="{{ '/series/' | append: page.series | append: '/' | relative_url }}">{{ series_meta.title | default: page.series }}</a></p>
+            {%- endif -%}
             {{ content }}
         </div>
 

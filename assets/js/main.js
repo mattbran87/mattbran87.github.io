@@ -11,9 +11,11 @@ import { initCodeCopy } from './modules/code-copy.js';
 import { initSearch } from './modules/search.js';
 import { initThemeToggle } from './modules/theme-toggle.js';
 import { initSocialShare } from './modules/social-share.js';
+import { initToc } from './modules/toc.js';
 
 initNavKeyboard();
 initCodeCopy();
 initSearch();
 initThemeToggle();
 initSocialShare();
+initToc();

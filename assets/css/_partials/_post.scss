@@ -25,6 +25,22 @@
     margin: 0 0.25em;
 }
 
+.post__series-line {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-lg);
+
+    a {
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
 .post__content {
     margin-bottom: var(--spacing-xxl);
 
