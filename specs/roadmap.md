@@ -41,6 +41,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 030 | Visible Breadcrumbs | — | Not Started |
 | 031 | Series Badge Redesign | — | Completed |
 | 032 | Sidebar Tags Widget | — | Not Started |
+| 033 | Sidebar Series Widget | — | Not Started |
 
 ## Natural Groupings
 
@@ -110,6 +111,7 @@ Features that share dependencies or are closely related and benefit from being d
 | 022 | JS Module Migration | Migrate existing IIFE scripts to ES module pattern per code guidelines |
 | 023 | Read More Link | Explicit "Read more" call-to-action on post cards for clearer content discovery |
 | 032 | Sidebar Tags Widget | Move tags from post cards to a top-10 sidebar widget with link to tags page |
+| 033 | Sidebar Series Widget | Replace Archives section with a recent series widget and link to series page |
 
 ### Reading Experience
 
@@ -257,6 +259,10 @@ Redesign the series indicator on post cards. Replace the current pill-shaped `se
 ### 032 — Sidebar Tags Widget
 
 Remove tags from post-card elements on the homepage, tag archive, and series archive pages. Replace with a "Popular Tags" section in the sidebar (`_includes/sidebar.html`) that displays the 10 most-used tags as links, plus a "View all tags" link to the existing `/tags/` page. Tags are counted and sorted by frequency using Liquid. This declutters the post cards while keeping tag discovery accessible from every page that renders the sidebar. Touches `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html` (remove tag markup), `_includes/sidebar.html` (add tags section), and `assets/css/_partials/_sidebar.scss` (style the tag list).
+
+### 033 — Sidebar Series Widget
+
+Remove the Archives section from the sidebar and replace it with a "Series" section. Display the 5 most recent series (by latest post date) as links to their series archive pages, plus a "View all series" link to the existing `/series/` page. Series metadata (title, slug) comes from `_data/series.yml`. Touches `_includes/sidebar.html` (remove archives, add series section) and `assets/css/_partials/_sidebar.scss` if new styling is needed.
 
 ## Dependencies
 
