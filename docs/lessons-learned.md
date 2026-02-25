@@ -28,12 +28,14 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Selective Bootstrap imports scale well — only uncomment modules as needed per feature. Don't import the full Bootstrap bundle. (Source: Foundation retro)
 - Self-review before committing catches CSS cascade issues — media query specificity can override modifier states (e.g., `@media (hover: hover)` opacity overriding `--copied` modifier). Check that state modifiers are included in media query reveal selectors. (Source: spec 011)
 - Keep generated theme CSS close to original output — customize only what's necessary (e.g., override background color) to make future regeneration via `rougify` easy. (Source: spec 011)
+- Verify SCSS mixin availability at the actual import point during Research — a mixin recommended by one SME may not be usable where another SME recommends placing the code (e.g., `color-mode()` unavailable in `_variables.scss` because it's imported before Bootstrap's mixins). (Source: spec 013)
 
 ## Accessibility
 
 - Bake accessibility into foundational layers — setting accessible defaults at the variable level (focus rings, contrast ratios, link underlines) means downstream features inherit them automatically. More effective than auditing after the fact. (Source: Foundation retro, Content Organization retro)
 - Zero-issue audits are achievable — when foundational accessibility is strong, new features built on the same design tokens pass A11y audits cleanly. (Source: spec 010)
-- Prefer visible text over `aria-label` for buttons — `aria-label` overrides visible text for screen readers, creating WCAG 2.5.3 (Label in Name) mismatches when the visible text changes dynamically. Use visible text as the accessible name and let aria-live regions handle state announcements. (Source: spec 011)
+- Prefer visible text over `aria-label` for buttons — `aria-label` overrides visible text for screen readers, creating WCAG 2.5.3 (Label in Name) mismatches when the visible text changes dynamically. Use visible text as the accessible name and let aria-live regions handle state announcements. (Source: specs 011, 013)
+- Review inline script vs. module boundaries for dead code — when a FOUC inline script and an ES module share responsibility for the same feature (e.g., theme detection), ensure no functions are duplicated or orphaned. (Source: spec 013)
 
 ## Testing
 
