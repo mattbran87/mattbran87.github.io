@@ -21,7 +21,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 010 | Related Posts | `specs/010-related-posts/` | Completed |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Completed |
 | 012 | Analytics | `specs/012-analytics/` | Deferred (Research complete) |
-| 013 | Dark Mode | `specs/013-dark-mode/` | Not Started |
+| 013 | Dark Mode | `specs/013-dark-mode/` | Completed |
 | 014 | Custom 404 | `specs/014-custom-404/` | Not Started |
 | 015 | Uses Page | `specs/015-uses-page/` | Not Started |
 | 016 | Resume/CV Page | `specs/016-resume-page/` | Not Started |
@@ -30,6 +30,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
 | 020 | Social Sharing | [`docs/social-sharing-research.md`](../docs/social-sharing-research.md) | Not Started |
 | 021 | Comments | [`docs/commenting-system-research.md`](../docs/commenting-system-research.md) | Not Started |
+| 022 | JS Module Migration | — | Not Started |
 
 ## Natural Groupings
 
@@ -95,6 +96,7 @@ Features that share dependencies or are closely related and benefit from being d
 |---|---------|-----------|
 | 011 | Code Block Enhancements | Developer experience polish for code-heavy posts |
 | 013 | Dark Mode | Theming enhancement — requires custom theme CSS custom properties in place |
+| 022 | JS Module Migration | Migrate existing IIFE scripts to ES module pattern per code guidelines |
 
 ## Feature Descriptions
 
@@ -181,6 +183,10 @@ Add per-post commenting using Giscus, which stores comments as GitHub Discussion
 ### 017 — Multi-Language Support
 
 Add multi-language support using jekyll-polyglot. Translate the full site (posts, pages, UI chrome) into Spanish, French, and German with English as the default. English content serves from root URLs; translated content gets language-prefixed paths (`/es/`, `/fr/`, `/de/`). Includes a language switcher in the nav, a JavaScript browser-language detection banner, hreflang SEO tags, and a custom `/translator` subagent for AI-assisted translation. Research findings: [`docs/multi-language-research.md`](../docs/multi-language-research.md).
+
+### 022 — JS Module Migration
+
+Migrate existing JavaScript files (`nav-keyboard.js`, `code-copy.js`, `search.js`) from the IIFE pattern to ES modules per `docs/code-guidelines.md`. Create an `assets/js/main.js` entry point that imports from `assets/js/modules/`. Update `_layouts/default.html` script tags from `<script defer>` to `<script type="module">`. Mini-spec tier — no research required, straightforward mechanical migration.
 
 ## Dependencies
 
