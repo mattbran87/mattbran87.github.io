@@ -1,0 +1,116 @@
+// ==========================================================================
+// Social Share
+// ==========================================================================
+//
+// Share buttons component — full variant (article pages) and compact
+// variant (post-cards). Ghost-style pill buttons with flex-wrap layout.
+
+// ---------------------------------------------------------------------------
+// Block
+// ---------------------------------------------------------------------------
+
+.social-share {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+// ---------------------------------------------------------------------------
+// List layout
+// ---------------------------------------------------------------------------
+
+.social-share__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Shared link / button styles (ghost pill)
+// ---------------------------------------------------------------------------
+
+.social-share__link,
+.social-share__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-pill);
+    background-color: transparent;
+    color: var(--color-muted);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--transition-fast),
+                background-color var(--transition-fast),
+                border-color var(--transition-fast);
+
+    &:hover {
+        color: var(--color-text);
+        background-color: var(--color-bg-alt);
+        border-color: var(--color-text);
+    }
+
+    &:focus-visible {
+        color: var(--color-text);
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: 2px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Icon
+// ---------------------------------------------------------------------------
+
+.social-share__icon {
+    flex-shrink: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Copied state
+// ---------------------------------------------------------------------------
+
+.social-share__button--copied {
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+// ---------------------------------------------------------------------------
+// Compact variant (post-cards)
+// ---------------------------------------------------------------------------
+
+.social-share--compact {
+    margin-top: var(--spacing-sm);
+    padding-top: 0;
+    border-top: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+
+    .social-share__button {
+        padding: 0.25rem 0.5rem;
+        font-size: var(--font-size-xs);
+    }
+
+    .social-share__icon {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Reduced motion
+// ---------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+    .social-share__link,
+    .social-share__button {
+        transition: none;
+    }
+}
