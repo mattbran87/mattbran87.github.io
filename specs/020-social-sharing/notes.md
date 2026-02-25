@@ -29,6 +29,10 @@ All SME findings across every phase, with disposition. Add rows as findings come
 | S21 | Research | QA | Add JS module to requirements explicitly | Copy + Web Share need `social-share.js` + `main.js` import | Adopted → spec update |
 | S22 | Research | QA | Fill affected files during Planning | Placeholder still present | Adopted → Planning |
 | S23 | Research | QA | Liquid filters verified: `url_encode`, `absolute_url`, `escape` all available | Per lessons-learned checklist | N/A |
+| S24 | Testing | A11y | VoiceOver may strip list semantics when `list-style: none` is applied to `<ul>` | Add `role="list"` to the `<ul>` element | Fixed in cc7b0bf |
+| S25 | Testing | QA | `var` used instead of `const` in social-share.js; code-copy.js uses `const` | Change `var` to `const` for consistency | Fixed in cc7b0bf |
+| S26 | Testing | QA | `share: false` guard absent in compact variant; post-card buttons render for opted-out posts | Add share parameter to compact variant | Fixed in cc7b0bf |
+| S27 | Testing | QA | External share links use `rel="noopener"` but not `rel="noreferrer"` | Add `noreferrer` for privacy consistency | Fixed in cc7b0bf |
 
 **Disposition values:** Adopted → D# (decision), Adopted → Task #, Deferred, Overridden by D#, Fixed in [commit], N/A
 
@@ -131,12 +135,24 @@ All open questions resolved during SME consultations. No remaining questions for
 ### Stage 1: Claude Verification & SME Audits
 
 #### Accessibility SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+
+12 checks performed. **11 Pass, 1 Minor.**
+
+- **Finding (A2):** VoiceOver may strip list semantics when `list-style: none` is applied to `<ul>`. Low impact since `<nav>` landmark provides context.
+- **Recommendation:** Consider adding `role="list"` to the `<ul>`. One-line fix if desired.
+
+All other checks passed: nav landmark with aria-label, icon + visible text (WCAG 2.5.3), new tab indication, hidden attribute progressive enhancement, keyboard accessibility, aria-live region, copy button label change, compact JS-only acceptable, compact uses div to avoid landmark pollution, reduced motion.
 
 #### QA SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+
+20 checks performed. **0 Errors, 2 Warnings, 3 Info.**
+
+- **Warning (Q7/Q19):** `var` used in social-share.js where code-copy.js uses `const`. Change to `const` for consistency.
+- **Info (Q11):** `share: false` guard absent in compact variant — post-card buttons render for opted-out posts. Confirm if intended.
+- **Info (Q20):** External share links lack `rel="noreferrer"`. Consider adding for privacy consistency.
+- **Info (Q16):** Hard-coded padding values (0.375rem) — acceptable, matches code-copy pattern.
+
+All other checks passed: file naming, SCSS import, JS import, BEM naming, CSS tokens, JSDoc, URL patterns match research doc, Liquid filters, Liquid comments, no third-party scripts, progressive enhancement, target/rel on links, filter chain order, build verification, layout consistency.
 
 ### Stage 2: User Testing
 
@@ -144,7 +160,10 @@ All open questions resolved during SME consultations. No remaining questions for
 
 ### Issues Found
 
-- [Issues documented with steps to reproduce, severity, and fix status]
+- **S25 (Warning):** `var` vs `const` in social-share.js — style inconsistency with code-copy.js
+- **S24 (Minor):** VoiceOver list semantics with `list-style: none`
+- **S26 (Info):** `share: false` not enforced on compact variant
+- **S27 (Info):** Missing `rel="noreferrer"` on external share links
 
 ---
 
