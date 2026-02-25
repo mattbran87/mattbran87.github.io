@@ -32,6 +32,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Verify SCSS mixin availability at the actual import point during Research — a mixin recommended by one SME may not be usable where another SME recommends placing the code (e.g., `color-mode()` unavailable in `_variables.scss` because it's imported before Bootstrap's mixins). (Source: spec 013)
 - Use `:has()` to scope page-specific styles without modifying shared layouts — e.g., `.page:has(.error-page) .page__title` centers the title only on the 404 page. Avoids adding flags to front matter or classes to shared layout files. (Source: spec 014)
 - Check for inherited element-type selectors when placing JS-generated elements inside styled containers — e.g., `.post__content h2` overrode `.article-toc__heading` styles. Scope component selectors to match or beat the container's specificity. (Source: spec 025)
+- Audit Bootstrap component HTML for cross-partial CSS dependencies — Bootstrap components are not fully self-contained in their SCSS. When importing a component partial (e.g., `offcanvas`), check the rendered HTML for classes that depend on other partials (e.g., `.btn-close` requires `close`). (Source: spec 021)
 
 ## Accessibility
 

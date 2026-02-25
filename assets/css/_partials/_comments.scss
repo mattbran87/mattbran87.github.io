@@ -1,0 +1,32 @@
+// ==========================================================================
+// Comments
+// ==========================================================================
+//
+// Offcanvas panel overrides for the Giscus comment widget. Bootstrap handles
+// the core offcanvas behavior (slide, backdrop, focus trapping). These styles
+// adjust sizing and spacing for the comments use case.
+
+// ---------------------------------------------------------------------------
+// Panel
+// ---------------------------------------------------------------------------
+
+.post-comments {
+    --bs-offcanvas-width: min(28rem, 85vw);
+}
+
+// ---------------------------------------------------------------------------
+// Title
+// ---------------------------------------------------------------------------
+
+.post-comments__title {
+    font-size: var(--font-size-lg);
+    margin-bottom: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Giscus container
+// ---------------------------------------------------------------------------
+
+.post-comments__giscus {
+    min-height: 12rem;
+}

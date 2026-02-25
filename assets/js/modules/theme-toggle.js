@@ -4,8 +4,11 @@
  * the data-bs-theme attribute on the document root and persisting the user's
  * preference to localStorage. Listens for system preference changes via
  * the prefers-color-scheme media query and syncs accordingly when no manual
- * preference is saved.
+ * preference is saved. Also syncs the Giscus comment widget theme when
+ * present via postMessage.
  */
+
+import { getGiscusTheme, setGiscusTheme } from './comments.js';
 
 /** Duration in ms to show screen reader announcement before clearing */
 const ANNOUNCEMENT_DURATION = 2000;
@@ -82,6 +85,9 @@ export function initThemeToggle() {
         updateToggleLabel(next, label);
         announceThemeChange(next, statusRegion);
 
+        // Sync Giscus comment widget theme if loaded
+        setGiscusTheme(getGiscusTheme());
+
         // Persist manual choice
         try {
             localStorage.setItem('theme', next);
@@ -105,5 +111,8 @@ export function initThemeToggle() {
         const systemTheme = e.matches ? 'dark' : 'light';
         applyTheme(systemTheme);
         updateToggleLabel(systemTheme, label);
+
+        // Sync Giscus comment widget theme if loaded
+        setGiscusTheme(getGiscusTheme());
     });
 }
