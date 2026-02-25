@@ -15,12 +15,12 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 004 | Series Support | `specs/004-series-support/` | Completed |
 | 005 | Contact Form | `specs/005-contact-form/` | Completed |
 | 006 | Personalize Site | `specs/006-personalize-site/` | Completed |
-| 007 | Custom Homepage | `specs/007-custom-homepage/` | Deferred |
+| 007 | Custom Homepage | `specs/007-custom-homepage/` | Deferred — no compelling need yet; reconsider when content volume justifies a curated landing page |
 | 008 | SEO Foundation | `specs/008-seo-foundation/` | Completed |
 | 009 | Search | `specs/009-search/` | Completed |
 | 010 | Related Posts | `specs/010-related-posts/` | Completed |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Completed |
-| 012 | Analytics | `specs/012-analytics/` | Deferred (Research complete) |
+| 012 | Analytics | `specs/012-analytics/` | Deferred — research complete; awaiting private repository and server migration before implementation |
 | 013 | Dark Mode | `specs/013-dark-mode/` | Completed |
 | 014 | Custom 404 | `specs/014-custom-404/` | Completed |
 | 015 | Uses Page | — | Completed (stub) |

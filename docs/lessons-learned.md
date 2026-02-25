@@ -47,8 +47,13 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Cross-feature integration testing for grouped features — when features in the same natural grouping interact (e.g., tags feeding related posts), add a brief integration check to the final feature's Testing phase. (Source: Content Organization retro)
 - Check `.gitignore` patterns against nested paths — any time a vendor directory is added, verify patterns use leading slashes. (Source: Foundation retro)
 
+## Layouts
+
+- `layout: page` with BEM content blocks is sufficient for standalone pages — dedicated layouts are unnecessary overhead. Use `:has()` to scope page-specific styling without modifying the shared layout. (Source: Page Builds retro, specs 005, 014, 015)
+
 ## Spec Workflow
 
 - Calibrate spec tier to scope — features with no research, no architectural decisions, and fewer than 5 files should use the mini-spec tier. Reserve full specs for features with real unknowns. (Source: Foundation retro, re: spec 006)
 - Decision documentation prevents mid-implementation churn — settling decisions during Research means implementation proceeds without scope changes. (Source: Content Organization retro)
 - Completion notes feed milestone reviews — structured retros (Delivered, Deviations, What Went Well, What Didn't, Lessons) make cross-feature pattern recognition much easier. (Source: process review)
+- Document deferral rationale — when a feature is deferred, record why and under what conditions it would be reconsidered. Avoids losing context across sessions. (Source: Page Builds retro, re: spec 007)
