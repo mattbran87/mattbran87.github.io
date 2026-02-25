@@ -14,6 +14,7 @@ import { initSocialShare } from './modules/social-share.js';
 import { initToc } from './modules/toc.js';
 import { initBackToTop } from './modules/back-to-top.js';
 import { initScrollProgress } from './modules/scroll-progress.js';
+import { initComments } from './modules/comments.js';
 
 initNavKeyboard();
 initCodeCopy();
@@ -23,3 +24,4 @@ initSocialShare();
 initToc();
 initBackToTop();
 initScrollProgress();
+initComments();
