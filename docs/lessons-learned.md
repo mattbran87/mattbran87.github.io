@@ -29,6 +29,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Self-review before committing catches CSS cascade issues — media query specificity can override modifier states (e.g., `@media (hover: hover)` opacity overriding `--copied` modifier). Check that state modifiers are included in media query reveal selectors. (Source: spec 011)
 - Keep generated theme CSS close to original output — customize only what's necessary (e.g., override background color) to make future regeneration via `rougify` easy. (Source: spec 011)
 - Verify SCSS mixin availability at the actual import point during Research — a mixin recommended by one SME may not be usable where another SME recommends placing the code (e.g., `color-mode()` unavailable in `_variables.scss` because it's imported before Bootstrap's mixins). (Source: spec 013)
+- Use `:has()` to scope page-specific styles without modifying shared layouts — e.g., `.page:has(.error-page) .page__title` centers the title only on the 404 page. Avoids adding flags to front matter or classes to shared layout files. (Source: spec 014)
 
 ## Accessibility
 
@@ -36,6 +37,10 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Zero-issue audits are achievable — when foundational accessibility is strong, new features built on the same design tokens pass A11y audits cleanly. (Source: spec 010)
 - Prefer visible text over `aria-label` for buttons — `aria-label` overrides visible text for screen readers, creating WCAG 2.5.3 (Label in Name) mismatches when the visible text changes dynamically. Use visible text as the accessible name and let aria-live regions handle state announcements. (Source: specs 011, 013)
 - Review inline script vs. module boundaries for dead code — when a FOUC inline script and an ES module share responsibility for the same feature (e.g., theme detection), ensure no functions are duplicated or orphaned. (Source: spec 013)
+
+## JavaScript
+
+- Follow the documented target architecture for new code, not the current state — 011 chose IIFE "for consistency with existing scripts" (D7), but 022 had to migrate it to ES modules shortly after. New code should match the project's code guidelines even if existing code hasn't been updated yet. (Source: Enhancements retro, specs 011, 022)
 
 ## Testing
 
