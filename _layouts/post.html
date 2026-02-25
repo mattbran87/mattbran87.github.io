@@ -27,6 +27,9 @@ layout: default
             {{ content }}
         </div>
 
+        {%- comment -%} Social share buttons — shown unless share: false in front matter {%- endcomment -%}
+        {%- include social-share.html -%}
+
         {%- comment -%} Previous / Next post navigation {%- endcomment -%}
         {%- if page.previous or page.next -%}
         <nav class="post__nav" aria-label="Post navigation">
