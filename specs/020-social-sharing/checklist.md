@@ -52,7 +52,7 @@
 - [x] Fill in structured completion notes in spec.md (all 5 sections)
 - [x] Update docs/lessons-learned.md if any reusable lessons emerged
 - [x] Flag any lessons that require rule/convention changes to user
-- [ ] Merge feature branch to master
-- [ ] Delete feature branch (local and remote)
-- [ ] Verify GitHub Actions deploy succeeded
-- [ ] Spot-check live site at production URL
+- [x] Merge feature branch to master
+- [x] Delete feature branch (local and remote)
+- [x] Verify GitHub Actions deploy succeeded
+- [x] Spot-check live site at production URL
