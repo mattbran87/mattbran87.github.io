@@ -10,8 +10,10 @@ import { initNavKeyboard } from './modules/nav-keyboard.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initSearch } from './modules/search.js';
 import { initThemeToggle } from './modules/theme-toggle.js';
+import { initSocialShare } from './modules/social-share.js';
 
 initNavKeyboard();
 initCodeCopy();
 initSearch();
 initThemeToggle();
+initSocialShare();
