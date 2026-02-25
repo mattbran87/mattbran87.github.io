@@ -1,8 +1,8 @@
 # Milestone Retrospective: Enhancements
 
-> **Group:** Enhancements (011 Code Block Enhancements, 013 Dark Mode, 022 JS Module Migration)
-> **Completed:** 2026-02-24
-> **Review Date:** 2026-02-24
+> **Group:** Enhancements (011 Code Block Enhancements, 013 Dark Mode, 022 JS Module Migration, 023 Read More Link)
+> **Completed:** 2026-02-25
+> **Review Date:** 2026-02-25
 
 ## Summary of Features
 
@@ -11,8 +11,9 @@
 | 011 | Code Block Enhancements | Rouge syntax theme, copy-to-clipboard button, consolidated code styles, hover-reveal pattern, 4 files | 1 day (full spec, all 4 phases) |
 | 013 | Dark Mode | Light/dark toggle, 23 CSS custom properties, dark syntax theme, FOUC inline script, accessible toggle button, transitions, 10+ files | 1 day (full spec, all 4 phases) |
 | 022 | JS Module Migration | Convert 3 IIFEs to ES modules, create main.js entry point, update layout script tags, 7 files | 1 session (mini-spec) |
+| 023 | Read More Link | Inline "Read more" link in excerpt paragraph, aria-label per post title, 3 layouts + 1 SCSS partial | 1 session (mini-spec, batched with 024 and 031) |
 
-The Enhancements group adds developer experience polish (code blocks), theming (dark mode), and codebase modernization (ES modules). All three features build on the Foundation group's two-layer variable architecture and Bootstrap integration.
+The Enhancements group adds developer experience polish (code blocks), theming (dark mode), codebase modernization (ES modules), and content discovery (read more links). All four features build on the Foundation group's two-layer variable architecture and Bootstrap integration.
 
 ## Cross-Feature Patterns
 
@@ -23,14 +24,14 @@ The Enhancements group adds developer experience polish (code blocks), theming (
 
 ### Common decisions
 
-- **Accessible interactive patterns:** Both 011 (copy button) and 013 (theme toggle) used visible text as the accessible name, aria-live regions for state announcements, and keyboard-accessible controls. The `aria-label` approach was tried in 011 and rejected after SME audit — 013 learned from that and used visible text from the start.
+- **Accessible interactive patterns:** Both 011 (copy button) and 013 (theme toggle) used visible text as the accessible name, aria-live regions for state announcements, and keyboard-accessible controls. The `aria-label` approach was tried in 011 and rejected after SME audit — 013 learned from that and used visible text from the start. 023 used `aria-label` appropriately — multiple identical "Read more" links on a page need `aria-label` to differentiate them for screen readers (different use case than 011's dynamic button text).
 - **Progressive enhancement:** Both 011 and 013 degrade gracefully — copy buttons don't appear without Clipboard API support, the theme toggle is hidden when JS is disabled. 022 preserved this by keeping external libraries (Bootstrap, Lunr) as classic deferred scripts since they lack ES module builds.
 - **`prefers-reduced-motion` support:** Both 011 (button transitions) and 013 (theme transitions) respect the reduced-motion media query. This is now an established project convention for any CSS transitions.
 - **CSS custom properties as the theming mechanism:** 011 introduced code block tokens, 013 extended the full site to dark mode via custom property swaps. The two-layer variable model from Foundation (SCSS for Bootstrap overrides, custom properties for components) proved its value — dark mode was largely a matter of adding alternate property values rather than rewriting component CSS.
 
 ### Repeated blockers
 
-- None. Each feature had unique challenges (011: CSS cascade specificity; 013: SCSS import order for mixins; 022: none) but nothing recurred across the group.
+- None. Each feature had unique challenges (011: CSS cascade specificity; 013: SCSS import order for mixins; 022: none; 023: none) but nothing recurred across the group.
 
 ## Workflow Effectiveness
 
@@ -44,7 +45,7 @@ The Enhancements group adds developer experience polish (code blocks), theming (
 
 ### What was too heavy
 
-- **Nothing in this group.** Both full specs (011, 013) had genuine research questions and architectural decisions. The mini-spec for 022 was correctly scoped.
+- **Nothing in this group.** Both full specs (011, 013) had genuine research questions and architectural decisions. The mini-specs for 022 and 023 were correctly scoped.
 
 ### What was missing
 
@@ -59,4 +60,5 @@ The Enhancements group adds developer experience polish (code blocks), theming (
 ## Updated Conventions
 
 - **New lesson added to `docs/lessons-learned.md`:** "Follow the documented target architecture for new code, not the current state" under a new JavaScript section. (Source: specs 011, 022)
+- **New lesson:** Batching mini-spec features that touch the same files (023 was batched with 024 and 031 since all three modify post-card layouts) reduces rework and keeps related changes in a single commit.
 - No changes needed to `CLAUDE.md` or `docs/code-guidelines.md` — the ES module pattern and single entry point are already documented there.

@@ -17,6 +17,18 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Add sidebar tags widget, replace post-card tags (#032)
+  - Summary: Removed tag pills from post cards on homepage, tag archive, and series archive. Added "Popular Tags" section to sidebar with top 10 tags (alphabetical) and "View all tags" link.
+  - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `_includes/sidebar.html`, `assets/css/_partials/_sidebar.scss`
+
+- **[Tweak]** Replace Archives with Series widget in sidebar (#033)
+  - Summary: Removed month-based Archives section. Added "Series" section listing series from `_data/series.yml` with links to archive pages and "View all series" link.
+  - Files affected: `_includes/sidebar.html`
+
+- **[Tweak]** Redesign sidebar author links with icons (#034)
+  - Summary: Renamed "Elsewhere" to "Site Author Links". Replaced text labels with inline SVG icons (email, GitHub, LinkedIn). Added `title` attributes for hover text.
+  - Files affected: `_includes/sidebar.html`, `assets/css/_partials/_sidebar.scss`
+
 - **[Tweak]** Add "Read more" link to post cards (#023)
   - Summary: Added explicit "Read more" call-to-action link below the excerpt on post cards. Accessible `aria-label` includes post title to differentiate links for screen readers.
   - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `assets/css/_partials/_post-card.scss`

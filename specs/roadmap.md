@@ -40,9 +40,9 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 029 | Pagination | — | Not Started |
 | 030 | Visible Breadcrumbs | — | Not Started |
 | 031 | Series Badge Redesign | — | Completed |
-| 032 | Sidebar Tags Widget | — | Not Started |
-| 033 | Sidebar Series Widget | — | Not Started |
-| 034 | Sidebar Author Links Redesign | — | Not Started |
+| 032 | Sidebar Tags Widget | — | Completed |
+| 033 | Sidebar Series Widget | — | Completed |
+| 034 | Sidebar Author Links Redesign | — | Completed |
 
 ## Natural Groupings
 

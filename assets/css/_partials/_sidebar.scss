@@ -49,10 +49,28 @@
     }
 }
 
+.sidebar__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sidebar__view-all {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+}
+
+.sidebar__author-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
 .sidebar__social-link {
     color: var(--color-muted);
     text-decoration: none;
-    margin-right: var(--spacing-md);
+    line-height: 1;
 
     &:hover {
         color: var(--color-primary);

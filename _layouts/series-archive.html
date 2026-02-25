@@ -50,12 +50,6 @@ layout: default
                             {%- assign excerpt_body = post.excerpt | split: '</p>' | first -%}
                             {{ excerpt_body }} <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a></p>
                         </div>
-                        {%- comment -%} Show tag pills if the post has tags {%- endcomment -%}
-                        {%- if post.tags.size > 0 -%}
-                        <div class="post-card__tags">
-                            {%- include post-tags.html tags=post.tags -%}
-                        </div>
-                        {%- endif -%}
                     </article>
                 </li>
                 {%- endfor -%}

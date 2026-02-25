@@ -62,3 +62,4 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Decision documentation prevents mid-implementation churn — settling decisions during Research means implementation proceeds without scope changes. (Source: Content Organization retro)
 - Completion notes feed milestone reviews — structured retros (Delivered, Deviations, What Went Well, What Didn't, Lessons) make cross-feature pattern recognition much easier. (Source: process review)
 - Document deferral rationale — when a feature is deferred, record why and under what conditions it would be reconsidered. Avoids losing context across sessions. (Source: Page Builds retro, re: spec 007)
+- Batch mini-specs that touch the same files — grouping features that modify the same layouts or components into one session reduces rework and keeps related changes in a single commit. (Source: Enhancements retro, re: specs 023, 024, 031)
