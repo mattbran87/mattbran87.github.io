@@ -14,7 +14,8 @@
     margin-bottom: var(--spacing-xl);
 }
 
-.article-toc__heading {
+// Scoped to .article-toc to override .post__content h2 margin
+.article-toc .article-toc__heading {
     font-size: var(--font-size-sm);
     text-transform: uppercase;
     letter-spacing: 0.05em;
