@@ -26,6 +26,7 @@ layout: default
                         {{ post.date | date: "%b %-d, %Y" }}
                     </time>
                 </p>
+                {%- include social-share.html url=post.url title=post.title compact="true" -%}
                 <div class="post-card__excerpt">
                     {{ post.excerpt }}
                 </div>
@@ -40,7 +41,6 @@ layout: default
                     {%- include post-tags.html tags=post.tags -%}
                 </div>
                 {%- endif -%}
-                {%- include social-share.html url=post.url title=post.title compact="true" -%}
             </article>
                 {%- endfor -%}
             {%- else -%}
