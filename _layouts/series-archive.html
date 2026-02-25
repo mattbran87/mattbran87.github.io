@@ -52,6 +52,7 @@ layout: default
                             {%- include post-tags.html tags=post.tags -%}
                         </div>
                         {%- endif -%}
+                        {%- include social-share.html url=post.url title=post.title compact="true" -%}
                     </article>
                 </li>
                 {%- endfor -%}
