@@ -10,6 +10,8 @@ layout: default
                 <time datetime="{{ page.date | date_to_xmlschema }}">
                     {{ page.date | date: "%b %-d, %Y" }}
                 </time>
+                <span class="post__meta-sep" aria-hidden="true">&middot;</span>
+                {%- include reading-time.html content=page.content -%}
                 {%- if page.tags.size > 0 -%}
                 <span class="ms-2">
                     {%- include post-tags.html tags=page.tags -%}

@@ -31,15 +31,15 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 020 | Social Sharing | `specs/020-social-sharing/` | Completed |
 | 021 | Comments | [`docs/commenting-system-research.md`](../docs/commenting-system-research.md) | Not Started |
 | 022 | JS Module Migration | — | Completed |
-| 023 | Read More Link | — | Not Started |
-| 024 | Estimated Reading Time | — | Not Started |
+| 023 | Read More Link | — | Completed |
+| 024 | Estimated Reading Time | — | Completed |
 | 025 | Table of Contents | — | Not Started |
 | 026 | Back to Top Button | — | Not Started |
 | 027 | Scroll Progress Indicator | — | Not Started |
 | 028 | Newsletter Subscribe CTA | [`docs/newsletter-research.md`](../docs/newsletter-research.md) | Not Started |
 | 029 | Pagination | — | Not Started |
 | 030 | Visible Breadcrumbs | — | Not Started |
-| 031 | Series Badge Redesign | — | Not Started |
+| 031 | Series Badge Redesign | — | Completed |
 
 ## Natural Groupings
 

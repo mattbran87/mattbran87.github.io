@@ -116,47 +116,22 @@
 }
 
 // --------------------------------------------------------------------------
-// Series Badge — compact indicator for homepage post cards
+// Series Badge — series name link on homepage post cards
 // --------------------------------------------------------------------------
 
-.series-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    background-color: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-pill);
-    font-size: var(--font-size-xs);
-    text-decoration: none;
-    color: var(--color-text);
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
-
-    &:hover {
-        background-color: var(--color-border);
-        border-color: var(--color-border);
-        color: var(--color-text);
-        text-decoration: none;
-    }
-
-    &:focus-visible {
-        outline: 2px solid var(--color-link);
-        outline-offset: 2px;
-    }
-}
-
-.series-badge__part {
+.post-card__series-link {
+    font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--color-primary);
-}
-
-.series-badge__title {
-    color: var(--color-muted);
-}
-
-// Post card series container
-.post-card__series {
     margin-bottom: var(--spacing-sm);
+
+    a {
+        color: var(--color-muted);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
 }
 
 // --------------------------------------------------------------------------

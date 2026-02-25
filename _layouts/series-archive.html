@@ -42,10 +42,13 @@ layout: default
                             <time datetime="{{ post.date | date_to_xmlschema }}">
                                 {{ post.date | date: "%b %-d, %Y" }}
                             </time>
+                            <span class="post-card__meta-sep" aria-hidden="true">&middot;</span>
+                            {%- include reading-time.html content=post.content -%}
                         </p>
                         {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%}
                         <div class="post-card__excerpt">
-                            {{ post.excerpt }}
+                            {%- assign excerpt_body = post.excerpt | split: '</p>' | first -%}
+                            {{ excerpt_body }} <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a></p>
                         </div>
                         {%- comment -%} Show tag pills if the post has tags {%- endcomment -%}
                         {%- if post.tags.size > 0 -%}

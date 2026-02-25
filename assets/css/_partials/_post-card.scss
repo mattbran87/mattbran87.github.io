@@ -34,7 +34,15 @@
     margin-bottom: var(--spacing-md);
 }
 
+.post-card__meta-sep {
+    margin: 0 0.25em;
+}
+
 .post-card__excerpt {
     color: var(--color-text);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.post-card__read-more {
+    font-weight: 500;
 }

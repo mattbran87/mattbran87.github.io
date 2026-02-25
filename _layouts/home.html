@@ -25,17 +25,18 @@ layout: default
                     <time datetime="{{ post.date | date_to_xmlschema }}">
                         {{ post.date | date: "%b %-d, %Y" }}
                     </time>
+                    <span class="post-card__meta-sep" aria-hidden="true">&middot;</span>
+                    {%- include reading-time.html content=post.content -%}
                 </p>
                 {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%}
-                <div class="post-card__excerpt">
-                    {{ post.excerpt }}
-                </div>
-                {%- comment -%} Show series badge if the post belongs to a series {%- endcomment -%}
+                {%- comment -%} Show series name if the post belongs to a series {%- endcomment -%}
                 {%- if post.series and post.series_part -%}
-                <div class="post-card__series">
-                    {%- include series-badge.html series=post.series series_part=post.series_part -%}
-                </div>
+                {%- include series-badge.html series=post.series series_part=post.series_part -%}
                 {%- endif -%}
+                <div class="post-card__excerpt">
+                    {%- assign excerpt_body = post.excerpt | split: '</p>' | first -%}
+                    {{ excerpt_body }} <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a></p>
+                </div>
                 {%- if post.tags.size > 0 -%}
                 <div class="post-card__tags">
                     {%- include post-tags.html tags=post.tags -%}

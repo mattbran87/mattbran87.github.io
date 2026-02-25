@@ -17,6 +17,18 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Add "Read more" link to post cards (#023)
+  - Summary: Added explicit "Read more" call-to-action link below the excerpt on post cards. Accessible `aria-label` includes post title to differentiate links for screen readers.
+  - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `assets/css/_partials/_post-card.scss`
+
+- **[Tweak]** Add estimated reading time to post cards and post pages (#024)
+  - Summary: Displays "N min read" alongside the date in post meta. Calculated from word count at ~200 wpm with 1-min minimum. Pure Liquid via reusable `_includes/reading-time.html`.
+  - Files affected: `_includes/reading-time.html` (new), `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`, `_layouts/post.html`, `assets/css/_partials/_post-card.scss`, `assets/css/_partials/_post.scss`
+
+- **[Tweak]** Redesign series badge on post cards (#031)
+  - Summary: Replaced pill-shaped series badge with a simpler h3 link ("Part N · Series Title"). Moved above the excerpt for more visual prominence. Removed old `.series-badge` pill styles.
+  - Files affected: `_includes/series-badge.html`, `_layouts/home.html`, `assets/css/_partials/_series.scss`
+
 - **[Content]** Add stub Uses page (#015)
   - Summary: Created `/uses/` page with placeholder sections (Hardware, Development Tools, Software, Tech Stack). Uses the `page` layout. Linked from the About page. Not added to navbar.
   - Files affected: `uses.markdown` (new), `about.markdown`
