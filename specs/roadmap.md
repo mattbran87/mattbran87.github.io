@@ -224,7 +224,7 @@ Display an estimated reading time (e.g., "3 min read") on post cards and at the 
 
 ### 025 — Table of Contents
 
-Auto-generate a table of contents from heading elements (h2–h4) within blog posts. Placed inside the post content area (after the intro paragraph), not in the header zone — this avoids conflict with the series TOC on series posts, which occupies the header zone. Both TOCs can coexist on series posts: the series TOC handles series navigation, the article TOC handles within-post navigation. Links anchor to each heading for in-page navigation. Can be disabled per post via `toc: false` in front matter. Pure HTML/CSS implementation preferred; JavaScript only if smooth-scroll or active-heading highlighting is desired. Particularly valuable for longer tutorial and technical posts.
+Auto-generate a table of contents from heading elements (h2–h4) within blog posts. Placed inside the post content area (after the intro paragraph), not in the header zone — this avoids conflict with the series TOC on series posts, which occupies the header zone. Both TOCs can coexist on series posts: the series TOC handles series navigation, the article TOC handles within-post navigation. Links anchor to each heading for in-page navigation. Can be disabled per post via `toc: false` in front matter. Pure HTML/CSS implementation preferred; JavaScript only if smooth-scroll or active-heading highlighting is desired. Particularly valuable for longer tutorial and technical posts. **Open consideration:** the existing series TOC may be replaced with a simpler link to the series archive page, which would eliminate the placement conflict entirely and simplify the post header for series posts. This decision should be evaluated during research.
 
 ### 026 — Back to Top Button
 
