@@ -20,11 +20,11 @@
 
 ## Phase 2: Implementation
 
-- [ ] Create feature branch (e.g., `feature/020-social-sharing`)
-- [ ] Implement changes per tasks.md — commit after each completed task
-- [ ] Pause and check in with user on any unanticipated problems or deviations
-- [ ] Update affected files list in spec.md
-- [ ] Self-review code for quality and conventions
+- [x] Create feature branch (e.g., `feature/020-social-sharing`)
+- [x] Implement changes per tasks.md — commit after each completed task
+- [x] Pause and check in with user on any unanticipated problems or deviations
+- [x] Update affected files list in spec.md
+- [x] Self-review code for quality and conventions
 - [ ] Get sign-off to move to Testing
 
 ## Phase 3: Testing

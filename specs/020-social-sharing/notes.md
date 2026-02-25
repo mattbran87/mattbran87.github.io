@@ -115,7 +115,12 @@ All open questions resolved during SME consultations. No remaining questions for
 
 ## Implementation
 
-- [Notes captured during implementation — gotchas, surprises, workarounds]
+- No deviations from the planned approach. All 13 decisions held up.
+- Tasks 2.2 and 2.3 were implemented in a single commit since both variants live in the same include file (per D13).
+- Full variant: platform share links (Twitter/X, LinkedIn, Reddit, Email) work without JS. Copy Link and Web Share buttons use `hidden` attribute, revealed by JS.
+- Compact variant: entire container uses `hidden` attribute. JS reveals the container, then reveals Web Share only if `navigator.share` is available.
+- Email `mailto:` body text is pre-encoded ("Check%20out%20this%20article%3A%20") rather than using `url_encode` to avoid double-encoding.
+- Build verified: production URLs correct in output HTML, both variants rendering on appropriate pages.
 
 ---
 

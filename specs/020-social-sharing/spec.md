@@ -1,7 +1,7 @@
 # Feature: Social Sharing
 
 > **Spec ID:** 020
-> **Status:** Research & Planning
+> **Status:** Implementation
 > **Created:** 2026-02-25
 > **Completed:** —
 
@@ -76,7 +76,7 @@ The site currently has no way for readers to share posts. Social sharing buttons
 | Phase | Started | Completed | Notes |
 |-------|---------|-----------|-------|
 | Research & Planning | 2026-02-25 | 2026-02-25 | 4 SMEs consulted, 23 findings, 13 decisions. Post-card compact variant added, Hacker News removed per user request. |
-| Implementation | — | — | |
+| Implementation | 2026-02-25 | 2026-02-25 | 8 commits, no deviations from plan. Build verified. |
 | Testing | — | — | |
 | Acceptance | — | — | |
 

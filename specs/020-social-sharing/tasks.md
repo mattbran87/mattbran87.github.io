@@ -1,13 +1,13 @@
 # Tasks: Social Sharing
 
-> **Status:** In Progress (Research & Planning)
+> **Status:** In Progress (Implementation)
 
 ## Last Session
 
 - **Date:** 2026-02-25
-- **Stopped at:** Planning complete. Ready for Implementation.
-- **Context:** Research & Planning finished. 4 SMEs, 23 findings, 13 decisions. User added post-card compact variant and removed Hacker News. Full variant: Twitter/X, LinkedIn, Reddit, Email, Copy Link, Web Share. Compact variant: Copy Link + Web Share only.
-- **Next step:** Start Phase 2 — read `specs/020-social-sharing/prompts/02-implementation.md`, create feature branch, begin task 2.1
+- **Stopped at:** All Implementation tasks (2.1–2.9) complete. Build verified.
+- **Context:** All 9 new/modified files committed to `feature/020-social-sharing`. Jekyll build succeeds, HTML output verified for both full (post page) and compact (homepage post-cards) variants. Production URLs correct.
+- **Next step:** Phase 2 sign-off, then Phase 3 Testing
 
 > Update this block when **starting each task** and when **ending a session**. This ensures the next session knows exactly where to pick up, even after an unexpected end.
 
@@ -39,15 +39,15 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.1 | Create feature branch `feature/020-social-sharing` | Pending | |
-| 2.2 | Build `_includes/social-share.html` — full variant | Pending | Liquid template with 6 share options (Twitter/X, LinkedIn, Reddit, Email, Copy Link, Web Share), `<nav>` wrapper, `<ul>` list, inline SVG icons, visible text labels, aria-live region, `share: false` guard |
-| 2.3 | Build `_includes/social-share.html` — compact variant | Pending | Same include, `compact` parameter branch renders only Copy Link + Web Share. Hidden by default, revealed by JS. Uses `data-url`/`data-title` attributes. |
-| 2.4 | Create `assets/css/_partials/_social-share.scss` | Pending | BEM styles: `.social-share` block, ghost-style pills, flex layout, hover/focus/copied states, reduced-motion, compact variant styles |
-| 2.5 | Add social-share import to `assets/main.scss` | Pending | |
-| 2.6 | Create `assets/js/modules/social-share.js` | Pending | ES module: Copy Link (Clipboard API, multiple buttons via `data-url`), Web Share API (feature detect, show/invoke), aria-live announcements |
-| 2.7 | Add social-share import to `assets/js/main.js` | Pending | |
-| 2.8 | Add full share include to `_layouts/post.html` | Pending | After `.post__content`, before `.post__nav`. No parameters (defaults to `page`). |
-| 2.9 | Add compact share include to post-card layouts | Pending | `home.html`, `tag-archive.html`, `series-archive.html`. Pass `url`, `title`, `compact` parameters. |
+| 2.1 | Create feature branch `feature/020-social-sharing` | Done | |
+| 2.2 | Build `_includes/social-share.html` — full variant | Done | Both full + compact in single file per D13 |
+| 2.3 | Build `_includes/social-share.html` — compact variant | Done | Included in 2.2 commit |
+| 2.4 | Create `assets/css/_partials/_social-share.scss` | Done | |
+| 2.5 | Add social-share import to `assets/main.scss` | Done | |
+| 2.6 | Create `assets/js/modules/social-share.js` | Done | |
+| 2.7 | Add social-share import to `assets/js/main.js` | Done | |
+| 2.8 | Add full share include to `_layouts/post.html` | Done | |
+| 2.9 | Add compact share include to post-card layouts | Done | home.html, tag-archive.html, series-archive.html |
 
 ### Phase 3: Testing
 
@@ -68,6 +68,6 @@
 ## Summary
 
 - **Total tasks:** 17
-- **Completed:** 4 (Research & Planning Stage 1)
-- **In Progress:** 1 (1.4 — Planning)
-- **Remaining:** 12
+- **Completed:** 13 (R&P + Implementation)
+- **In Progress:** 0
+- **Remaining:** 4 (Testing + Acceptance)
