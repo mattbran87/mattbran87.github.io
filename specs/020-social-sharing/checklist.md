@@ -3,20 +3,20 @@
 ## Phase 1: Research & Planning
 
 ### Stage 1: Research
-- [ ] Read and understand the spec
-- [ ] Research approaches and document findings in notes.md
-- [ ] Identify open questions
-- [ ] Document approaches and tradeoffs in decisions.md
+- [x] Read and understand the spec
+- [x] Research approaches and document findings in notes.md
+- [x] Identify open questions
+- [x] Document approaches and tradeoffs in decisions.md
 
 ### Research Discussion (mandatory)
-- [ ] Present findings, recommendation, and implementation strategy to user
-- [ ] Discuss and resolve open questions with user
-- [ ] Get user approval to proceed to planning
+- [x] Present findings, recommendation, and implementation strategy to user
+- [x] Discuss and resolve open questions with user
+- [x] Get user approval to proceed to planning
 
 ### Stage 2: Planning
-- [ ] Record decisions from discussion in decisions.md
-- [ ] Break down work into tasks in tasks.md
-- [ ] Get sign-off to move to Implementation
+- [x] Record decisions from discussion in decisions.md
+- [x] Break down work into tasks in tasks.md
+- [x] Get sign-off to move to Implementation
 
 ## Phase 2: Implementation
 
