@@ -1,0 +1,34 @@
+// ==========================================================================
+// Error Page
+// ==========================================================================
+//
+// Styling for 404 and other error pages. Centered layout with large
+// display code, helpful message, and navigation links.
+
+// Center the page title when error-page content is present
+.page:has(.error-page) .page__title {
+    text-align: center;
+}
+
+.error-page {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.error-page__code {
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: var(--headings-font-weight);
+    line-height: 1;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-page__message {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.error-page__actions {
+    color: var(--color-muted);
+}
