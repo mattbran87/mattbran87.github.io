@@ -24,8 +24,8 @@
   1. Inside `<article>`, after `.post__content`, before `.post__nav` — within semantic boundary, natural reading position
   2. After `</article>`, before related posts — outside article, alongside other supplementary content
   3. Both above and below content — maximum visibility
-- **Decision:** Inside `<article>`, after `.post__content`, before `.post__nav`
-- **Rationale:** Share buttons are semantically part of the article. Placement at the "just finished reading" point is the most natural share moment. Keeping it before prev/next nav means readers see share options before navigating away.
+- **Decision:** ~~Inside `<article>`, after `.post__content`, before `.post__nav`~~ **Revised:** Inside `<header>`, after `.post__meta`
+- **Rationale:** ~~Share buttons are semantically part of the article. Placement at the "just finished reading" point is the most natural share moment.~~ User preferred share buttons visible at the top of the post, below the title and meta info, for immediate access before reading.
 
 ---
 

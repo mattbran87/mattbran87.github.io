@@ -121,6 +121,8 @@ All open questions resolved during SME consultations. No remaining questions for
 - Compact variant: entire container uses `hidden` attribute. JS reveals the container, then reveals Web Share only if `navigator.share` is available.
 - Email `mailto:` body text is pre-encoded ("Check%20out%20this%20article%3A%20") rather than using `url_encode` to avoid double-encoding.
 - Build verified: production URLs correct in output HTML, both variants rendering on appropriate pages.
+- **Deviation from D2:** User requested share buttons move from after `.post__content` to inside `<header>` below `.post__meta`. Decision D2 revised.
+- Added `padding-bottom: var(--spacing-xl)` to `.social-share` per user feedback.
 
 ---
 
