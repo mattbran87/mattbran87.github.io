@@ -29,7 +29,7 @@
     {%- if site.tags.size > 0 -%}
     <div class="sidebar__section">
         <h2 class="sidebar__title">Popular Tags</h2>
-        <div class="sidebar__tags">
+        <nav class="sidebar__tags" aria-label="Popular tags">
             {%- comment -%} Sort tags alphabetically and show top 10 {%- endcomment -%}
             {%- assign sorted_tags = site.tags | sort -%}
             {%- for tag_data in sorted_tags limit:10 -%}
@@ -37,7 +37,7 @@
                 {%- assign tag_slug = tag_name | slugify -%}
             <a class="tag" href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}">{{ tag_name }}</a>
             {%- endfor -%}
-        </div>
+        </nav>
         <a class="sidebar__view-all" href="{{ '/tags/' | relative_url }}">View all tags</a>
     </div>
     {%- endif -%}
