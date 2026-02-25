@@ -1,5 +1,6 @@
 {%- comment -%} Comments offcanvas panel — shown unless comments: false in front matter {%- endcomment -%}
 {%- unless page.comments == false -%}
+{%- comment -%} Only render Giscus panel when Giscus is the configured provider {%- endcomment -%}
 {%- if site.comments.provider == "giscus" -%}
 {%- assign giscus = site.comments.giscus -%}
 <div class="offcanvas offcanvas-end post-comments" tabindex="-1" id="comments-panel"
