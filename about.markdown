@@ -9,4 +9,4 @@ My name is Matthew Brandenburg. I am a software developer with 10 years of exper
 
 This site is a place for me to share my experience and document my processes.
 
-Check out my [uses page](/uses/) to see what tools and setup I work with, or view my [resume](/resume/).
+Check out my [uses page](/uses/) to see what tools and setup I work with.

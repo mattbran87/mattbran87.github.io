@@ -24,7 +24,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 013 | Dark Mode | `specs/013-dark-mode/` | Completed |
 | 014 | Custom 404 | `specs/014-custom-404/` | Completed |
 | 015 | Uses Page | — | Completed (stub) |
-| 016 | Resume/CV Page | — | Completed (stub) |
+| 016 | Resume/CV Page | — | Removed (LinkedIn preferred) |
 | 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
 | 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |

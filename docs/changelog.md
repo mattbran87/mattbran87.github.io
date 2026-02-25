@@ -17,9 +17,13 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
-- **[Content]** Add stub Uses and Resume pages (#015, #016)
-  - Summary: Created `/uses/` and `/resume/` pages with placeholder sections. Uses page has Hardware, Development Tools, Software, and Tech Stack sections. Resume page has Experience, Skills, Education, Certifications, and Contact sections. Both use the `page` layout. Added links to both pages from the About page. Not added to navbar — linked from About only.
-  - Files affected: `uses.markdown` (new), `resume.markdown` (new), `about.markdown`
+- **[Content]** Add stub Uses page (#015)
+  - Summary: Created `/uses/` page with placeholder sections (Hardware, Development Tools, Software, Tech Stack). Uses the `page` layout. Linked from the About page. Not added to navbar.
+  - Files affected: `uses.markdown` (new), `about.markdown`
+
+- **[Content]** Remove Resume page (#016) — LinkedIn preferred to avoid data scraping
+  - Summary: Removed `/resume/` page. Resume content lives on LinkedIn, which is already linked in the site footer and landing page.
+  - Files affected: `resume.markdown` (deleted), `about.markdown`, `specs/roadmap.md`
 
 ### 2026-02-24
 
