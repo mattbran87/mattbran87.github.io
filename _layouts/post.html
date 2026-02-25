@@ -16,6 +16,8 @@ layout: default
                 </span>
                 {%- endif -%}
             </div>
+            {%- comment -%} Social share buttons — shown unless share: false in front matter {%- endcomment -%}
+            {%- include social-share.html -%}
         </header>
 
         {%- comment -%} Series table of contents — shown if post belongs to a series {%- endcomment -%}
@@ -26,9 +28,6 @@ layout: default
         <div class="post__content">
             {{ content }}
         </div>
-
-        {%- comment -%} Social share buttons — shown unless share: false in front matter {%- endcomment -%}
-        {%- include social-share.html -%}
 
         {%- comment -%} Previous / Next post navigation {%- endcomment -%}
         {%- if page.previous or page.next -%}
