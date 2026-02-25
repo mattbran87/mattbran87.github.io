@@ -5,6 +5,11 @@
 // Styling for 404 and other error pages. Centered layout with large
 // display code, helpful message, and navigation links.
 
+// Center the page title when error-page content is present
+.page:has(.error-page) .page__title {
+    text-align: center;
+}
+
 .error-page {
     text-align: center;
     margin-top: var(--spacing-xl);
