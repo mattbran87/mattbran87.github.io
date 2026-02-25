@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-> **Last Updated:** 2026-02-24
+> **Last Updated:** 2026-02-25
 > **Research docs:** [`docs/`](../docs/)
 
 ## Feature Queue
@@ -28,9 +28,17 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
 | 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
-| 020 | Social Sharing | `specs/020-social-sharing/` | Research & Planning |
+| 020 | Social Sharing | `specs/020-social-sharing/` | Completed |
 | 021 | Comments | [`docs/commenting-system-research.md`](../docs/commenting-system-research.md) | Not Started |
 | 022 | JS Module Migration | — | Completed |
+| 023 | Read More Link | — | Not Started |
+| 024 | Estimated Reading Time | — | Not Started |
+| 025 | Table of Contents | — | Not Started |
+| 026 | Back to Top Button | — | Not Started |
+| 027 | Scroll Progress Indicator | — | Not Started |
+| 028 | Newsletter Subscribe CTA | [`docs/newsletter-research.md`](../docs/newsletter-research.md) | Not Started |
+| 029 | Pagination | — | Not Started |
+| 030 | Visible Breadcrumbs | — | Not Started |
 
 ## Natural Groupings
 
@@ -77,6 +85,7 @@ Features that share dependencies or are closely related and benefit from being d
 |---|---------|-----------|
 | 020 | Social Sharing | Share buttons for readers to spread content |
 | 021 | Comments | Per-post discussion threads via Giscus |
+| 028 | Newsletter Subscribe CTA | Call-to-action for email updates — converts readers into subscribers |
 
 ### Internationalization
 
@@ -97,6 +106,23 @@ Features that share dependencies or are closely related and benefit from being d
 | 011 | Code Block Enhancements | Developer experience polish for code-heavy posts |
 | 013 | Dark Mode | Theming enhancement — requires custom theme CSS custom properties in place |
 | 022 | JS Module Migration | Migrate existing IIFE scripts to ES module pattern per code guidelines |
+| 023 | Read More Link | Explicit "Read more" call-to-action on post cards for clearer content discovery |
+
+### Reading Experience
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 024 | Estimated Reading Time | Sets expectations for readers — helps decide when to read |
+| 025 | Table of Contents | In-post navigation for longer articles — jump to sections |
+| 026 | Back to Top Button | Quick return to top on long pages — standard UX pattern |
+| 027 | Scroll Progress Indicator | Visual feedback showing reading position within a post |
+
+### Navigation
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 029 | Pagination | Break long post lists into pages as content volume grows |
+| 030 | Visible Breadcrumbs | Surface the existing BreadcrumbList schema as visible navigation on post pages |
 
 ## Feature Descriptions
 
@@ -188,6 +214,38 @@ Add multi-language support using jekyll-polyglot. Translate the full site (posts
 
 Migrate existing JavaScript files (`nav-keyboard.js`, `code-copy.js`, `search.js`) from the IIFE pattern to ES modules per `docs/code-guidelines.md`. Create an `assets/js/main.js` entry point that imports from `assets/js/modules/`. Update `_layouts/default.html` script tags from `<script defer>` to `<script type="module">`. Mini-spec tier — no research required, straightforward mechanical migration.
 
+### 023 — Read More Link
+
+Add a "Read more" link to post-card elements on the homepage, tag archive, and series archive pages. Currently the only clickable path to an article is the post title — this adds an explicit call-to-action below the excerpt that gives readers a second, more visible entry point. Styled as a text link consistent with the site theme, placed after the excerpt and before the tags. Accessible, with appropriate `aria-label` referencing the post title. Implemented in the shared post-card markup across `_layouts/home.html`, `_layouts/tag-archive.html`, and `_layouts/series-archive.html`.
+
+### 024 — Estimated Reading Time
+
+Display an estimated reading time (e.g., "3 min read") on post cards and at the top of post pages. Calculated from word count using a standard ~200–250 words-per-minute average. Implemented in Liquid — no JavaScript required. Shown alongside the post date in `post-card__meta` and `post__meta`. Helps readers set expectations and decide whether to read now or later. Minimum display of "1 min read" for short posts.
+
+### 025 — Table of Contents
+
+Auto-generate a table of contents from heading elements (h2–h4) within blog posts. Placed inside the post content area (after the intro paragraph), not in the header zone — this avoids conflict with the series TOC on series posts, which occupies the header zone. Both TOCs can coexist on series posts: the series TOC handles series navigation, the article TOC handles within-post navigation. Links anchor to each heading for in-page navigation. Can be disabled per post via `toc: false` in front matter. Pure HTML/CSS implementation preferred; JavaScript only if smooth-scroll or active-heading highlighting is desired. Particularly valuable for longer tutorial and technical posts.
+
+### 026 — Back to Top Button
+
+Add a floating "back to top" button that appears after the reader scrolls past a threshold (e.g., 300–400px). Smooth-scrolls to the top of the page on click. Positioned in the bottom-right corner, styled to match the site theme, with appropriate `aria-label`. Hidden by default and revealed via JavaScript scroll listener. Respects `prefers-reduced-motion` by disabling the smooth scroll animation. Small footprint — one include, minimal CSS, lightweight JS.
+
+### 027 — Scroll Progress Indicator
+
+Add a thin progress bar fixed to the very top of the viewport (above the site header) that fills left-to-right as the reader scrolls through a post. Full browser width, ~3px tall, using the site's primary color. Shown only on post pages (not the homepage or archive pages). Implemented with a small JavaScript scroll listener that calculates scroll percentage against the post content height. Respects `prefers-reduced-motion`. Provides visual orientation for long-form content without being intrusive.
+
+### 028 — Newsletter Subscribe CTA
+
+Add a call-to-action prompting readers to subscribe for email updates. Placed after post content (above or below social share buttons) and optionally in the sidebar. Email provider to be determined during research — options include Buttondown, Mailchimp, ConvertKit, or a simple "mailto" placeholder until a provider is chosen. The CTA itself is a reusable `_includes/newsletter-cta.html` component with a heading, short pitch, and subscribe link or embedded form. Styled consistently with the site theme. Can be disabled per post via `newsletter: false` in front matter. No third-party scripts loaded unless an embedded form is used.
+
+### 029 — Pagination
+
+Paginate the homepage post list and archive pages as content volume grows. Use `jekyll-paginate-v2` for flexible pagination across multiple layouts (home, tag archive, series archive). Display page numbers, previous/next links, and a "Page X of Y" indicator. Configured via `_config.yml` with a sensible default (e.g., 10 posts per page). Styled consistently with the site theme. Triggered when the post count exceeds a practical threshold — can be built proactively or deferred until content volume warrants it.
+
+### 030 — Visible Breadcrumbs
+
+Surface the existing BreadcrumbList structured data (built in #008 SEO Foundation) as a visible breadcrumb trail on post pages. Display a simple "Home > Tag > Post Title" path above the post title. Links to the homepage and relevant tag archive page. Styled as a small, muted navigation element that doesn't compete with the post title. Improves orientation — especially for readers who arrive via search or social links and need to understand where they are in the site hierarchy.
+
 ## Dependencies
 
 Features with hard dependencies on prior work:
@@ -203,6 +261,9 @@ Features with hard dependencies on prior work:
 - **019 Featured Posts** Phase 2 depends on **012 Analytics** (GA4 must be collecting data); Phase 1 has no dependencies
 - **020 Social Sharing** benefits from **008 SEO Foundation** (Open Graph tags enable rich link previews when shared)
 - **021 Comments** has no hard dependencies; benefits from **013 Dark Mode** for theme matching
+
+- **028 Newsletter Subscribe CTA** has no hard dependencies; benefits from choosing an email provider before implementation
+- **030 Visible Breadcrumbs** benefits from **008 SEO Foundation** (reuses existing BreadcrumbList schema logic)
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 
