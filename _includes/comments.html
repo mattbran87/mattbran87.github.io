@@ -1,0 +1,27 @@
+{%- comment -%} Comments offcanvas panel — shown unless comments: false in front matter {%- endcomment -%}
+{%- unless page.comments == false -%}
+{%- if site.comments.provider == "giscus" -%}
+{%- assign giscus = site.comments.giscus -%}
+<div class="offcanvas offcanvas-end post-comments" tabindex="-1" id="comments-panel"
+     aria-labelledby="comments-panel-label"
+     data-giscus-repo="{{ giscus.repo }}"
+     data-giscus-repo-id="{{ giscus.repo_id }}"
+     data-giscus-category="{{ giscus.category | escape }}"
+     data-giscus-category-id="{{ giscus.category_id }}"
+     data-giscus-mapping="{{ giscus.mapping }}"
+     data-giscus-strict="{{ giscus.strict }}"
+     data-giscus-reactions-enabled="{{ giscus.reactions_enabled }}"
+     data-giscus-emit-metadata="{{ giscus.emit_metadata }}"
+     data-giscus-input-position="{{ giscus.input_position }}"
+     data-giscus-lang="{{ giscus.lang }}">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title post-comments__title" id="comments-panel-label">Comments</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close comments"></button>
+    </div>
+    <div class="offcanvas-body">
+        {%- comment -%} Giscus widget is lazy-loaded here by comments.js on first open {%- endcomment -%}
+        <div class="post-comments__giscus"></div>
+    </div>
+</div>
+{%- endif -%}
+{%- endunless -%}

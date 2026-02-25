@@ -56,6 +56,9 @@ layout: default
         {%- endif -%}
     </article>
 
+    {%- comment -%} Comments — offcanvas panel, shown unless comments: false {%- endcomment -%}
+    {%- include comments.html -%}
+
     {%- comment -%} Related posts — shown if matching posts exist {%- endcomment -%}
     {%- include related-posts.html -%}
 </div>
