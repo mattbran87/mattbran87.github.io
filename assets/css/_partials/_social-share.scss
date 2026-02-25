@@ -87,15 +87,17 @@
 // ---------------------------------------------------------------------------
 
 .social-share--compact {
-    margin-top: var(--spacing-sm);
-    padding-top: 0;
-    border-top: none;
+    margin-top: var(--spacing-xs);
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-xs);
 
     .social-share__button {
         padding: 0.25rem 0.5rem;
+        border: none;
         font-size: var(--font-size-xs);
     }
 
