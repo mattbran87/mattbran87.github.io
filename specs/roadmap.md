@@ -39,6 +39,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 028 | Newsletter Subscribe CTA | [`docs/newsletter-research.md`](../docs/newsletter-research.md) | Not Started |
 | 029 | Pagination | — | Not Started |
 | 030 | Visible Breadcrumbs | — | Not Started |
+| 031 | Series Badge Redesign | — | Not Started |
 
 ## Natural Groupings
 
@@ -116,6 +117,7 @@ Features that share dependencies or are closely related and benefit from being d
 | 025 | Table of Contents | In-post navigation for longer articles — jump to sections |
 | 026 | Back to Top Button | Quick return to top on long pages — standard UX pattern |
 | 027 | Scroll Progress Indicator | Visual feedback showing reading position within a post |
+| 031 | Series Badge Redesign | Simplify series indicator on post cards — sequenced before 025 TOC |
 
 ### Navigation
 
@@ -246,6 +248,10 @@ Paginate the homepage post list and archive pages as content volume grows. Use `
 
 Surface the existing BreadcrumbList structured data (built in #008 SEO Foundation) as a visible breadcrumb trail on post pages. Display a simple "Home > Tag > Post Title" path above the post title. Links to the homepage and relevant tag archive page. Styled as a small, muted navigation element that doesn't compete with the post title. Improves orientation — especially for readers who arrive via search or social links and need to understand where they are in the site hierarchy.
 
+### 031 — Series Badge Redesign
+
+Redesign the series indicator on post cards. Replace the current pill-shaped `series-badge` component with a simpler h3 element containing a link to the series archive page. Move it above the `post-card__excerpt` element (currently positioned below it). This simplifies the post card layout and gives the series name more visual prominence. Touches `_includes/series-badge.html`, `assets/css/_partials/_series.scss`, and the post-card markup in `_layouts/home.html`, `_layouts/tag-archive.html`, and `_layouts/series-archive.html`. Should be built before 025 (Table of Contents) since both features affect how series context is presented — settling the post-card series treatment first informs the TOC decision about whether to also simplify the inline series TOC on post pages.
+
 ## Dependencies
 
 Features with hard dependencies on prior work:
@@ -262,6 +268,7 @@ Features with hard dependencies on prior work:
 - **020 Social Sharing** benefits from **008 SEO Foundation** (Open Graph tags enable rich link previews when shared)
 - **021 Comments** has no hard dependencies; benefits from **013 Dark Mode** for theme matching
 
+- **025 Table of Contents** should be built after **031 Series Badge Redesign** (settling the series treatment on post cards informs the TOC decision about the inline series TOC on post pages)
 - **028 Newsletter Subscribe CTA** has no hard dependencies; benefits from choosing an email provider before implementation
 - **030 Visible Breadcrumbs** benefits from **008 SEO Foundation** (reuses existing BreadcrumbList schema logic)
 
