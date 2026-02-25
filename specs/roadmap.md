@@ -40,6 +40,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 029 | Pagination | — | Not Started |
 | 030 | Visible Breadcrumbs | — | Not Started |
 | 031 | Series Badge Redesign | — | Completed |
+| 032 | Sidebar Tags Widget | — | Not Started |
 
 ## Natural Groupings
 
@@ -108,6 +109,7 @@ Features that share dependencies or are closely related and benefit from being d
 | 013 | Dark Mode | Theming enhancement — requires custom theme CSS custom properties in place |
 | 022 | JS Module Migration | Migrate existing IIFE scripts to ES module pattern per code guidelines |
 | 023 | Read More Link | Explicit "Read more" call-to-action on post cards for clearer content discovery |
+| 032 | Sidebar Tags Widget | Move tags from post cards to a top-10 sidebar widget with link to tags page |
 
 ### Reading Experience
 
@@ -251,6 +253,10 @@ Surface the existing BreadcrumbList structured data (built in #008 SEO Foundatio
 ### 031 — Series Badge Redesign
 
 Redesign the series indicator on post cards. Replace the current pill-shaped `series-badge` component with a simpler h3 element containing a link to the series archive page. Move it above the `post-card__excerpt` element (currently positioned below it). This simplifies the post card layout and gives the series name more visual prominence. Touches `_includes/series-badge.html`, `assets/css/_partials/_series.scss`, and the post-card markup in `_layouts/home.html`, `_layouts/tag-archive.html`, and `_layouts/series-archive.html`. Should be built before 025 (Table of Contents) since both features affect how series context is presented — settling the post-card series treatment first informs the TOC decision about whether to also simplify the inline series TOC on post pages.
+
+### 032 — Sidebar Tags Widget
+
+Remove tags from post-card elements on the homepage, tag archive, and series archive pages. Replace with a "Popular Tags" section in the sidebar (`_includes/sidebar.html`) that displays the 10 most-used tags as links, plus a "View all tags" link to the existing `/tags/` page. Tags are counted and sorted by frequency using Liquid. This declutters the post cards while keeping tag discovery accessible from every page that renders the sidebar. Touches `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html` (remove tag markup), `_includes/sidebar.html` (add tags section), and `assets/css/_partials/_sidebar.scss` (style the tag list).
 
 ## Dependencies
 
