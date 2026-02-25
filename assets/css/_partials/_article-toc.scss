@@ -1,0 +1,73 @@
+// ==========================================================================
+// Article Table of Contents
+// ==========================================================================
+//
+// Auto-generated TOC for blog posts with 3+ headings. Built by JS module
+// (assets/js/modules/toc.js) and inserted before the first h2 in
+// .post__content. Card-style design matching the site's component pattern.
+
+.article-toc {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-badge);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.article-toc__heading {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.article-toc__list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+// Nested lists get left padding for visual hierarchy
+.article-toc__list .article-toc__list {
+    padding-left: var(--spacing-lg);
+}
+
+.article-toc__item {
+    padding: var(--spacing-xs) 0;
+}
+
+.article-toc__link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: 2px;
+    }
+}
+
+// Active heading indicator — visual only, no aria-current (D6)
+// Uses 3 channels: font-weight, color, and left border (WCAG 1.4.1)
+.article-toc__item--active > .article-toc__link {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.article-toc__item--active {
+    border-left: 2px solid var(--color-primary);
+    padding-left: var(--spacing-sm);
+}
+
+// Smooth scroll for TOC anchor navigation (D7)
+@media (prefers-reduced-motion: no-preference) {
+    html:has(.article-toc) {
+        scroll-behavior: smooth;
+    }
+}
