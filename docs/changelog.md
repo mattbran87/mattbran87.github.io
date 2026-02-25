@@ -17,6 +17,11 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-24
 
+- **[Infrastructure]** Migrate JavaScript from IIFE pattern to ES modules (#022)
+  - Rationale: Code guidelines specify ES modules with a single entry point; three of four scripts were still using the IIFE pattern with individual `<script defer>` tags
+  - Summary: Converted `nav-keyboard.js`, `code-copy.js`, and `search.js` from IIFEs to ES modules with exported init functions. Moved files to `assets/js/modules/`. Created `assets/js/main.js` entry point that imports all modules. Updated `_layouts/default.html` to use a single `<script type="module">` instead of four individual script tags. `theme-toggle.js` was already an ES module — unchanged. Bootstrap and Lunr remain as deferred classic scripts (no ES module builds available).
+  - Files affected: `assets/js/modules/nav-keyboard.js` (new), `assets/js/modules/code-copy.js` (new), `assets/js/modules/search.js` (rewritten), `assets/js/main.js` (new), `_layouts/default.html`, `assets/js/nav-keyboard.js` (deleted), `assets/js/code-copy.js` (deleted)
+
 - **[Docs]** Spec 012 Analytics — Research phase completed and deferred
   - Rationale: Full research completed (4 SMEs consulted, 27 findings, 10 decisions). Deferred pending private repository and server migration.
   - Summary: GA4 with cookie consent banner and privacy policy page. Research covers: production-only loading, Consent Mode v2, accessible non-modal banner (role="region"), privacy policy SEO (no noindex), script loading strategy, JS file organization. QA corrections applied to spec (acceptance criteria, SCSS path, edge cases).
