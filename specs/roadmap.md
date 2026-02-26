@@ -37,8 +37,8 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 026 | Back to Top Button | — | Completed |
 | 027 | Scroll Progress Indicator | — | Completed |
 | 028 | Newsletter Subscribe CTA | `specs/028-newsletter-subscribe-cta/` | Completed |
-| 029 | Pagination | — | Not Started |
-| 030 | Visible Breadcrumbs | — | Not Started |
+| 029 | Pagination | `specs/029-pagination/` | Completed |
+| 030 | Visible Breadcrumbs | — | Deferred — site hierarchy is flat (Home → Post); visible breadcrumbs add no navigational value. BreadcrumbList schema from 008 still serves SEO. Reconsider if site structure deepens. |
 | 031 | Series Badge Redesign | — | Completed |
 | 032 | Sidebar Tags Widget | — | Completed |
 | 033 | Sidebar Series Widget | — | Completed |
