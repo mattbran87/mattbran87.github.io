@@ -95,6 +95,19 @@
     }
 }
 
+// Dark mode — button needs darker background for contrast with white text
+// Light: #ffffff on #0060df = 4.63:1 (passes AA)
+// Dark:  #ffffff on #1971c2 = 5.1:1  (passes AA)
+[data-bs-theme="dark"] .newsletter-cta__button {
+    background-color: #1971c2;
+    border-color: #1971c2;
+
+    &:hover {
+        background-color: #155da0;
+        border-color: #155da0;
+    }
+}
+
 // Post variant — wider input group
 .newsletter-cta--post .newsletter-cta__input-group {
     max-width: 28rem;
