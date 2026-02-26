@@ -1,8 +1,9 @@
 # Feature: Analytics
 
 > **Spec ID:** 012
-> **Status:** In Progress — Phase 4 (Acceptance)
+> **Status:** Completed
 > **Created:** 2026-02-24
+> **Completed:** 2026-02-26
 > **Resumed:** 2026-02-26 — Deferral lifted. Security research confirms public repo is not a blocker. See [`docs/security-research.md`](../../docs/security-research.md).
 
 ## Goal
@@ -74,7 +75,7 @@ The site currently has no analytics — there is no data on traffic, popular pos
 | Research & Planning | 2026-02-24 | 2026-02-26 | Research complete (Stage 1, 2026-02-24). Deferred, then resumed 2026-02-26 for Stage 2 (Planning). Security research documented. |
 | Implementation | 2026-02-26 | 2026-02-26 | 2 commits; 10 tasks; 12 files new/modified |
 | Testing | 2026-02-26 | 2026-02-26 | 15/15 AC pass; 0 SME errors; 9/9 user tests pass |
-| Acceptance | 2026-02-26 | — | |
+| Acceptance | 2026-02-26 | 2026-02-26 | Deploy verified, live site confirmed |
 
 ## Future Considerations
 

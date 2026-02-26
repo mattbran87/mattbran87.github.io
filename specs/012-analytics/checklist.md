@@ -46,14 +46,14 @@
 
 ## Phase 4: Acceptance
 
-- [ ] Final review against spec requirements
-- [ ] Confirm all acceptance criteria are met
-- [ ] Update spec.md status to Completed
-- [ ] Update tasks.md — mark all tasks done
-- [ ] Fill in structured completion notes in spec.md (all 5 sections)
-- [ ] Update docs/lessons-learned.md if any reusable lessons emerged
-- [ ] Flag any lessons that require rule/convention changes to user
-- [ ] Merge feature branch to master
-- [ ] Delete feature branch (local and remote)
-- [ ] Verify GitHub Actions deploy succeeded
-- [ ] Spot-check live site at production URL
+- [x] Final review against spec requirements
+- [x] Confirm all acceptance criteria are met
+- [x] Update spec.md status to Completed
+- [x] Update tasks.md — mark all tasks done
+- [x] Fill in structured completion notes in spec.md (all 5 sections)
+- [x] Update docs/lessons-learned.md if any reusable lessons emerged — done during planning (2 lessons added)
+- [x] Flag any lessons that require rule/convention changes to user — none needed
+- [x] Merge feature branch to master
+- [x] Delete feature branch (local and remote)
+- [x] Verify GitHub Actions deploy succeeded
+- [x] Spot-check live site at production URL — user confirmed

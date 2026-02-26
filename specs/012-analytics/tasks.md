@@ -1,6 +1,6 @@
 # Tasks: Analytics
 
-> **Status:** In Progress — Phase 2 (Implementation)
+> **Status:** Completed
 
 ## Last Session
 
@@ -57,24 +57,23 @@
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 3.1 | Verify all 15 acceptance criteria | Pending | Check each AC against built output and browser behavior |
-| 3.2 | Accessibility SME audit | Pending | Banner keyboard navigation, focus management, contrast, ARIA |
-| 3.3 | QA SME audit | Pending | Code conventions, BEM naming, JS patterns, edge cases |
-| 3.4 | Fix issues from SME audits | Pending | If any issues found |
-| 3.5 | User testing plan | Pending | Walk through consent flow with user in browser |
+| 3.1 | Verify all 15 acceptance criteria | Done | 15/15 pass |
+| 3.2 | Accessibility SME audit | Done | 0 errors, 1 warning (decline hover contrast — passes AA) |
+| 3.3 | QA SME audit | Done | 0 errors, 2 warnings (acceptable), 1 info |
+| 3.4 | Fix issues from SME audits | Done | No fixes needed — 0 errors |
+| 3.5 | User testing plan | Done | 9/9 items pass |
 
 ### Phase 4: Acceptance
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 4.1 | Final review against spec | Pending | All requirements and acceptance criteria |
-| 4.2 | Update spec.md status and completion notes | Pending | |
-| 4.3 | Merge feature branch to master | Pending | |
-| 4.4 | Verify GitHub Actions deploy | Pending | |
-| 4.5 | Spot-check live site | Pending | |
+| 4.1 | Final review against spec | Done | All 13 requirements and 15 acceptance criteria met |
+| 4.2 | Update spec.md status and completion notes | Done | |
+| 4.3 | Merge feature branch to master | Done | Merged and branch deleted |
+| 4.4 | Verify GitHub Actions deploy | Done | Deploy succeeded |
+| 4.5 | Spot-check live site | Done | User confirmed live site working |
 
 ## Summary
 
 - **Total tasks:** 22
-- **Completed:** 8 (Phase 1)
-- **Pending:** 14 (Phase 2-4)
+- **Completed:** 22
