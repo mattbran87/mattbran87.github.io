@@ -33,6 +33,13 @@
                 <p class="site-footer__copyright">
                     &copy; {{ "now" | date: "%Y" }} {{ site.title | escape }}. All rights reserved.
                 </p>
+                <p class="site-footer__links">
+                    <a href="/privacy/">Privacy Policy</a>
+                    {%- if jekyll.environment == "production" and site.google_analytics -%}
+                    <span class="site-footer__separator" aria-hidden="true">|</span>
+                    <button type="button" class="site-footer__consent-btn">Cookie Settings</button>
+                    {%- endif -%}
+                </p>
             </div>
         </div>
     </div>
