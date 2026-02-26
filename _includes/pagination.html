@@ -9,12 +9,12 @@
         {%- if paginator.previous_page -%}
         <li class="page-item">
             <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">
-                &laquo; Newer
+                <span aria-hidden="true">&laquo;</span> Newer
             </a>
         </li>
         {%- else -%}
         <li class="page-item disabled">
-            <span class="page-link">&laquo; Newer</span>
+            <span class="page-link"><span aria-hidden="true">&laquo;</span> Newer</span>
         </li>
         {%- endif -%}
 
@@ -25,12 +25,12 @@
         {%- if paginator.next_page -%}
         <li class="page-item">
             <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">
-                Older &raquo;
+                Older <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
         {%- else -%}
         <li class="page-item disabled">
-            <span class="page-link">Older &raquo;</span>
+            <span class="page-link">Older <span aria-hidden="true">&raquo;</span></span>
         </li>
         {%- endif -%}
     </ul>
