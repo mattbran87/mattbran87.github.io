@@ -1,6 +1,6 @@
 # Feature Roadmap
 
-> **Last Updated:** 2026-02-25
+> **Last Updated:** 2026-02-26
 > **Research docs:** [`docs/`](../docs/)
 
 ## Feature Queue
@@ -20,7 +20,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 009 | Search | `specs/009-search/` | Completed |
 | 010 | Related Posts | `specs/010-related-posts/` | Completed |
 | 011 | Code Block Enhancements | `specs/011-code-blocks/` | Completed |
-| 012 | Analytics | `specs/012-analytics/` | Deferred — research complete; awaiting private repository and server migration before implementation |
+| 012 | Analytics | `specs/012-analytics/` | Completed |
 | 013 | Dark Mode | `specs/013-dark-mode/` | Completed |
 | 014 | Custom 404 | `specs/014-custom-404/` | Completed |
 | 015 | Uses Page | — | Completed (stub) |
@@ -43,6 +43,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 032 | Sidebar Tags Widget | — | Completed |
 | 033 | Sidebar Series Widget | — | Completed |
 | 034 | Sidebar Author Links Redesign | — | Completed |
+| 035 | Theme Refresh | [`docs/theme-refresh-research.md`](../docs/theme-refresh-research.md) | Not Started |
 
 ## Natural Groupings
 
@@ -136,6 +137,12 @@ Features that share dependencies or are closely related and benefit from being d
 |---|---------|-----------|
 | 029 | Pagination | Break long post lists into pages as content volume grows |
 | 030 | Visible Breadcrumbs | Surface the existing BreadcrumbList schema as visible navigation on post pages |
+
+### Visual Identity
+
+| # | Feature | Rationale |
+|---|---------|-----------|
+| 035 | Theme Refresh | Replace generic Bootstrap look with a polished, distinctive visual identity — custom typography (Newsreader + IBM Plex Sans), Cool Minimal color palette, spaciousness techniques, and component refinements |
 
 ## Feature Descriptions
 
@@ -275,6 +282,22 @@ Remove the Archives section from the sidebar and replace it with a "Series" sect
 
 Redesign the "Elsewhere" section in the sidebar. Rename the title to "Site Author Links". Replace the text labels (Email, GitHub, LinkedIn) with icons using Bootstrap Icons (already available in the project). Add `title` attributes for hover text: "Contact by email" for the email link, "GitHub" for the GitHub link, and "LinkedIn" for the LinkedIn link. Touches `_includes/sidebar.html` (markup changes) and `assets/css/_partials/_sidebar.scss` (icon sizing and spacing).
 
+### 035 — Theme Refresh
+
+Replace the generic Bootstrap visual identity with a polished, distinctive look. Editorial/magazine authority meets developer/technical precision, with a calming, spacious feel.
+
+**Decisions made:**
+- **Fonts:** Newsreader (headings) + IBM Plex Sans (body) + IBM Plex Mono (code). Self-hosted as WOFF2 variable fonts with preload and `font-display: swap`.
+- **Colors:** Cool Minimal palette — pure white backgrounds, dark blue-gray text (`#2c3e50`), clean blue accent (`#2563eb`). Full light and dark mode token sets with WCAG AA compliance.
+
+**Scope (phased):**
+- Phase 1 (visual refresh): Custom typography, updated color palette, spacing and rhythm adjustments for new fonts, spaciousness techniques (tonal surface elevation, restrained contrast, fewer hard borders).
+- Phase 2 (layout rethinking — future): Header/navigation redesign, post card layout, sidebar presentation, footer, mobile refinements.
+
+**Additional areas to discuss during Research & Planning:** border treatment (tonal elevation vs. hard borders), shadow system, border radius consistency, component refinements (post cards, tags, sidebar sections, navigation).
+
+Research findings: [`docs/theme-refresh-research.md`](../docs/theme-refresh-research.md).
+
 ## Dependencies
 
 Features with hard dependencies on prior work:
@@ -294,6 +317,8 @@ Features with hard dependencies on prior work:
 - **025 Table of Contents** should be built after **031 Series Badge Redesign** (settling the series treatment on post cards informs the TOC decision about the inline series TOC on post pages)
 - **028 Newsletter Subscribe CTA** has no hard dependencies; benefits from choosing an email provider before implementation
 - **030 Visible Breadcrumbs** benefits from **008 SEO Foundation** (reuses existing BreadcrumbList schema logic)
+
+- **035 Theme Refresh** depends on **002 Custom Theme** and **013 Dark Mode** (both completed). No blockers.
 
 All other features can technically be built independently but will benefit from Bootstrap and the custom theme being in place first.
 

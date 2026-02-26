@@ -1,7 +1,7 @@
 # Feature: Analytics
 
 > **Spec ID:** 012
-> **Status:** In Progress — Phase 2 (Implementation)
+> **Status:** In Progress — Phase 4 (Acceptance)
 > **Created:** 2026-02-24
 > **Resumed:** 2026-02-26 — Deferral lifted. Security research confirms public repo is not a blocker. See [`docs/security-research.md`](../../docs/security-research.md).
 
@@ -15,19 +15,19 @@ The site currently has no analytics — there is no data on traffic, popular pos
 
 ## Requirements
 
-- [ ] Add GA4 tracking script (gtag.js) to the site
-- [ ] Load GA4 only in production (`JEKYLL_ENV=production`)
-- [ ] Load GA4 only after user consents to cookies
-- [ ] Implement a cookie consent banner (vanilla JS, no third-party CMP)
-- [ ] Integrate Google Consent Mode v2 (cookieless pings when consent is denied)
-- [ ] Persist consent choice in localStorage
-- [ ] Create a privacy policy page (`/privacy/`)
-- [ ] Add GA4 measurement ID as a configurable value in `_config.yml`
-- [ ] Style consent banner consistently with the site theme (Bootstrap components, BEM naming)
-- [ ] Full keyboard accessibility for the consent banner
-- [ ] Consent banner must not block page content or navigation
-- [ ] Works with dark mode (013, already built) via CSS custom properties
-- [ ] Clear GA4 cookies (`_ga`, `_ga_*`) when consent is withdrawn
+- [x] Add GA4 tracking script (gtag.js) to the site
+- [x] Load GA4 only in production (`JEKYLL_ENV=production`)
+- [x] Load GA4 only after user consents to cookies
+- [x] Implement a cookie consent banner (vanilla JS, no third-party CMP)
+- [x] Integrate Google Consent Mode v2 (cookieless pings when consent is denied)
+- [x] Persist consent choice in localStorage
+- [x] Create a privacy policy page (`/privacy/`)
+- [x] Add GA4 measurement ID as a configurable value in `_config.yml`
+- [x] Style consent banner consistently with the site theme (Bootstrap components, BEM naming)
+- [x] Full keyboard accessibility for the consent banner
+- [x] Consent banner must not block page content or navigation
+- [x] Works with dark mode (013, already built) via CSS custom properties
+- [x] Clear GA4 cookies (`_ga`, `_ga_*`) when consent is withdrawn
 
 ## Constraints
 
@@ -39,21 +39,21 @@ The site currently has no analytics — there is no data on traffic, popular pos
 
 ## Acceptance Criteria
 
-- [ ] GA4 tracking fires on page load in production when consent is granted
-- [ ] GA4 does NOT load in development (`jekyll serve` without `JEKYLL_ENV=production`)
-- [ ] Cookie consent banner appears on first visit
-- [ ] Banner does not reappear after user makes a choice (persisted in localStorage)
-- [ ] Accepting consent loads GA4 and sets consent state to granted
-- [ ] Declining consent: no `_ga` or `_ga_*` cookies are set; `gtag('consent', 'update', ...)` fires with `analytics_storage: 'denied'` (verifiable via DevTools)
-- [ ] Clicking "Cookie Settings" in footer reopens the consent banner; changing from declined to accepted loads GA4; changing from accepted to declined clears GA4 cookies on next page load
-- [ ] Privacy policy page exists at `/privacy/` and covers GA4 data collection, cookie details, user rights, and contact info
-- [ ] Consent banner is keyboard accessible (Tab, Enter/Space to navigate and activate)
-- [ ] Consent banner meets WCAG 2.2 AA contrast and focus requirements
-- [ ] Banner is responsive across mobile, tablet, and desktop viewports
-- [ ] No JavaScript errors in the browser console
-- [ ] Page load performance is not noticeably degraded
-- [ ] If localStorage is unavailable, consent banner shows on every page load and GA4 defaults to denied (graceful degradation)
-- [ ] With JavaScript disabled, no consent banner appears and no analytics scripts load — site functions normally
+- [x] GA4 tracking fires on page load in production when consent is granted
+- [x] GA4 does NOT load in development (`jekyll serve` without `JEKYLL_ENV=production`)
+- [x] Cookie consent banner appears on first visit
+- [x] Banner does not reappear after user makes a choice (persisted in localStorage)
+- [x] Accepting consent loads GA4 and sets consent state to granted
+- [x] Declining consent: no `_ga` or `_ga_*` cookies are set; `gtag('consent', 'update', ...)` fires with `analytics_storage: 'denied'` (verifiable via DevTools)
+- [x] Clicking "Cookie Settings" in footer reopens the consent banner; changing from declined to accepted loads GA4; changing from accepted to declined clears GA4 cookies on next page load
+- [x] Privacy policy page exists at `/privacy/` and covers GA4 data collection, cookie details, user rights, and contact info
+- [x] Consent banner is keyboard accessible (Tab, Enter/Space to navigate and activate)
+- [x] Consent banner meets WCAG 2.2 AA contrast and focus requirements
+- [x] Banner is responsive across mobile, tablet, and desktop viewports
+- [x] No JavaScript errors in the browser console
+- [x] Page load performance is not noticeably degraded
+- [x] If localStorage is unavailable, consent banner shows on every page load and GA4 defaults to denied (graceful degradation)
+- [x] With JavaScript disabled, no consent banner appears and no analytics scripts load — site functions normally
 
 ## Affected Files
 
@@ -72,9 +72,9 @@ The site currently has no analytics — there is no data on traffic, popular pos
 | Phase | Started | Completed | Notes |
 |-------|---------|-----------|-------|
 | Research & Planning | 2026-02-24 | 2026-02-26 | Research complete (Stage 1, 2026-02-24). Deferred, then resumed 2026-02-26 for Stage 2 (Planning). Security research documented. |
-| Implementation | 2026-02-26 | — | |
-| Testing | — | — | |
-| Acceptance | — | — | |
+| Implementation | 2026-02-26 | 2026-02-26 | 2 commits; 10 tasks; 12 files new/modified |
+| Testing | 2026-02-26 | 2026-02-26 | 15/15 AC pass; 0 SME errors; 9/9 user tests pass |
+| Acceptance | 2026-02-26 | — | |
 
 ## Future Considerations
 
@@ -87,16 +87,27 @@ Documented during research, not blocking for initial implementation:
 ## Completion Notes
 
 ### Delivered
-- [What was built — brief summary of the final implementation]
+- GA4 integration with Consent Mode v2: consent defaults (all denied) execute before gtag.js, consent updated after user choice
+- Cookie consent banner: `<aside role="region">` with `aria-live="polite"`, server-rendered hidden, Accept/Decline buttons, responsive layout
+- Privacy policy page at `/privacy/` covering GA4 data collection, cookies, user rights, third-party services (Giscus, Buttondown), and future advertising placeholder
+- Footer links: Privacy Policy link (always visible) + Cookie Settings button (production only)
+- Cookie clearing on consent withdrawal via `clearGaCookies()` function
+- Production-only loading with double guard (`jekyll.environment` + `site.google_analytics`)
+- Security research documented in `docs/security-research.md` covering public repo implications for analytics and ad integration
 
 ### Deviations
-- [Anything that changed from the original spec and why, or "None"]
+- Dark mode requirement updated from "works with future dark mode" to "works with dark mode" — spec 013 was already completed when this spec resumed
+- No deviations from the planned implementation — all 10 decisions from Research held through Implementation
 
 ### What Went Well
-- [Process, tools, or decisions that worked effectively]
+- Thorough research before deferral paid off — all 27 findings and 10 decisions from the original research session remained valid 2 days later, enabling immediate planning and implementation
+- Zero issues from SME audits — the research decisions (D8 for ARIA pattern, D10 for JS organization, S11 for reduced-motion) produced clean code on the first pass
+- Security research resolved the deferral blocker definitively — public repo confirmed as non-issue for analytics and ads
+- Single-session completion after resuming — planning, implementation, testing, and acceptance all in one session
 
 ### What Didn't Go Well
-- [Friction points, rework, surprises, or time sinks]
+- Nothing — clean execution with no friction
 
 ### Lessons Learned
-- [Specific takeaways to carry forward to future features]
+- Deferring with thorough research documentation enables fast resumption — the 27 findings and 10 decisions were immediately actionable with no re-research needed
+- The `hidden` attribute is preferable to CSS class toggling for components that should be fully removed from the accessibility tree when not active (vs. `back-to-top` which uses CSS opacity for visual transition)
