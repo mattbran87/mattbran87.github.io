@@ -1,0 +1,38 @@
+{%- comment -%}
+  Pagination navigation for paginated pages.
+  Uses Bootstrap pagination component with previous/next and page indicator.
+  Only renders when there are multiple pages.
+{%- endcomment -%}
+{%- if paginator.total_pages > 1 -%}
+<nav class="pagination-nav" aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {%- if paginator.previous_page -%}
+        <li class="page-item">
+            <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">
+                &laquo; Newer
+            </a>
+        </li>
+        {%- else -%}
+        <li class="page-item disabled">
+            <span class="page-link">&laquo; Newer</span>
+        </li>
+        {%- endif -%}
+
+        <li class="page-item disabled">
+            <span class="page-link">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        </li>
+
+        {%- if paginator.next_page -%}
+        <li class="page-item">
+            <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">
+                Older &raquo;
+            </a>
+        </li>
+        {%- else -%}
+        <li class="page-item disabled">
+            <span class="page-link">Older &raquo;</span>
+        </li>
+        {%- endif -%}
+    </ul>
+</nav>
+{%- endif -%}

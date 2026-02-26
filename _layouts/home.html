@@ -11,10 +11,10 @@ layout: default
 
             {{ content }}
 
-            {%- comment -%} Post list — always render excerpts (no show_excerpts toggle) {%- endcomment -%}
+            {%- comment -%} Post list — paginated, 5 posts per page {%- endcomment -%}
             {%- if site.posts.size > 0 -%}
-                {%- comment -%} Loop through all posts, rendering each as a card {%- endcomment -%}
-                {%- for post in site.posts -%}
+                {%- comment -%} Loop through paginated posts for the current page {%- endcomment -%}
+                {%- for post in paginator.posts -%}
             <article class="post-card">
                 <h2 class="post-card__title">
                     <a href="{{ post.url | relative_url }}">
@@ -40,6 +40,8 @@ layout: default
                 <a class="post-card__read-more" href="{{ post.url | relative_url }}" aria-label="Read more: {{ post.title | escape }}">Read more</a>
             </article>
                 {%- endfor -%}
+
+                {%- include pagination.html -%}
             {%- else -%}
             <p>No posts yet.</p>
             {%- endif -%}

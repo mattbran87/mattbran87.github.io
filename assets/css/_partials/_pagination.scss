@@ -1,0 +1,11 @@
+// ==========================================================================
+// Pagination Navigation
+// ==========================================================================
+//
+// Minimal overrides for Bootstrap's pagination component.
+// Spacing and alignment for the homepage post list pagination.
+
+.pagination-nav {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
