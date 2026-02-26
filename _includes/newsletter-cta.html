@@ -1,0 +1,54 @@
+{%- comment -%}
+  Newsletter Subscribe CTA Component
+  Renders a Buttondown email subscribe form with heading and description.
+
+  Parameters:
+    variant    — "sidebar" (compact) or "post" (full-width with description)
+    newsletter — post's newsletter front matter value (for post-footer opt-out)
+
+  Usage:
+    Sidebar:     {% include newsletter-cta.html variant="sidebar" %}
+    Post footer: {% include newsletter-cta.html variant="post" newsletter=page.newsletter %}
+{%- endcomment -%}
+
+{%- comment -%} Skip rendering if newsletter provider is not configured {%- endcomment -%}
+{%- if site.newsletter.provider and site.newsletter.buttondown.username -%}
+
+{%- comment -%} Opt-out: skip rendering if newsletter: false in front matter (post variant only) {%- endcomment -%}
+{%- assign is_post = include.variant | default: "sidebar" -%}
+{%- if is_post == "post" and include.newsletter == false -%}
+    {%- comment -%} newsletter: false — do not render {%- endcomment -%}
+{%- else -%}
+
+{%- assign bd_username = site.newsletter.buttondown.username -%}
+{%- assign cta_heading = site.newsletter.heading | default: "Subscribe" -%}
+{%- assign cta_description = site.newsletter.description | default: "Get notified when new posts are published." -%}
+
+<div class="newsletter-cta{% if include.variant == 'post' %} newsletter-cta--post{% endif %}">
+    <h2 class="newsletter-cta__heading">{{ cta_heading }}</h2>
+    {%- if include.variant == "post" -%}
+    <p class="newsletter-cta__description">{{ cta_description }}</p>
+    {%- endif -%}
+    <form
+        class="newsletter-cta__form"
+        action="https://buttondown.com/api/emails/embed-subscribe/{{ bd_username }}"
+        method="post"
+        referrerpolicy="unsafe-url"
+    >
+        <label class="newsletter-cta__label" for="bd-email{% if include.variant == 'post' %}-post{% endif %}">Email address</label>
+        <div class="newsletter-cta__input-group">
+            <input
+                class="newsletter-cta__input"
+                type="email"
+                name="email"
+                id="bd-email{% if include.variant == 'post' %}-post{% endif %}"
+                placeholder="you@example.com"
+                required
+            />
+            <button class="newsletter-cta__button" type="submit">Subscribe</button>
+        </div>
+    </form>
+</div>
+
+{%- endif -%}
+{%- endif -%}
