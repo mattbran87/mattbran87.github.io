@@ -54,6 +54,9 @@ layout: default
             {%- endif -%}
         </nav>
         {%- endif -%}
+
+        {%- comment -%} Newsletter subscribe CTA — shown unless newsletter: false {%- endcomment -%}
+        {%- include newsletter-cta.html variant="post" newsletter=page.newsletter -%}
     </article>
 
     {%- comment -%} Comments — offcanvas panel, shown unless comments: false {%- endcomment -%}
