@@ -11,23 +11,6 @@
     {%- comment -%} Featured posts — manually curated highlights {%- endcomment -%}
     {%- include featured-posts.html -%}
 
-    {%- comment -%} Recent posts — last 5 {%- endcomment -%}
-    {%- if site.posts.size > 0 -%}
-    <div class="sidebar__section">
-        <h2 class="sidebar__title">Recent Posts</h2>
-        <ul class="sidebar__list" role="list">
-            {%- comment -%} List the 5 most recent post titles as links {%- endcomment -%}
-            {%- for post in site.posts limit:5 -%}
-            <li>
-                <a class="sidebar__link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                </a>
-            </li>
-            {%- endfor -%}
-        </ul>
-    </div>
-    {%- endif -%}
-
     {%- comment -%} Popular Tags — top 10 by post count {%- endcomment -%}
     {%- if site.tags.size > 0 -%}
     <div class="sidebar__section">
@@ -62,6 +45,23 @@
             {%- endfor -%}
         </ul>
         <a class="sidebar__view-all" href="{{ '/series/' | relative_url }}">View all series</a>
+    </div>
+    {%- endif -%}
+
+    {%- comment -%} Recent posts — last 5 {%- endcomment -%}
+    {%- if site.posts.size > 0 -%}
+    <div class="sidebar__section">
+        <h2 class="sidebar__title">Recent Posts</h2>
+        <ul class="sidebar__list" role="list">
+            {%- comment -%} List the 5 most recent post titles as links {%- endcomment -%}
+            {%- for post in site.posts limit:5 -%}
+            <li>
+                <a class="sidebar__link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
     </div>
     {%- endif -%}
 
