@@ -22,6 +22,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Verify CI build passes on the feature branch before merging — "works locally, breaks CI" is a recurring risk due to path differences, platform gems, and gitignore behavior. (Source: Foundation retro)
 - `gh` CLI is not installed — deploy verification and GitHub Actions checks must be done manually by the user until `gh` is installed. This blocks automated acceptance verification in Phase 4. (Source: spec 011)
 - Restart the dev server after `_config.yml` changes — `jekyll serve --livereload` does not pick up config changes. A stale config can cause conditional Liquid blocks to silently skip rendering (e.g., `site.comments.provider` not set means the offcanvas panel doesn't render, but the trigger button does, causing a Bootstrap JS crash). When debugging runtime errors after a feature merge, check whether the server was restarted since the last `_config.yml` change. (Source: social share redesign session)
+- Read plugin template source during Research, not just documentation — when a feature depends on a plugin's specific behavior (e.g., front matter key support, config block handling), verify by reading the plugin's template or source code. Documentation may be outdated or aspirational. jekyll-seo-tag's `seo.robots` and `twitter` config both failed at implementation because docs didn't match reality. (Source: spec 008, Discovery & SEO retro)
 
 ## Sass / CSS
 
@@ -72,3 +73,4 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Completion notes feed milestone reviews — structured retros (Delivered, Deviations, What Went Well, What Didn't, Lessons) make cross-feature pattern recognition much easier. (Source: process review)
 - Document deferral rationale — when a feature is deferred, record why and under what conditions it would be reconsidered. Avoids losing context across sessions. (Source: Page Builds retro, re: spec 007)
 - Batch mini-specs that touch the same files — grouping features that modify the same layouts or components into one session reduces rework and keeps related changes in a single commit. (Source: Enhancements retro, re: specs 023, 024, 031)
+- Decouple manual-first phases from blocked automation dependencies — when a feature has an optional automation layer that depends on a blocked feature, ship the manual version first and queue the automation for later. Spec 019 shipped Phase 1 (manual curation) without waiting for 012 (Analytics/GA4 API). (Source: spec 019, Discovery & SEO retro)

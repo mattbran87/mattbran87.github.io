@@ -17,6 +17,12 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-26
 
+- **[Docs]** Write Discovery & SEO milestone retrospective covering specs 008, 009, 012, and 019; add two lessons to `docs/lessons-learned.md` (plugin source verification, decouple manual-first phases)
+  - Files affected: `docs/retrospectives/2026-02-26-discovery-seo.md` (new), `docs/lessons-learned.md`
+
+- **[Tweak]** Move post tags from `post__meta` header to their own `post__tags` section between post content and post navigation; tighten post header spacing by reducing `post__meta` margin-bottom and `social-share` padding-bottom to `--spacing-md`, remove `social-share` margin-top
+  - Files affected: `_layouts/post.html`, `assets/css/_partials/_post.scss`, `assets/css/_partials/_social-share.scss`
+
 - **[Tweak]** Replace footer social text links with SVG icons to match sidebar Site Author Links; hide footer links below 768px on home page only to avoid duplicating the sidebar author links that stack directly above the footer on mobile
   - Files affected: `_includes/footer.html`, `assets/css/_partials/_footer.scss`
 
