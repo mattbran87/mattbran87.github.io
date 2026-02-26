@@ -1,0 +1,26 @@
+{%- comment -%}
+  GA4 Analytics with Google Consent Mode v2.
+
+  Double guard: only loads in production AND when google_analytics is configured.
+  Consent defaults execute synchronously before gtag.js (required by Consent Mode v2).
+  GA4 starts in denied state — cookie-consent.js updates consent after user choice.
+{%- endcomment -%}
+{%- if jekyll.environment == "production" and site.google_analytics -%}
+<script>
+  // Consent Mode v2 defaults — must execute before gtag.js
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{%- endif -%}

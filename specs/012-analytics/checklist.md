@@ -11,37 +11,38 @@
 ### Research Discussion (mandatory)
 - [x] Present findings, recommendation, and implementation strategy to user
 - [x] Discuss and resolve open questions with user
-- [ ] Get user approval to proceed to planning — **DEFERRED**
+- [x] Get user approval to proceed to planning
 
 ### Stage 2: Planning
-- [ ] Record decisions from discussion in decisions.md — **DEFERRED**
-- [ ] Break down work into tasks in tasks.md — **DEFERRED**
-- [ ] Get sign-off to move to Implementation — **DEFERRED**
+- [x] Security research for public repo — documented in `docs/security-research.md`
+- [x] Record decisions from discussion in decisions.md
+- [x] Break down work into tasks in tasks.md
+- [x] Get sign-off to move to Implementation
 
 ## Phase 2: Implementation
 
-- [ ] Create feature branch (e.g., `feature/012-analytics`)
-- [ ] Implement changes per tasks.md — commit after each completed task
-- [ ] Pause and check in with user on any unanticipated problems or deviations
-- [ ] Update affected files list in spec.md
-- [ ] Self-review code for quality and conventions
-- [ ] Get sign-off to move to Testing
+- [x] Create feature branch (e.g., `feature/012-analytics`)
+- [x] Implement changes per tasks.md — commit after each completed task
+- [x] Pause and check in with user on any unanticipated problems or deviations
+- [x] Update affected files list in spec.md
+- [x] Self-review code for quality and conventions
+- [x] Get sign-off to move to Testing
 
 ## Phase 3: Testing
 
 ### Stage 1: Claude Verification & SME Audits
-- [ ] Verify each acceptance criterion in spec.md
-- [ ] Test edge cases and error scenarios
-- [ ] Test on local dev server (`bundle exec jekyll serve`)
-- [ ] Validate HTML output in `_site/`
-- [ ] Run required SME audits (Accessibility, QA)
-- [ ] Follow bug fix flow for any issues (document → ask user → fix or batch)
+- [x] Verify each acceptance criterion in spec.md — 15/15 pass
+- [x] Test edge cases and error scenarios
+- [x] Test on local dev server (`bundle exec jekyll serve`)
+- [x] Validate HTML output in `_site/`
+- [x] Run required SME audits (Accessibility, QA) — 0 errors
+- [x] Follow bug fix flow for any issues (document → ask user → fix or batch) — no issues
 
 ### Stage 2: User Testing
-- [ ] Provide user testing plan (if manual/visual testing needed)
-- [ ] Complete user testing plan together with user
-- [ ] Document any issues found in notes.md
-- [ ] Get sign-off to move to Acceptance
+- [x] Provide user testing plan (if manual/visual testing needed)
+- [x] Complete user testing plan together with user — 9/9 pass
+- [x] Document any issues found in notes.md — none
+- [x] Get sign-off to move to Acceptance
 
 ## Phase 4: Acceptance
 

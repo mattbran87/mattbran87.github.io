@@ -61,6 +61,9 @@ newsletter:
   heading: "Subscribe"
   description: "Get notified when new posts are published."
 
+# Analytics (GA4 — Google Analytics 4)
+google_analytics: "G-C3KLPG4WPE"
+
 # Navigation links (controls which pages appear in the header nav)
 header_pages:
   - about.markdown

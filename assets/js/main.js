@@ -6,6 +6,7 @@
  * and after all deferred classic scripts (Bootstrap, Lunr).
  */
 
+import { initCookieConsent } from './modules/cookie-consent.js';
 import { initNavKeyboard } from './modules/nav-keyboard.js';
 import { initCodeCopy } from './modules/code-copy.js';
 import { initSearch } from './modules/search.js';
@@ -18,6 +19,7 @@ import { initComments } from './modules/comments.js';
 import { initStickyHeader } from './modules/sticky-header.js';
 import { initSidebarSticky } from './modules/sidebar-sticky.js';
 
+initCookieConsent();
 initNavKeyboard();
 initCodeCopy();
 initSearch();

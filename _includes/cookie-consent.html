@@ -1,0 +1,28 @@
+{%- comment -%}
+  Cookie consent banner for GDPR compliance.
+
+  Server-rendered with hidden state — JS reveals the banner if no consent choice
+  is stored in localStorage. This ensures aria-live="polite" triggers correctly
+  for screen readers.
+
+  Only rendered in production when analytics is configured.
+{%- endcomment -%}
+{%- if jekyll.environment == "production" and site.google_analytics -%}
+<aside class="cookie-consent" role="region" aria-label="Cookie consent"
+       aria-live="polite" hidden>
+  <div class="cookie-consent__body">
+    <p class="cookie-consent__message">
+      We use cookies to analyze site traffic and improve your experience.
+      <a href="/privacy/" class="cookie-consent__link">Privacy Policy</a>
+    </p>
+    <div class="cookie-consent__actions">
+      <button type="button" class="cookie-consent__btn cookie-consent__btn--decline">
+        Decline
+      </button>
+      <button type="button" class="cookie-consent__btn cookie-consent__btn--accept">
+        Accept
+      </button>
+    </div>
+  </div>
+</aside>
+{%- endif -%}

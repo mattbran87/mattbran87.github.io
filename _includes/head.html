@@ -9,5 +9,7 @@
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
     {%- comment -%} Hide theme toggle when JavaScript is disabled {%- endcomment -%}
     <noscript><style>.theme-toggle{display:none}</style></noscript>
+    {%- comment -%} GA4 with Consent Mode v2 — defaults must execute before gtag.js {%- endcomment -%}
+    {%- include analytics.html -%}
     {%- feed_meta -%}
 </head>

@@ -118,3 +118,14 @@
   2. Separate `assets/js/cookie-consent.js` loaded with `defer` — follows existing pattern
 - **Decision:** Separate file (Option 2)
 - **Rationale:** Matches existing project pattern (`code-copy.js`, `nav-keyboard.js` are all separate files). Consent Mode defaults in `<head>` remain inline (must execute before gtag.js). Only the banner interaction JS is in the separate file. (QA SME — S24)
+
+### D11: Public Repository Security Posture
+
+- **Date:** 2026-02-26
+- **Phase:** Research & Planning (Stage 2)
+- **Context:** Spec was deferred pending "private repository and server migration." User decided to stay on GitHub Pages with a public repo. Need to assess whether this blocks analytics or ad integration.
+- **Options Considered:**
+  1. Wait for private repo — delays analytics and ads indefinitely
+  2. Proceed with public repo — GA4 measurement ID and ad publisher IDs are inherently public anyway
+- **Decision:** Proceed with public repo (Option 2)
+- **Rationale:** Security research (`docs/security-research.md`) confirms that all client-side identifiers (GA4 Measurement ID, AdSense Publisher ID) are inherently public — visible in rendered HTML on every website that uses them. A public GitHub repo does not change the threat model. The only truly sensitive values (GA4 Data API service account keys for spec 019 Phase 2) are stored in GitHub Actions secrets, which are encrypted and inaccessible from forked PRs even on public repos. Ghost spam (fake analytics events) is the primary abuse vector but is a data quality nuisance, not a security breach, and is mitigated by GA4's built-in bot filtering and hostname data filters.

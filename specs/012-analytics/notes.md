@@ -33,6 +33,14 @@ All SME findings across every phase, with disposition. Add rows as findings come
 | S25 | Research | QA | Cookie clearing on consent withdrawal not addressed | Add requirement: clear `_ga` cookies when consent withdrawn | Adopted → spec requirements update |
 | S26 | Research | QA | Consent expiry (12-month re-prompt) not addressed | Future consideration — document but don't implement now | Deferred |
 | S27 | Research | QA | Per-purpose consent needed when ads arrive (spec 018) | Future consideration — single Accept/Decline sufficient for analytics only | Deferred |
+| S28 | Planning | Security | GA4 Measurement ID is inherently public (client-side JS, visible in HTML source). Public repo does not change threat model. | Proceed with public repo — no security blocker | Adopted → D11 |
+| S29 | Planning | Security | Ghost spam (Measurement Protocol abuse) is primary risk. GA4 built-in bot filtering + hostname data filters are sufficient for a personal blog. | Enable bot filtering and hostname filters in GA4 admin after setup | Adopted → post-setup config |
+| S30 | Planning | Security | GitHub Actions secrets are safe on public repos — encrypted, redacted from logs, inaccessible from forked PRs. Only needed for spec 019 Phase 2 (Data API key). | No secrets needed for spec 012 | N/A |
+| S31 | Planning | Security | AdSense requires certified TCF v2.3 CMP for EEA/UK. Self-built banner is sufficient for GA4 analytics consent only. | Document for spec 018 — may need CMP upgrade | Deferred → spec 018 |
+| S32 | Testing | A11y | All WCAG 2.2 AA checks pass — semantics, keyboard, focus, contrast, motion, ARIA. 0 errors. | None — clean pass | N/A |
+| S33 | Testing | A11y | Decline button dark hover contrast 4.8:1 (dark mode) — passes AA but closest to threshold | No action — passes AA | N/A |
+| S34 | Testing | QA | 0 errors, 2 warnings, 1 info — BEM, JSDoc, Liquid, build all clean | None — clean pass | N/A |
+| S35 | Testing | QA | Footer `.site-footer__links a` uses bare element selector instead of BEM class | Acceptable — narrow scope | N/A |
 
 **Disposition values:** Adopted → D# (decision), Adopted → Task #, Deferred, Overridden by D#, Fixed in [commit], N/A
 
@@ -175,7 +183,9 @@ All open questions resolved during research. No outstanding questions.
 
 ## Implementation
 
-- [Notes captured during implementation — gotchas, surprises, workarounds]
+- Dark mode (spec 013) already built — banner uses existing CSS custom properties, no special dark mode work needed
+- `hidden` attribute used instead of CSS class toggle — semantically correct for consent banner (fully removes from accessibility tree when hidden)
+- Cookie consent JS initialized first in main.js to ensure consent state is applied before other modules
 
 ---
 
@@ -183,21 +193,34 @@ All open questions resolved during research. No outstanding questions.
 
 ### Stage 1: Claude Verification & SME Audits
 
+**Acceptance Criteria:** 15/15 PASS — all criteria verified against production and development build output.
+
 #### Accessibility SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+- **Finding:** All WCAG 2.2 AA checks pass. Semantic HTML correct (`<aside role="region">`, `aria-live="polite"`, native buttons). Focus indicators visible (3px solid focus ring). Keyboard fully accessible (Tab, Enter, Space on native buttons). No auto-focus, no Escape handler, no focus trap — all correct per research decisions. Motion respects `prefers-reduced-motion`. All contrast ratios pass AA.
+- **Warning:** Decline button dark mode hover state (`#c9d1d9` on `#30363d` = 4.8:1) passes AA but is closest to threshold. No action needed.
 
 #### QA SME — Testing Audit
-- **Finding:** [what was found]
-- **Recommendation:** [what they suggest]
+- **Finding:** 0 errors, 2 warnings, 1 info. All files follow conventions (BEM, JSDoc, Liquid comments, whitespace control, indentation). Build clean in both environments.
+- **Warning 1:** Footer `.site-footer__links a` uses bare element selector instead of BEM class. Acceptable — narrow scope, single `<a>` element.
+- **Warning 2:** `privacy.markdown` not in `header_pages` — correct behavior, page should not appear in nav.
+- **Info:** `hidden` attribute pattern (vs CSS class toggle) is semantically correct for this component.
 
 ### Stage 2: User Testing
 
-- [User testing observations, pass/fail results]
+All 9 items pass:
+1. Banner appears on first visit (incognito window) — **Pass**
+2. Banner layout correct in light and dark mode — **Pass**
+3. Accept hides banner, persists across refresh — **Pass**
+4. Decline hides banner, persists across refresh — **Pass**
+5. Cookie Settings reopens banner — **Pass**
+6. Mobile responsive (stacked layout) — **Pass**
+7. Privacy policy page renders correctly — **Pass**
+8. Footer link navigates to /privacy/ — **Pass**
+9. Dev mode excludes all analytics elements — **Pass**
 
 ### Issues Found
 
-- [Issues documented with steps to reproduce, severity, and fix status]
+- None found during Stage 1.
 
 ---
 
