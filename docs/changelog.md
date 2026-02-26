@@ -17,6 +17,14 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-26
 
+- **[Chore]** Tag site as v1.0.0 — all foundation features complete
+
+- **[Tweak]** Remove About section from sidebar and site description from footer; add `target="_blank" rel="noopener"` to GitHub and LinkedIn links in sidebar and footer
+  - Files affected: `_includes/sidebar.html`, `_includes/footer.html`
+
+- **[Docs]** Update roadmap: mark spec 018 (Ad Integration) as deferred with branch preserved
+  - Files affected: `specs/roadmap.md`
+
 - **[Docs]** Write Discovery & SEO milestone retrospective covering specs 008, 009, 012, and 019; add two lessons to `docs/lessons-learned.md` (plugin source verification, decouple manual-first phases)
   - Files affected: `docs/retrospectives/2026-02-26-discovery-seo.md` (new), `docs/lessons-learned.md`
 
