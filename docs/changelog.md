@@ -17,6 +17,9 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-26
 
+- **[Content]** Add Colophon page describing the site's tech stack (Jekyll, Bootstrap, plugins, services, hosting)
+  - Files affected: `colophon.markdown` (new), `about.markdown`, `_includes/footer.html`
+
 - **[Chore]** Tag site as v1.0.0 — all foundation features complete
 
 - **[Tweak]** Remove About section from sidebar and site description from footer; add `target="_blank" rel="noopener"` to GitHub and LinkedIn links in sidebar and footer
