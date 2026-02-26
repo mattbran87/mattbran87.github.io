@@ -12,11 +12,6 @@ layout: default
                 </time>
                 <span class="post__meta-sep" aria-hidden="true">&middot;</span>
                 {%- include reading-time.html content=page.content -%}
-                {%- if page.tags.size > 0 -%}
-                <span class="ms-2">
-                    {%- include post-tags.html tags=page.tags -%}
-                </span>
-                {%- endif -%}
             </div>
             {%- comment -%} Social share buttons — shown unless share: false in front matter {%- endcomment -%}
             {%- include social-share.html -%}
@@ -30,6 +25,13 @@ layout: default
             {%- endif -%}
             {{ content }}
         </div>
+
+        {%- comment -%} Tags — shown if post has tags {%- endcomment -%}
+        {%- if page.tags.size > 0 -%}
+        <div class="post__tags">
+            {%- include post-tags.html tags=page.tags -%}
+        </div>
+        {%- endif -%}
 
         {%- comment -%} Previous / Next post navigation {%- endcomment -%}
         {%- if page.previous or page.next -%}

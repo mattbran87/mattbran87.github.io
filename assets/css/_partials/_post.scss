@@ -18,7 +18,7 @@
 .post__meta {
     color: var(--meta-color);
     font-size: var(--meta-font-size);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
 }
 
 .post__meta-sep {
@@ -74,6 +74,10 @@
         color: var(--color-muted);
         margin: var(--spacing-lg) 0;
     }
+}
+
+.post__tags {
+    margin-bottom: var(--spacing-xxl);
 }
 
 .post__nav {
