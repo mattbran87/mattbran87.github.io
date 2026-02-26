@@ -61,10 +61,10 @@
 | 4.1 | Final review against spec requirements | Done | All 9 AC met, all 6 requirements met |
 | 4.2 | Fill in completion notes in spec.md | Done | All 5 sections filled |
 | 4.3 | Merge feature branch to master, delete branch | Done | |
-| 4.4 | Verify GitHub Actions deploy and spot-check live site | Pending | User to verify |
+| 4.4 | Verify GitHub Actions deploy and spot-check live site | Done | Deploy successful, live site confirmed |
 
 ## Summary
 
 - **Total tasks:** 15
-- **Completed:** 14
-- **Remaining:** 1 (deploy verification)
+- **Completed:** 15
+- **Remaining:** 0
