@@ -1,0 +1,5 @@
+# Manually curated featured posts — update slugs to change what's highlighted
+# Slugs must match the title portion of a post filename (no date prefix)
+- slug: ai-tools-getting-started
+- slug: ai-tools-environment-setup
+- slug: ai-tools-effective-prompting
