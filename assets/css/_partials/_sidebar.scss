@@ -67,6 +67,20 @@
     gap: var(--spacing-md);
 }
 
+.sidebar__rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    color: var(--color-muted);
+    text-decoration: none;
+    margin-top: var(--spacing-sm);
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
 .sidebar__social-link {
     color: var(--color-muted);
     text-decoration: none;

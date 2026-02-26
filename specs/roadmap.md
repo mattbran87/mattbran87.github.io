@@ -36,7 +36,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 025 | Table of Contents | `specs/025-table-of-contents/` | Completed |
 | 026 | Back to Top Button | — | Completed |
 | 027 | Scroll Progress Indicator | — | Completed |
-| 028 | Newsletter Subscribe CTA | [`docs/newsletter-research.md`](../docs/newsletter-research.md) | Not Started |
+| 028 | Newsletter Subscribe CTA | `specs/028-newsletter-subscribe-cta/` | Completed |
 | 029 | Pagination | — | Not Started |
 | 030 | Visible Breadcrumbs | — | Not Started |
 | 031 | Series Badge Redesign | — | Completed |

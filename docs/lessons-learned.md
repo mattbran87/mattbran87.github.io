@@ -21,6 +21,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 - Measure `jekyll build` time before and after for Liquid-heavy features — establishes a performance baseline and detects when O(N²) algorithms stop being negligible at scale. (Source: Content Organization retro)
 - Verify CI build passes on the feature branch before merging — "works locally, breaks CI" is a recurring risk due to path differences, platform gems, and gitignore behavior. (Source: Foundation retro)
 - `gh` CLI is not installed — deploy verification and GitHub Actions checks must be done manually by the user until `gh` is installed. This blocks automated acceptance verification in Phase 4. (Source: spec 011)
+- Restart the dev server after `_config.yml` changes — `jekyll serve --livereload` does not pick up config changes. A stale config can cause conditional Liquid blocks to silently skip rendering (e.g., `site.comments.provider` not set means the offcanvas panel doesn't render, but the trigger button does, causing a Bootstrap JS crash). When debugging runtime errors after a feature merge, check whether the server was restarted since the last `_config.yml` change. (Source: social share redesign session)
 
 ## Sass / CSS
 
@@ -60,6 +61,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 
 ## Roadmap
 
+- Verify feature availability per pricing tier — a service may advertise a capability (e.g., RSS-to-email) that is only available on a paid plan. Check the specific tier's feature list during research, not just the service overview. (Source: spec 028, re: Buttondown RSS automation)
 - Verify dependency claims in feature descriptions — when a roadmap description references a library or tool being "already available," confirm against actual project state during implementation rather than trusting the description. (Source: Sidebar Redesign retro, re: spec 034)
 
 ## Spec Workflow
