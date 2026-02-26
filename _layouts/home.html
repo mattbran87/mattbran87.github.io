@@ -28,7 +28,8 @@ layout: default
                     <span class="post-card__meta-sep" aria-hidden="true">&middot;</span>
                     {%- include reading-time.html content=post.content -%}
                 </p>
-                {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%}
+                {%- comment -%} Compact share links removed from post-cards — re-enable by uncommenting below {%- endcomment -%}
+                {%- comment -%} {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%} {%- endcomment -%}
                 {%- comment -%} Show series name if the post belongs to a series {%- endcomment -%}
                 {%- if post.series and post.series_part -%}
                 {%- include series-badge.html series=post.series series_part=post.series_part -%}

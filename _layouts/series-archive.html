@@ -45,7 +45,8 @@ layout: default
                             <span class="post-card__meta-sep" aria-hidden="true">&middot;</span>
                             {%- include reading-time.html content=post.content -%}
                         </p>
-                        {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%}
+                        {%- comment -%} Compact share links removed from post-cards — re-enable by uncommenting below {%- endcomment -%}
+                        {%- comment -%} {%- include social-share.html url=post.url title=post.title compact="true" share=post.share -%} {%- endcomment -%}
                         <div class="post-card__excerpt">
                             {{ post.excerpt }}
                         </div>
