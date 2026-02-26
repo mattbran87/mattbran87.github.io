@@ -8,6 +8,9 @@
         </div>
     </div>
 
+    {%- comment -%} Featured posts — manually curated highlights {%- endcomment -%}
+    {%- include featured-posts.html -%}
+
     {%- comment -%} Recent posts — last 5 {%- endcomment -%}
     {%- if site.posts.size > 0 -%}
     <div class="sidebar__section">
