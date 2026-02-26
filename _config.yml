@@ -53,6 +53,14 @@ comments:
     input_position: "bottom"
     lang: "en"
 
+# Newsletter (Buttondown — email subscriber management)
+newsletter:
+  provider: buttondown
+  buttondown:
+    username: "aicodeblog"
+  heading: "Subscribe"
+  description: "Get notified when new posts are published."
+
 # Navigation links (controls which pages appear in the header nav)
 header_pages:
   - about.markdown
