@@ -29,7 +29,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
 | 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
 | 020 | Social Sharing | `specs/020-social-sharing/` | Completed |
-| 021 | Comments | [`docs/commenting-system-research.md`](../docs/commenting-system-research.md) | Not Started |
+| 021 | Comments | `specs/021-comments/` | Completed |
 | 022 | JS Module Migration | — | Completed |
 | 023 | Read More Link | — | Completed |
 | 024 | Estimated Reading Time | — | Completed |
