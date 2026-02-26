@@ -63,10 +63,10 @@
 |---|------|--------|-------|
 | 4.1 | Final review and completion notes | Done | |
 | 4.2 | Merge to master, delete feature branch | Done | |
-| 4.3 | Verify deploy and spot-check live site | Pending | User to verify after merge |
+| 4.3 | Verify deploy and spot-check live site | Done | User confirmed live site looks good |
 
 ## Summary
 
 - **Total tasks:** 17
-- **Completed:** 16
-- **Remaining:** 1 (deploy verification)
+- **Completed:** 17
+- **Remaining:** 0
