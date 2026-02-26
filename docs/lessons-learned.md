@@ -37,6 +37,7 @@ A living reference of reusable lessons extracted from feature retrospectives, co
 
 ## Accessibility
 
+- Check dark mode contrast on custom-colored interactive elements during Implementation — don't wait for the A11y SME audit in Testing. Both spec 020 (share buttons) and spec 028 (subscribe button) had WCAG AA contrast failures in dark mode that were only caught during Testing. Verify contrast ratios in both themes before committing. (Source: Engagement retro)
 - Bake accessibility into foundational layers — setting accessible defaults at the variable level (focus rings, contrast ratios, link underlines) means downstream features inherit them automatically. More effective than auditing after the fact. (Source: Foundation retro, Content Organization retro)
 - Zero-issue audits are achievable — when foundational accessibility is strong, new features built on the same design tokens pass A11y audits cleanly. (Source: spec 010)
 - Prefer visible text over `aria-label` for buttons — `aria-label` overrides visible text for screen readers, creating WCAG 2.5.3 (Label in Name) mismatches when the visible text changes dynamically. Use visible text as the accessible name and let aria-live regions handle state announcements. (Source: specs 011, 013)

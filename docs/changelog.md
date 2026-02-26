@@ -17,6 +17,10 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Remove compact social-share links from post-cards
+  - Commented out (not deleted) for easy re-enabling later
+  - Files affected: `_layouts/home.html`, `_layouts/tag-archive.html`, `_layouts/series-archive.html`
+
 - **[Tweak]** Redesign social share buttons from ghost pills with text labels to brand-colored circle icons
   - Removed text labels; icons are now the sole visual element with `title` tooltips on hover
   - Brand colors: X (#000), LinkedIn (#0A66C2), Reddit (#FF4500); primary color for Email, Copy, Share, Comments
