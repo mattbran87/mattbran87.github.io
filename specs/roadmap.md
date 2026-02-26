@@ -27,7 +27,7 @@ Features listed in order of priority. Each feature gets its own spec directory w
 | 016 | Resume/CV Page | — | Removed (LinkedIn preferred) |
 | 017 | Multi-Language Support | [`docs/multi-language-research.md`](../docs/multi-language-research.md) | Not Started |
 | 018 | Ad Integration | [`docs/ad-integration-research.md`](../docs/ad-integration-research.md) | Not Started |
-| 019 | Featured Posts | [`docs/featured-posts-research.md`](../docs/featured-posts-research.md) | Not Started |
+| 019 | Featured Posts | `specs/019-featured-posts/` | Completed (Phase 1 — manual curation) |
 | 020 | Social Sharing | `specs/020-social-sharing/` | Completed |
 | 021 | Comments | `specs/021-comments/` | Completed |
 | 022 | JS Module Migration | — | Completed |
