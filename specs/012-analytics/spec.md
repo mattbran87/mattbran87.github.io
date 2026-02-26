@@ -1,10 +1,9 @@
 # Feature: Analytics
 
 > **Spec ID:** 012
-> **Status:** Deferred
+> **Status:** In Progress — Phase 2 (Implementation)
 > **Created:** 2026-02-24
-> **Completed:** —
-> **Deferred:** 2026-02-24 — Research complete. Awaiting private repository and server migration before implementation.
+> **Resumed:** 2026-02-26 — Deferral lifted. Security research confirms public repo is not a blocker. See [`docs/security-research.md`](../../docs/security-research.md).
 
 ## Goal
 
@@ -27,7 +26,7 @@ The site currently has no analytics — there is no data on traffic, popular pos
 - [ ] Style consent banner consistently with the site theme (Bootstrap components, BEM naming)
 - [ ] Full keyboard accessibility for the consent banner
 - [ ] Consent banner must not block page content or navigation
-- [ ] Works with future dark mode (013) via CSS custom properties
+- [ ] Works with dark mode (013, already built) via CSS custom properties
 - [ ] Clear GA4 cookies (`_ga`, `_ga_*`) when consent is withdrawn
 
 ## Constraints
@@ -72,8 +71,8 @@ The site currently has no analytics — there is no data on traffic, popular pos
 
 | Phase | Started | Completed | Notes |
 |-------|---------|-----------|-------|
-| Research & Planning | 2026-02-24 | 2026-02-24 | Research complete (Stage 1). 4 SMEs consulted. Spec deferred before planning (Stage 2). |
-| Implementation | — | — | |
+| Research & Planning | 2026-02-24 | 2026-02-26 | Research complete (Stage 1, 2026-02-24). Deferred, then resumed 2026-02-26 for Stage 2 (Planning). Security research documented. |
+| Implementation | 2026-02-26 | — | |
 | Testing | — | — | |
 | Acceptance | — | — | |
 

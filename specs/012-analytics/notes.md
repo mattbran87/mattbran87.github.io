@@ -33,6 +33,10 @@ All SME findings across every phase, with disposition. Add rows as findings come
 | S25 | Research | QA | Cookie clearing on consent withdrawal not addressed | Add requirement: clear `_ga` cookies when consent withdrawn | Adopted → spec requirements update |
 | S26 | Research | QA | Consent expiry (12-month re-prompt) not addressed | Future consideration — document but don't implement now | Deferred |
 | S27 | Research | QA | Per-purpose consent needed when ads arrive (spec 018) | Future consideration — single Accept/Decline sufficient for analytics only | Deferred |
+| S28 | Planning | Security | GA4 Measurement ID is inherently public (client-side JS, visible in HTML source). Public repo does not change threat model. | Proceed with public repo — no security blocker | Adopted → D11 |
+| S29 | Planning | Security | Ghost spam (Measurement Protocol abuse) is primary risk. GA4 built-in bot filtering + hostname data filters are sufficient for a personal blog. | Enable bot filtering and hostname filters in GA4 admin after setup | Adopted → post-setup config |
+| S30 | Planning | Security | GitHub Actions secrets are safe on public repos — encrypted, redacted from logs, inaccessible from forked PRs. Only needed for spec 019 Phase 2 (Data API key). | No secrets needed for spec 012 | N/A |
+| S31 | Planning | Security | AdSense requires certified TCF v2.3 CMP for EEA/UK. Self-built banner is sufficient for GA4 analytics consent only. | Document for spec 018 — may need CMP upgrade | Deferred → spec 018 |
 
 **Disposition values:** Adopted → D# (decision), Adopted → Task #, Deferred, Overridden by D#, Fixed in [commit], N/A
 

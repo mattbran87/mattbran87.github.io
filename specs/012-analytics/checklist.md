@@ -11,12 +11,13 @@
 ### Research Discussion (mandatory)
 - [x] Present findings, recommendation, and implementation strategy to user
 - [x] Discuss and resolve open questions with user
-- [ ] Get user approval to proceed to planning — **DEFERRED**
+- [x] Get user approval to proceed to planning
 
 ### Stage 2: Planning
-- [ ] Record decisions from discussion in decisions.md — **DEFERRED**
-- [ ] Break down work into tasks in tasks.md — **DEFERRED**
-- [ ] Get sign-off to move to Implementation — **DEFERRED**
+- [x] Security research for public repo — documented in `docs/security-research.md`
+- [x] Record decisions from discussion in decisions.md
+- [x] Break down work into tasks in tasks.md
+- [x] Get sign-off to move to Implementation
 
 ## Phase 2: Implementation
 
