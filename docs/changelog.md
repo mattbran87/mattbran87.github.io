@@ -17,6 +17,14 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-25
 
+- **[Tweak]** Redesign social share buttons from ghost pills with text labels to brand-colored circle icons
+  - Removed text labels; icons are now the sole visual element with `title` tooltips on hover
+  - Brand colors: X (#000), LinkedIn (#0A66C2), Reddit (#FF4500); primary color for Email, Copy, Share, Comments
+  - Dark mode: lightened brand variants for contrast with subtle semi-transparent background
+  - Hover effect: subtle lift with box-shadow
+  - Accessibility: `aria-label` on all interactive elements, `focusable="false"` on SVGs, 44px touch targets (36px compact)
+  - Files affected: `_includes/social-share.html`, `assets/css/_partials/_social-share.scss`, `assets/js/modules/social-share.js`
+
 - **[Tweak]** Add back-to-top button (#026)
   - Summary: Floating button fixed to bottom-right corner, appears after 300px scroll. Smooth-scrolls to top on click. Respects `prefers-reduced-motion` (instant scroll). Supports dark mode via `--color-primary`. Hidden by default with `[hidden]` attribute removed by JS.
   - Files affected: `_includes/back-to-top.html` (new), `assets/js/modules/back-to-top.js` (new), `assets/css/_partials/_back-to-top.scss` (new), `_layouts/default.html`, `assets/js/main.js`, `assets/main.scss`

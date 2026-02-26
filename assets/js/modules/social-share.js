@@ -34,13 +34,9 @@ function createStatusRegion() {
  */
 function handleCopy(button, statusRegion) {
     const url = button.getAttribute('data-url');
-    const label = button.querySelector('[data-social-share-label]');
 
     navigator.clipboard.writeText(url).then(function () {
-        // Visual feedback
-        if (label) {
-            label.textContent = 'Copied!';
-        }
+        // Visual feedback — color change via CSS modifier
         button.classList.add('social-share__button--copied');
 
         // Screen reader announcement
@@ -48,9 +44,6 @@ function handleCopy(button, statusRegion) {
 
         // Revert after delay
         setTimeout(function () {
-            if (label) {
-                label.textContent = 'Copy link';
-            }
             button.classList.remove('social-share__button--copied');
             statusRegion.textContent = '';
         }, FEEDBACK_DURATION);
