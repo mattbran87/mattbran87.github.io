@@ -7,7 +7,7 @@
                 </p>
                 {%- comment -%} Social links from _config.yml username fields {%- endcomment -%}
                 {%- if site.email or site.github_username or site.linkedin_username -%}
-                <nav class="site-footer__social-nav" aria-label="Social media links">
+                <nav class="site-footer__social-nav{% if page.layout == 'home' %} site-footer__social-nav--hide-mobile{% endif %}" aria-label="Social media links">
                     {%- comment -%} Show email link if configured {%- endcomment -%}
                     {%- if site.email -%}
                     <a class="site-footer__social-link" href="mailto:{{ site.email }}" title="Contact by email" aria-label="Contact by email">

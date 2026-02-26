@@ -17,7 +17,7 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-26
 
-- **[Tweak]** Replace footer social text links with SVG icons to match sidebar Site Author Links; hide footer links below 768px to avoid duplicating the sidebar author links that stack directly above the footer on mobile
+- **[Tweak]** Replace footer social text links with SVG icons to match sidebar Site Author Links; hide footer links below 768px on home page only to avoid duplicating the sidebar author links that stack directly above the footer on mobile
   - Files affected: `_includes/footer.html`, `assets/css/_partials/_footer.scss`
 
 - **[Infrastructure]** Sticky navbar and sticky-bottom sidebar (mini-spec)
