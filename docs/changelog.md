@@ -17,6 +17,9 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ### 2026-02-26
 
+- **[Tweak]** Replace footer social text links with SVG icons to match sidebar Site Author Links; hide footer links below 768px to avoid duplicating the sidebar author links that stack directly above the footer on mobile
+  - Files affected: `_includes/footer.html`, `assets/css/_partials/_footer.scss`
+
 - **[Infrastructure]** Sticky navbar and sticky-bottom sidebar (mini-spec)
   - **Rationale:** Navbar scrolled offscreen on long pages; sidebar was taller than viewport so bottom sections were unreachable without scrolling past all post content
   - **Sticky navbar:** Added `position: sticky` to `.site-header` with solid background, z-index 1030, and a subtle box-shadow that appears on scroll (light/dark mode variants via `--header-shadow` custom property). New `sticky-header.js` module toggles the `--scrolled` modifier class.
