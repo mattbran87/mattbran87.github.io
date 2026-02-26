@@ -1,0 +1,101 @@
+// ==========================================================================
+// Newsletter CTA
+// ==========================================================================
+//
+// Subscribe form component used in sidebar and post footer.
+// BEM block: newsletter-cta
+// Modifier: newsletter-cta--post (full-width post footer variant)
+
+.newsletter-cta {
+    // Sidebar variant — compact, inherits sidebar section spacing
+}
+
+.newsletter-cta--post {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.newsletter-cta__heading {
+    font-size: var(--font-size-sm);
+    font-weight: var(--headings-font-weight);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-md);
+}
+
+.newsletter-cta__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.newsletter-cta__label {
+    // Visually hidden but accessible to screen readers
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.newsletter-cta__input-group {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.newsletter-cta__input {
+    flex: 1;
+    min-width: 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-family: inherit;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+
+    &::placeholder {
+        color: var(--color-muted);
+    }
+
+    &:focus {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: -1px;
+        border-color: var(--color-primary);
+    }
+}
+
+.newsletter-cta__button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-family: inherit;
+    font-weight: var(--headings-font-weight);
+    color: #ffffff;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+        background-color: var(--color-link-hover);
+        border-color: var(--color-link-hover);
+    }
+
+    &:focus {
+        outline: var(--focus-ring-width) solid var(--focus-ring-color);
+        outline-offset: 2px;
+    }
+}
+
+// Post variant — wider input group
+.newsletter-cta--post .newsletter-cta__input-group {
+    max-width: 28rem;
+}
