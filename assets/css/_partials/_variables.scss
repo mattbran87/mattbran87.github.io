@@ -108,6 +108,9 @@ $min-contrast-ratio: 4.5;
     --focus-ring-width: 3px;
     --focus-ring-color: #005fcc;
 
+    // Shadows
+    --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
     // Semantic colors
     --color-success: #116329;
     --color-error: #c62828;
@@ -158,6 +161,9 @@ $min-contrast-ratio: 4.5;
     --color-success: #3fb950;
     --color-error: #f85149;
     --color-focus-shadow: rgba(77, 171, 247, 0.3);
+
+    // Shadows
+    --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     // Series status badges
     --color-status-progress-bg: #3d2e00;

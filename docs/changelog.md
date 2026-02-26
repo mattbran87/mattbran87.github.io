@@ -15,7 +15,18 @@ Minor changes that do not go through the spec engineering workflow. For feature-
 
 ---
 
+### 2026-02-26
+
+- **[Infrastructure]** Sticky navbar and sticky-bottom sidebar (mini-spec)
+  - **Rationale:** Navbar scrolled offscreen on long pages; sidebar was taller than viewport so bottom sections were unreachable without scrolling past all post content
+  - **Sticky navbar:** Added `position: sticky` to `.site-header` with solid background, z-index 1030, and a subtle box-shadow that appears on scroll (light/dark mode variants via `--header-shadow` custom property). New `sticky-header.js` module toggles the `--scrolled` modifier class.
+  - **Sticky-bottom sidebar:** New `sidebar-sticky.js` module calculates the optimal sticky `top` value based on sidebar height vs viewport. When sidebar fits in viewport, sticks below header. When taller, uses negative top so sidebar scrolls until its bottom edge is visible, then sticks. Scrolling back up reverses naturally via `position: sticky`. Only applies at md+ breakpoint. Recalculates on resize.
+  - Files affected: `assets/css/_partials/_header.scss`, `assets/css/_partials/_variables.scss`, `assets/js/modules/sticky-header.js` (new), `assets/js/modules/sidebar-sticky.js` (new), `assets/js/main.js`
+
 ### 2026-02-25
+
+- **[Docs]** Defer 030 Visible Breadcrumbs — site hierarchy is flat (Home → Post); visible breadcrumbs add no navigational value. BreadcrumbList schema from 008 still serves SEO. Reconsider if site structure deepens.
+  - Files affected: `specs/roadmap.md`
 
 - **[Tweak]** Remove compact social-share links from post-cards
   - Commented out (not deleted) for easy re-enabling later

@@ -15,6 +15,8 @@ import { initToc } from './modules/toc.js';
 import { initBackToTop } from './modules/back-to-top.js';
 import { initScrollProgress } from './modules/scroll-progress.js';
 import { initComments } from './modules/comments.js';
+import { initStickyHeader } from './modules/sticky-header.js';
+import { initSidebarSticky } from './modules/sidebar-sticky.js';
 
 initNavKeyboard();
 initCodeCopy();
@@ -25,3 +27,5 @@ initToc();
 initBackToTop();
 initScrollProgress();
 initComments();
+initStickyHeader();
+initSidebarSticky();
